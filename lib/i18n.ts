@@ -1,6 +1,8 @@
-export type Locale = "fr" | "en";
+export type Locale = "fr" | "en" | "wo";
 
 export const LOCALE_COOKIE = "wolingo-locale";
+/** For Wolof speakers: which language they chose to learn ("fr" | "en"). */
+export const TARGET_COOKIE = "wolingo-target";
 
 const fr = {
     // Marketing
@@ -68,12 +70,54 @@ export const DICT: Record<Locale, Dict> = {
     retry: "Retry",
     continue: "Continue",
   },
+  // Wolof interface strings (standard everyday Wolof; native review welcome).
+  wo: {
+    heroTitle: "Jàngal farañse ak angale ci wolof, ak WolofLingo.",
+    heroSubtitle: "Ci sa lakk, ci sa waxtu. Amul fey, am na bànneex !",
+    getStarted: "Tàmbali",
+    haveAccount: "Am naa kont ba noppi",
+    continueLearning: "Wéyal jàng bi",
+    login: "Dugg",
+    obQuestion: "Ban làkk nga dégg ?",
+    obSubtitle: "Sa interface ak say leson dinañu nekk ci làkk boobu.",
+    obFrench: "Français",
+    obEnglish: "English",
+    obLearnHint: "Dégg naa wolof, bëgg naa jàng",
+    obReady: "Jërëjëf ! Ñu dem 🎉",
+    obReadySub: "Ndank-ndank mooy japp golo ci ñaay !",
+    navLearn: "Jàng",
+    navDictionary: "Baatukaay",
+    navLeaderboard: "Klasman",
+    navLeagues: "Lig yi",
+    navQuests: "Yëngu yi",
+    navShop: "Bitik",
+    navCourses: "Cours yi",
+    navAdmin: "Admin",
+    coursesTitle: "Cours yi",
+    check: "Seet",
+    next: "Ci kanam",
+    retry: "Jéemaat",
+    continue: "Wéyal",
+  },
 };
 
-export const isLocale = (v: unknown): v is Locale => v === "fr" || v === "en";
+export const isLocale = (v: unknown): v is Locale =>
+  v === "fr" || v === "en" || v === "wo";
 
-/** Which seeded course matches a UI locale (matched against course titles). */
-export const courseMatchesLocale = (courseTitle: string, locale: Locale) =>
-  locale === "fr"
-    ? courseTitle.toLowerCase().includes("français")
-    : courseTitle.toLowerCase().includes("english");
+/**
+ * Which seeded course matches a UI locale (matched against course titles).
+ * Wolof speakers also pick a target language (fr/en) during onboarding.
+ */
+export const courseMatchesLocale = (
+  courseTitle: string,
+  locale: Locale,
+  target?: "fr" | "en" | null
+) => {
+  const title = courseTitle.toLowerCase();
+  if (locale === "wo")
+    return target === "en"
+      ? title.startsWith("english (ci wolof")
+      : title.startsWith("français (ci wolof");
+  if (locale === "fr") return title.includes("depuis le français");
+  return title.includes("from english");
+};

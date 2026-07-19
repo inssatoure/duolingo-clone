@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { upsertUserProgress } from "@/actions/user-progress";
 import { courses, userProgress } from "@/db/schema";
 import { courseMatchesLocale } from "@/lib/i18n";
-import { readLocaleCookie } from "@/lib/use-locale";
+import { readLocaleCookie, readTargetCookie } from "@/lib/use-locale";
 
 import { Card } from "./card";
 
@@ -28,7 +28,9 @@ export const List = ({ courses, activeCourseId }: ListProps) => {
     if (activeCourseId || autoEnrolled.current) return;
     const locale = readLocaleCookie();
     if (!locale) return;
-    const match = courses.find((c) => courseMatchesLocale(c.title, locale));
+    const match = courses.find((c) =>
+      courseMatchesLocale(c.title, locale, readTargetCookie())
+    );
     if (!match) return;
     autoEnrolled.current = true;
     startTransition(() => {

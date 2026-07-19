@@ -71,9 +71,11 @@ export const DictionaryList = ({ entries, locale }: DictionaryListProps) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder={
-          locale === "fr"
-            ? "Chercher un mot (wolof, français, anglais)…"
-            : "Search a word (Wolof, French, English)…"
+          locale === "wo"
+            ? "Seet ab baat (wolof, farañse, angale)…"
+            : locale === "fr"
+              ? "Chercher un mot (wolof, français, anglais)…"
+              : "Search a word (Wolof, French, English)…"
         }
         className="w-full rounded-2xl border-2 border-slate-200 bg-white px-4 py-3 text-base outline-none focus:border-sky-300"
       />
@@ -101,7 +103,7 @@ export const DictionaryList = ({ entries, locale }: DictionaryListProps) => {
                   : "border-slate-200 bg-white text-neutral-600 hover:bg-slate-50"
               }`}
             >
-              {meta ? `${meta.emoji} ${meta[locale]}` : c}
+              {meta ? `${meta.emoji} ${meta[locale === "en" ? "en" : "fr"]}` : c}
             </button>
           );
         })}
@@ -131,7 +133,11 @@ export const DictionaryList = ({ entries, locale }: DictionaryListProps) => {
                 {e.wolof}
               </p>
               <p className="truncate text-sm text-muted-foreground">
-                {locale === "fr" ? e.fr : e.en}
+                {locale === "wo"
+                  ? `${e.fr} · ${e.en}`
+                  : locale === "fr"
+                    ? e.fr
+                    : e.en}
               </p>
             </div>
             {e.audioSrc && (

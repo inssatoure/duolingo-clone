@@ -2,7 +2,14 @@
 
 import { useSyncExternalStore } from "react";
 
-import { DICT, LOCALE_COOKIE, isLocale, type Dict, type Locale } from "@/lib/i18n";
+import {
+  DICT,
+  LOCALE_COOKIE,
+  TARGET_COOKIE,
+  isLocale,
+  type Dict,
+  type Locale,
+} from "@/lib/i18n";
 
 export const readLocaleCookie = (): Locale | null => {
   if (typeof document === "undefined") return null;
@@ -11,6 +18,19 @@ export const readLocaleCookie = (): Locale | null => {
     .find((c) => c.startsWith(`${LOCALE_COOKIE}=`));
   const value = match?.split("=")[1];
   return isLocale(value) ? value : null;
+};
+
+export const readTargetCookie = (): "fr" | "en" | null => {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie
+    .split("; ")
+    .find((c) => c.startsWith(`${TARGET_COOKIE}=`));
+  const value = match?.split("=")[1];
+  return value === "fr" || value === "en" ? value : null;
+};
+
+export const writeTargetCookie = (target: "fr" | "en") => {
+  document.cookie = `${TARGET_COOKIE}=${target}; path=/; max-age=31536000; samesite=lax`;
 };
 
 const listeners = new Set<() => void>();

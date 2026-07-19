@@ -15,12 +15,18 @@ const DictionaryPage = async () => {
   return (
     <div className="mx-auto h-full max-w-[912px] px-3 pb-10">
       <h1 className="text-2xl font-bold text-sahel">
-        {locale === "fr" ? "Dictionnaire wolof" : "Wolof dictionary"}
+        {locale === "wo"
+          ? "Baatukaay"
+          : locale === "fr"
+            ? "Dictionnaire wolof"
+            : "Wolof dictionary"}
       </h1>
       <p className="mt-1 text-muted-foreground">
-        {locale === "fr"
-          ? `${dictionaryData.length} mots et expressions du parcours`
-          : `${dictionaryData.length} words and phrases from the course`}
+        {locale === "wo"
+          ? `${dictionaryData.length} baat ak waxin ci cours bi`
+          : locale === "fr"
+            ? `${dictionaryData.length} mots et expressions du parcours`
+            : `${dictionaryData.length} words and phrases from the course`}
       </p>
 
       <DictionaryList

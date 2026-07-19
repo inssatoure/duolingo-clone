@@ -24,7 +24,8 @@ export const Header = () => {
   const { locale, t } = useLocale();
 
   const toggleLocale = () => {
-    writeLocaleCookie(locale === "fr" ? "en" : "fr");
+    const next = locale === "fr" ? "en" : locale === "en" ? "wo" : "fr";
+    writeLocaleCookie(next);
     router.refresh();
   };
 
@@ -48,9 +49,9 @@ export const Header = () => {
             <button
               onClick={toggleLocale}
               className="rounded-xl border-2 border-b-4 border-slate-200 bg-white px-3 py-1.5 text-sm font-bold text-neutral-600 transition hover:bg-slate-50 active:border-b-2"
-              title={locale === "fr" ? "Switch to English" : "Passer en français"}
+              title="FR / EN / WO"
             >
-              {locale === "fr" ? "🇫🇷 FR" : "🇬🇧 EN"}
+              {locale === "fr" ? "🇫🇷 FR" : locale === "en" ? "🇬🇧 EN" : "🇸🇳 WO"}
             </button>
 
             <ClerkLoading>

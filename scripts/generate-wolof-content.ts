@@ -449,6 +449,28 @@ function audioFor(wolof: string): string | null {
   return null;
 }
 
+// Wolof unit titles/descriptions for the Wolof-source courses ("Français ci
+// wolof" / "English ci wolof"). Standard everyday Wolof; flagged for native
+// review together with the rest of the content.
+const CATEGORY_WO: Record<Category, { titleWo: string; descWo: string }> = {
+  greetings: { titleWo: "Nuyoo yi", descWo: "Jàng naka lañuy nuyoo" },
+  family: { titleWo: "Njaboot gi", descWo: "Baati njaboot gi" },
+  numbers: { titleWo: "Lim yi", descWo: "Jàng lim yi" },
+  food: { titleWo: "Lekk ak naan", descWo: "Baati lekk ak naan yi" },
+  colors: { titleWo: "Melo yi", descWo: "Jàng melo yi" },
+  objects: { titleWo: "Jumtukaay yi", descWo: "Jumtukaayu kër gi" },
+  verbs: { titleWo: "Jëf yi", descWo: "Jëf yi ñuy faral di jëfandikoo" },
+  days: { titleWo: "Bés yi ak waxtu", descWo: "Bési ayubés bi ak waxtu" },
+  body: { titleWo: "Yaram wi", descWo: "Cér yi ci yaram wi" },
+  animals: { titleWo: "Mala yi", descWo: "Mala yu kër ak yu àll" },
+  places: { titleWo: "Bérab yi", descWo: "Bérab yi ci dëkk bi" },
+  weather: { titleWo: "Taw ak jant", descWo: "Klimaa bi ak àll bi" },
+  clothing: { titleWo: "Yére yi", descWo: "Baati yére yi" },
+  pronouns: { titleWo: "Wuutal ak laaj", descWo: "Wuutal yi ak baati laaj yi" },
+  adjectives: { titleWo: "Melokaan yi", descWo: "Wax naka la dara mel" },
+  phrases: { titleWo: "Waxi bés bu nekk", descWo: "Waxtaan yu am solo" },
+};
+
 const CATEGORY_META: Record<
   Category,
   { titleFr: string; titleEn: string; descFr: string; descEn: string; order: number }
@@ -637,15 +659,62 @@ function pickDistractors(
   return out;
 }
 
+/**
+ * mode "toWolof": learner speaks `lang`, learns Wolof (questions in `lang`).
+ * mode "fromWolof": learner speaks Wolof, learns `lang` (questions in Wolof).
+ */
+type Mode = "toWolof" | "fromWolof";
+
 function buildChallengesForItem(
   item: VocabItem,
   categoryPool: VocabItem[],
   lang: Lang,
-  startOrder: number
+  startOrder: number,
+  mode: Mode = "toWolof"
 ): Challenge[] {
   const translation = item[lang];
   const challenges: Challenge[] = [];
   let order = startOrder;
+
+  if (mode === "fromWolof") {
+    const targetName = lang === "fr" ? "farañse" : "angale";
+
+    // SELECT: Wolof prompt -> pick the word in the target language.
+    const distractorsTarget = pickDistractors(categoryPool, item, 3, lang);
+    challenges.push({
+      type: "SELECT",
+      question: `Naka lañuy wax «${item.wolof}» ci ${targetName} ?`,
+      order: order++,
+      options: shuffle([
+        { text: translation, correct: true, imageSrc: null, audioSrc: null },
+        ...distractorsTarget.map((t) => ({
+          text: t,
+          correct: false,
+          imageSrc: null,
+          audioSrc: null,
+        })),
+      ]),
+    });
+
+    // ASSIST: target-language word shown -> pick the Wolof meaning.
+    const distractorsWolof = pickDistractors(categoryPool, item, 3, "wolof");
+    challenges.push({
+      type: "ASSIST",
+      question: translation,
+      order: order++,
+      options: shuffle([
+        { text: item.wolof, correct: true, imageSrc: null, audioSrc: audioFor(item.wolof) },
+        ...distractorsWolof.map((t) => ({
+          text: t,
+          correct: false,
+          imageSrc: null,
+          audioSrc: audioFor(t),
+        })),
+      ]),
+    });
+
+    return challenges;
+  }
 
   // SELECT: "How do you say X in Wolof?" -> pick the wolof word.
   // Every wolof-side option carries its illustration (Duolingo-style image
@@ -696,8 +765,26 @@ function chunk<T>(arr: T[], size: number): T[][] {
   return out;
 }
 
-function buildUnits(lang: Lang): UnitOut[] {
+function buildUnits(lang: Lang, mode: Mode = "toWolof"): UnitOut[] {
   const categories = Object.keys(CATEGORY_META) as Category[];
+
+  const unitTitle = (meta: (typeof CATEGORY_META)[Category], category: Category) =>
+    mode === "fromWolof"
+      ? `Xaaj ${meta.order} : ${CATEGORY_WO[category].titleWo}`
+      : lang === "fr"
+        ? `Unité ${meta.order} : ${meta.titleFr}`
+        : `Unit ${meta.order}: ${meta.titleEn}`;
+
+  const lessonTitle = (
+    meta: (typeof CATEGORY_META)[Category],
+    category: Category,
+    idx: number
+  ) =>
+    mode === "fromWolof"
+      ? `${CATEGORY_WO[category].titleWo} ${idx + 1}`
+      : lang === "fr"
+        ? `${meta.titleFr} ${idx + 1}`
+        : `${meta.titleEn} ${idx + 1}`;
 
   return categories
     .map((category) => {
@@ -709,14 +796,13 @@ function buildUnits(lang: Lang): UnitOut[] {
         let order = 1;
         const challenges: Challenge[] = [];
         for (const item of group) {
-          challenges.push(...buildChallengesForItem(item, items, lang, order));
+          challenges.push(
+            ...buildChallengesForItem(item, items, lang, order, mode)
+          );
           order += 2;
         }
         return {
-          title:
-            lang === "fr"
-              ? `${meta.titleFr} ${idx + 1}`
-              : `${meta.titleEn} ${idx + 1}`,
+          title: lessonTitle(meta, category, idx),
           order: idx + 1,
           challenges,
         };
@@ -728,23 +814,29 @@ function buildUnits(lang: Lang): UnitOut[] {
       const reviewChallenges: Challenge[] = [];
       for (const item of reviewItems) {
         reviewChallenges.push(
-          ...buildChallengesForItem(item, items, lang, reviewOrder)
+          ...buildChallengesForItem(item, items, lang, reviewOrder, mode)
         );
         reviewOrder += 2;
       }
       lessons.push({
         title:
-          lang === "fr" ? `Révision : ${meta.titleFr}` : `Review: ${meta.titleEn}`,
+          mode === "fromWolof"
+            ? `Seetaat : ${CATEGORY_WO[category].titleWo}`
+            : lang === "fr"
+              ? `Révision : ${meta.titleFr}`
+              : `Review: ${meta.titleEn}`,
         order: lessons.length + 1,
         challenges: reviewChallenges,
       });
 
       return {
-        title:
-          lang === "fr"
-            ? `Unité ${meta.order} : ${meta.titleFr}`
-            : `Unit ${meta.order}: ${meta.titleEn}`,
-        description: lang === "fr" ? meta.descFr : meta.descEn,
+        title: unitTitle(meta, category),
+        description:
+          mode === "fromWolof"
+            ? CATEGORY_WO[category].descWo
+            : lang === "fr"
+              ? meta.descFr
+              : meta.descEn,
         order: meta.order,
         lessons,
       };
@@ -828,8 +920,12 @@ writeFileSync(
 
 const frUnits = buildUnits("fr");
 const enUnits = buildUnits("en");
+const woFrUnits = buildUnits("fr", "fromWolof");
+const woEnUnits = buildUnits("en", "fromWolof");
 validate(frUnits);
 validate(enUnits);
+validate(woFrUnits);
+validate(woEnUnits);
 
 const output = {
   meta: {
@@ -858,6 +954,16 @@ const output = {
       course: { title: "Wolof (from English)", imageSrc: "/sn.svg" },
       units: enUnits,
       stats: countStats(enUnits),
+    },
+    {
+      course: { title: "Français (ci wolof)", imageSrc: "/fr.svg" },
+      units: woFrUnits,
+      stats: countStats(woFrUnits),
+    },
+    {
+      course: { title: "English (ci wolof)", imageSrc: "/gb.svg" },
+      units: woEnUnits,
+      stats: countStats(woEnUnits),
     },
   ],
 };
