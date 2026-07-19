@@ -1,0 +1,1787 @@
+[
+  {
+    "wolof": "Salaamaalekum",
+    "fr": "Bonjour (paix sur toi)",
+    "en": "Hello (peace be upon you)",
+    "expectedFile": "public/audio/wolof/salaamaalekum.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Maalekum salaam",
+    "fr": "Réponse à bonjour",
+    "en": "Reply to hello",
+    "expectedFile": "public/audio/wolof/maalekum-salaam.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Na nga def?",
+    "fr": "Comment vas-tu ?",
+    "en": "How are you?",
+    "expectedFile": "public/audio/wolof/na-nga-def.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Maa ngi fi rekk",
+    "fr": "Je vais bien (je suis là seulement)",
+    "en": "I'm fine (I'm just here)",
+    "expectedFile": "public/audio/wolof/maa-ngi-fi-rekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jàmm rekk",
+    "fr": "La paix seulement (ça va)",
+    "en": "Peace only (all is well)",
+    "expectedFile": "public/audio/wolof/jamm-rekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jërëjëf",
+    "fr": "Merci",
+    "en": "Thank you",
+    "expectedFile": "public/audio/wolof/jerejef.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñoo ko bokk",
+    "fr": "De rien (on le partage)",
+    "en": "You're welcome (we share it)",
+    "expectedFile": "public/audio/wolof/noo-ko-bokk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Baal ma",
+    "fr": "Excuse-moi / pardon",
+    "en": "Excuse me / sorry",
+    "expectedFile": "public/audio/wolof/baal-ma.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Waaw",
+    "fr": "Oui",
+    "en": "Yes",
+    "expectedFile": "public/audio/wolof/waaw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Déedéet",
+    "fr": "Non",
+    "en": "No",
+    "expectedFile": "public/audio/wolof/deedeet.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ba beneen yoon",
+    "fr": "À la prochaine",
+    "en": "See you next time",
+    "expectedFile": "public/audio/wolof/ba-beneen-yoon.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ba suba",
+    "fr": "À demain",
+    "en": "See you tomorrow",
+    "expectedFile": "public/audio/wolof/ba-suba.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Naka nga tudd?",
+    "fr": "Comment tu t'appelles ?",
+    "en": "What's your name?",
+    "expectedFile": "public/audio/wolof/naka-nga-tudd.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Maa ngi tudd...",
+    "fr": "Je m'appelle...",
+    "en": "My name is...",
+    "expectedFile": "public/audio/wolof/maa-ngi-tudd.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fan nga dëkk?",
+    "fr": "Où habites-tu ?",
+    "en": "Where do you live?",
+    "expectedFile": "public/audio/wolof/fan-nga-dekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ana waa kër gi?",
+    "fr": "Comment va la famille ?",
+    "en": "How is the family?",
+    "expectedFile": "public/audio/wolof/ana-waa-ker-gi.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñu ngi fi",
+    "fr": "Ils vont bien (ils sont là)",
+    "en": "They are fine (they are here)",
+    "expectedFile": "public/audio/wolof/nu-ngi-fi.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mangi dem",
+    "fr": "J'y vais / au revoir",
+    "en": "I'm going / goodbye",
+    "expectedFile": "public/audio/wolof/mangi-dem.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yaay",
+    "fr": "Maman / mère",
+    "en": "Mom / mother",
+    "expectedFile": "public/audio/wolof/yaay.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Baay",
+    "fr": "Papa / père",
+    "en": "Dad / father",
+    "expectedFile": "public/audio/wolof/baay.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndey",
+    "fr": "Mère",
+    "en": "Mother",
+    "expectedFile": "public/audio/wolof/ndey.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Rakk",
+    "fr": "Petit frère / petite sœur",
+    "en": "Younger sibling",
+    "expectedFile": "public/audio/wolof/rakk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mag",
+    "fr": "Grand frère / grande sœur",
+    "en": "Older sibling",
+    "expectedFile": "public/audio/wolof/mag.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jigéen",
+    "fr": "Femme / fille",
+    "en": "Woman / girl",
+    "expectedFile": "public/audio/wolof/jigeen.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Góor",
+    "fr": "Homme / garçon",
+    "en": "Man / boy",
+    "expectedFile": "public/audio/wolof/goor.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Doom",
+    "fr": "Enfant (fils/fille de)",
+    "en": "Child (son/daughter)",
+    "expectedFile": "public/audio/wolof/doom.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xale",
+    "fr": "Enfant",
+    "en": "Child / kid",
+    "expectedFile": "public/audio/wolof/xale.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Maam",
+    "fr": "Grand-parent",
+    "en": "Grandparent",
+    "expectedFile": "public/audio/wolof/maam.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sët",
+    "fr": "Petit-enfant",
+    "en": "Grandchild",
+    "expectedFile": "public/audio/wolof/set.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Nijaay",
+    "fr": "Oncle maternel",
+    "en": "Maternal uncle",
+    "expectedFile": "public/audio/wolof/nijaay.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bàjjan",
+    "fr": "Tante paternelle",
+    "en": "Paternal aunt",
+    "expectedFile": "public/audio/wolof/bajjan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jëkkër",
+    "fr": "Mari",
+    "en": "Husband",
+    "expectedFile": "public/audio/wolof/jekker.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jabar",
+    "fr": "Épouse",
+    "en": "Wife",
+    "expectedFile": "public/audio/wolof/jabar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Kër",
+    "fr": "Maison / foyer",
+    "en": "Home / household",
+    "expectedFile": "public/audio/wolof/ker.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xarit",
+    "fr": "Ami(e)",
+    "en": "Friend",
+    "expectedFile": "public/audio/wolof/xarit.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Njaboot",
+    "fr": "Famille",
+    "en": "Family",
+    "expectedFile": "public/audio/wolof/njaboot.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Benn",
+    "fr": "Un",
+    "en": "One",
+    "expectedFile": "public/audio/wolof/benn.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñaar",
+    "fr": "Deux",
+    "en": "Two",
+    "expectedFile": "public/audio/wolof/naar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñett",
+    "fr": "Trois",
+    "en": "Three",
+    "expectedFile": "public/audio/wolof/nett.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñeent",
+    "fr": "Quatre",
+    "en": "Four",
+    "expectedFile": "public/audio/wolof/neent.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Juróom",
+    "fr": "Cinq",
+    "en": "Five",
+    "expectedFile": "public/audio/wolof/juroom.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Juróom-benn",
+    "fr": "Six",
+    "en": "Six",
+    "expectedFile": "public/audio/wolof/juroom-benn.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Juróom-ñaar",
+    "fr": "Sept",
+    "en": "Seven",
+    "expectedFile": "public/audio/wolof/juroom-naar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Juróom-ñett",
+    "fr": "Huit",
+    "en": "Eight",
+    "expectedFile": "public/audio/wolof/juroom-nett.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Juróom-ñeent",
+    "fr": "Neuf",
+    "en": "Nine",
+    "expectedFile": "public/audio/wolof/juroom-neent.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fukk",
+    "fr": "Dix",
+    "en": "Ten",
+    "expectedFile": "public/audio/wolof/fukk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fukk ak benn",
+    "fr": "Onze",
+    "en": "Eleven",
+    "expectedFile": "public/audio/wolof/fukk-ak-benn.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fukk ak ñaar",
+    "fr": "Douze",
+    "en": "Twelve",
+    "expectedFile": "public/audio/wolof/fukk-ak-naar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fukk ak juróom",
+    "fr": "Quinze",
+    "en": "Fifteen",
+    "expectedFile": "public/audio/wolof/fukk-ak-juroom.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñaar-fukk",
+    "fr": "Vingt",
+    "en": "Twenty",
+    "expectedFile": "public/audio/wolof/naar-fukk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fanweer",
+    "fr": "Trente",
+    "en": "Thirty",
+    "expectedFile": "public/audio/wolof/fanweer.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñeent-fukk",
+    "fr": "Quarante",
+    "en": "Forty",
+    "expectedFile": "public/audio/wolof/neent-fukk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Juróom-fukk",
+    "fr": "Cinquante",
+    "en": "Fifty",
+    "expectedFile": "public/audio/wolof/juroom-fukk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Téeméer",
+    "fr": "Cent",
+    "en": "One hundred",
+    "expectedFile": "public/audio/wolof/teemeer.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Junni",
+    "fr": "Mille",
+    "en": "One thousand",
+    "expectedFile": "public/audio/wolof/junni.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñaata la?",
+    "fr": "Combien ça coûte ?",
+    "en": "How much is it?",
+    "expectedFile": "public/audio/wolof/naata-la.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ceeb",
+    "fr": "Riz",
+    "en": "Rice",
+    "expectedFile": "public/audio/wolof/ceeb.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jën",
+    "fr": "Poisson",
+    "en": "Fish",
+    "expectedFile": "public/audio/wolof/jen.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yàpp",
+    "fr": "Viande",
+    "en": "Meat",
+    "expectedFile": "public/audio/wolof/yapp.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndox",
+    "fr": "Eau",
+    "en": "Water",
+    "expectedFile": "public/audio/wolof/ndox.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Meew",
+    "fr": "Lait",
+    "en": "Milk",
+    "expectedFile": "public/audio/wolof/meew.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Soow",
+    "fr": "Lait caillé",
+    "en": "Curdled milk",
+    "expectedFile": "public/audio/wolof/soow.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Attaaya",
+    "fr": "Thé (à la menthe)",
+    "en": "(Mint) tea",
+    "expectedFile": "public/audio/wolof/attaaya.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Kafe",
+    "fr": "Café",
+    "en": "Coffee",
+    "expectedFile": "public/audio/wolof/kafe.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mburu",
+    "fr": "Pain",
+    "en": "Bread",
+    "expectedFile": "public/audio/wolof/mburu.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Nen",
+    "fr": "Œuf",
+    "en": "Egg",
+    "expectedFile": "public/audio/wolof/nen.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ganaar",
+    "fr": "Poulet",
+    "en": "Chicken",
+    "expectedFile": "public/audio/wolof/ganaar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xorom",
+    "fr": "Sel",
+    "en": "Salt",
+    "expectedFile": "public/audio/wolof/xorom.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Suukar",
+    "fr": "Sucre",
+    "en": "Sugar",
+    "expectedFile": "public/audio/wolof/suukar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Diwtiir",
+    "fr": "Huile",
+    "en": "Oil",
+    "expectedFile": "public/audio/wolof/diwtiir.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñebbe",
+    "fr": "Haricots",
+    "en": "Beans",
+    "expectedFile": "public/audio/wolof/nebbe.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Màngo",
+    "fr": "Mangue",
+    "en": "Mango",
+    "expectedFile": "public/audio/wolof/mango.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Banaana",
+    "fr": "Banane",
+    "en": "Banana",
+    "expectedFile": "public/audio/wolof/banaana.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ceebu jën",
+    "fr": "Riz au poisson (plat national)",
+    "en": "Rice with fish (national dish)",
+    "expectedFile": "public/audio/wolof/ceebu-jen.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yassa",
+    "fr": "Yassa (plat à la sauce oignon-citron)",
+    "en": "Yassa (onion-lemon sauce dish)",
+    "expectedFile": "public/audio/wolof/yassa.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndékki",
+    "fr": "Petit-déjeuner",
+    "en": "Breakfast",
+    "expectedFile": "public/audio/wolof/ndekki.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Añ",
+    "fr": "Déjeuner",
+    "en": "Lunch",
+    "expectedFile": "public/audio/wolof/an.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Reer",
+    "fr": "Dîner",
+    "en": "Dinner",
+    "expectedFile": "public/audio/wolof/reer.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xiif naa",
+    "fr": "J'ai faim",
+    "en": "I'm hungry",
+    "expectedFile": "public/audio/wolof/xiif-naa.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mar naa",
+    "fr": "J'ai soif",
+    "en": "I'm thirsty",
+    "expectedFile": "public/audio/wolof/mar-naa.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Neex na",
+    "fr": "C'est délicieux",
+    "en": "It's delicious",
+    "expectedFile": "public/audio/wolof/neex-na.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Weex",
+    "fr": "Blanc",
+    "en": "White",
+    "expectedFile": "public/audio/wolof/weex.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñuul",
+    "fr": "Noir",
+    "en": "Black",
+    "expectedFile": "public/audio/wolof/nuul.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xonq",
+    "fr": "Rouge",
+    "en": "Red",
+    "expectedFile": "public/audio/wolof/xonq.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Wert",
+    "fr": "Vert",
+    "en": "Green",
+    "expectedFile": "public/audio/wolof/wert.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bulo",
+    "fr": "Bleu",
+    "en": "Blue",
+    "expectedFile": "public/audio/wolof/bulo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mboq",
+    "fr": "Jaune",
+    "en": "Yellow",
+    "expectedFile": "public/audio/wolof/mboq.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Melo",
+    "fr": "Couleur",
+    "en": "Color",
+    "expectedFile": "public/audio/wolof/melo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Téere",
+    "fr": "Livre",
+    "en": "Book",
+    "expectedFile": "public/audio/wolof/teere.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bind",
+    "fr": "Stylo (bic)",
+    "en": "Pen",
+    "expectedFile": "public/audio/wolof/bind.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Oto",
+    "fr": "Voiture",
+    "en": "Car",
+    "expectedFile": "public/audio/wolof/oto.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bunt",
+    "fr": "Porte",
+    "en": "Door",
+    "expectedFile": "public/audio/wolof/bunt.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Palanteer",
+    "fr": "Fenêtre",
+    "en": "Window",
+    "expectedFile": "public/audio/wolof/palanteer.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Siis",
+    "fr": "Chaise",
+    "en": "Chair",
+    "expectedFile": "public/audio/wolof/siis.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Taabal",
+    "fr": "Table",
+    "en": "Table",
+    "expectedFile": "public/audio/wolof/taabal.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Lal",
+    "fr": "Lit",
+    "en": "Bed",
+    "expectedFile": "public/audio/wolof/lal.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xaalis",
+    "fr": "Argent",
+    "en": "Money",
+    "expectedFile": "public/audio/wolof/xaalis.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Telefon",
+    "fr": "Téléphone",
+    "en": "Phone",
+    "expectedFile": "public/audio/wolof/telefon.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Paaka",
+    "fr": "Couteau",
+    "en": "Knife",
+    "expectedFile": "public/audio/wolof/paaka.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndab",
+    "fr": "Récipient / bol",
+    "en": "Container / bowl",
+    "expectedFile": "public/audio/wolof/ndab.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sabu",
+    "fr": "Savon",
+    "en": "Soap",
+    "expectedFile": "public/audio/wolof/sabu.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dëkk",
+    "fr": "Ville / village",
+    "en": "Town / village",
+    "expectedFile": "public/audio/wolof/dekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dem",
+    "fr": "Aller",
+    "en": "To go",
+    "expectedFile": "public/audio/wolof/dem.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñëw",
+    "fr": "Venir",
+    "en": "To come",
+    "expectedFile": "public/audio/wolof/new.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Lekk",
+    "fr": "Manger",
+    "en": "To eat",
+    "expectedFile": "public/audio/wolof/lekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Naan",
+    "fr": "Boire",
+    "en": "To drink",
+    "expectedFile": "public/audio/wolof/naan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Gis",
+    "fr": "Voir",
+    "en": "To see",
+    "expectedFile": "public/audio/wolof/gis.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dégg",
+    "fr": "Entendre / comprendre",
+    "en": "To hear / understand",
+    "expectedFile": "public/audio/wolof/degg.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Wax",
+    "fr": "Parler / dire",
+    "en": "To speak / say",
+    "expectedFile": "public/audio/wolof/wax.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bind",
+    "fr": "Écrire",
+    "en": "To write",
+    "expectedFile": "public/audio/wolof/bind.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jàng",
+    "fr": "Étudier / lire / apprendre",
+    "en": "To study / read / learn",
+    "expectedFile": "public/audio/wolof/jang.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jàngale",
+    "fr": "Enseigner",
+    "en": "To teach",
+    "expectedFile": "public/audio/wolof/jangale.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Liggéey",
+    "fr": "Travailler",
+    "en": "To work",
+    "expectedFile": "public/audio/wolof/liggeey.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Nelaw",
+    "fr": "Dormir",
+    "en": "To sleep",
+    "expectedFile": "public/audio/wolof/nelaw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Def",
+    "fr": "Faire",
+    "en": "To do",
+    "expectedFile": "public/audio/wolof/def.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bëgg",
+    "fr": "Vouloir / aimer",
+    "en": "To want / love",
+    "expectedFile": "public/audio/wolof/begg.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Am",
+    "fr": "Avoir",
+    "en": "To have",
+    "expectedFile": "public/audio/wolof/am.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jënd",
+    "fr": "Acheter",
+    "en": "To buy",
+    "expectedFile": "public/audio/wolof/jend.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jaay",
+    "fr": "Vendre",
+    "en": "To sell",
+    "expectedFile": "public/audio/wolof/jaay.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Toog",
+    "fr": "S'asseoir / rester",
+    "en": "To sit / stay",
+    "expectedFile": "public/audio/wolof/toog.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Taxaw",
+    "fr": "Se lever / être debout",
+    "en": "To stand up",
+    "expectedFile": "public/audio/wolof/taxaw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Daw",
+    "fr": "Courir",
+    "en": "To run",
+    "expectedFile": "public/audio/wolof/daw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dox",
+    "fr": "Marcher",
+    "en": "To walk",
+    "expectedFile": "public/audio/wolof/dox.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ree",
+    "fr": "Rire",
+    "en": "To laugh",
+    "expectedFile": "public/audio/wolof/ree.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jooy",
+    "fr": "Pleurer",
+    "en": "To cry",
+    "expectedFile": "public/audio/wolof/jooy.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sangu",
+    "fr": "Se laver / se doucher",
+    "en": "To wash / shower",
+    "expectedFile": "public/audio/wolof/sangu.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Togg",
+    "fr": "Cuisiner",
+    "en": "To cook",
+    "expectedFile": "public/audio/wolof/togg.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fo",
+    "fr": "Jouer",
+    "en": "To play",
+    "expectedFile": "public/audio/wolof/fo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Woo",
+    "fr": "Appeler",
+    "en": "To call",
+    "expectedFile": "public/audio/wolof/woo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xam",
+    "fr": "Savoir / connaître",
+    "en": "To know",
+    "expectedFile": "public/audio/wolof/xam.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Altine",
+    "fr": "Lundi",
+    "en": "Monday",
+    "expectedFile": "public/audio/wolof/altine.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Talaata",
+    "fr": "Mardi",
+    "en": "Tuesday",
+    "expectedFile": "public/audio/wolof/talaata.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Àllarba",
+    "fr": "Mercredi",
+    "en": "Wednesday",
+    "expectedFile": "public/audio/wolof/allarba.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Alxamis",
+    "fr": "Jeudi",
+    "en": "Thursday",
+    "expectedFile": "public/audio/wolof/alxamis.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Àjjuma",
+    "fr": "Vendredi",
+    "en": "Friday",
+    "expectedFile": "public/audio/wolof/ajjuma.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Gaawu",
+    "fr": "Samedi",
+    "en": "Saturday",
+    "expectedFile": "public/audio/wolof/gaawu.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dibéer",
+    "fr": "Dimanche",
+    "en": "Sunday",
+    "expectedFile": "public/audio/wolof/dibeer.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Tey",
+    "fr": "Aujourd'hui",
+    "en": "Today",
+    "expectedFile": "public/audio/wolof/tey.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Suba",
+    "fr": "Demain / matin",
+    "en": "Tomorrow / morning",
+    "expectedFile": "public/audio/wolof/suba.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Démb",
+    "fr": "Hier",
+    "en": "Yesterday",
+    "expectedFile": "public/audio/wolof/demb.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ngoon",
+    "fr": "Après-midi / soir",
+    "en": "Afternoon / evening",
+    "expectedFile": "public/audio/wolof/ngoon.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Guddi",
+    "fr": "Nuit",
+    "en": "Night",
+    "expectedFile": "public/audio/wolof/guddi.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bés",
+    "fr": "Jour",
+    "en": "Day",
+    "expectedFile": "public/audio/wolof/bes.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ayubés",
+    "fr": "Semaine",
+    "en": "Week",
+    "expectedFile": "public/audio/wolof/ayubes.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Weer",
+    "fr": "Mois / lune",
+    "en": "Month / moon",
+    "expectedFile": "public/audio/wolof/weer.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "At",
+    "fr": "Année",
+    "en": "Year",
+    "expectedFile": "public/audio/wolof/at.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Léegi",
+    "fr": "Maintenant",
+    "en": "Now",
+    "expectedFile": "public/audio/wolof/leegi.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ban waxtu moo jot?",
+    "fr": "Quelle heure est-il ?",
+    "en": "What time is it?",
+    "expectedFile": "public/audio/wolof/ban-waxtu-moo-jot.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bopp",
+    "fr": "Tête",
+    "en": "Head",
+    "expectedFile": "public/audio/wolof/bopp.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bët",
+    "fr": "Œil",
+    "en": "Eye",
+    "expectedFile": "public/audio/wolof/bet.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Nopp",
+    "fr": "Oreille",
+    "en": "Ear",
+    "expectedFile": "public/audio/wolof/nopp.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bakkan",
+    "fr": "Nez",
+    "en": "Nose",
+    "expectedFile": "public/audio/wolof/bakkan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Gémmiñ",
+    "fr": "Bouche",
+    "en": "Mouth",
+    "expectedFile": "public/audio/wolof/gemmin.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bëñ",
+    "fr": "Dent",
+    "en": "Tooth",
+    "expectedFile": "public/audio/wolof/ben.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Loxo",
+    "fr": "Main / bras",
+    "en": "Hand / arm",
+    "expectedFile": "public/audio/wolof/loxo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Tànk",
+    "fr": "Pied / jambe",
+    "en": "Foot / leg",
+    "expectedFile": "public/audio/wolof/tank.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Biir",
+    "fr": "Ventre",
+    "en": "Belly",
+    "expectedFile": "public/audio/wolof/biir.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xol",
+    "fr": "Cœur",
+    "en": "Heart",
+    "expectedFile": "public/audio/wolof/xol.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Kawar",
+    "fr": "Cheveux",
+    "en": "Hair",
+    "expectedFile": "public/audio/wolof/kawar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Der",
+    "fr": "Peau",
+    "en": "Skin",
+    "expectedFile": "public/audio/wolof/der.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xaj",
+    "fr": "Chien",
+    "en": "Dog",
+    "expectedFile": "public/audio/wolof/xaj.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Muus",
+    "fr": "Chat",
+    "en": "Cat",
+    "expectedFile": "public/audio/wolof/muus.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fas",
+    "fr": "Cheval",
+    "en": "Horse",
+    "expectedFile": "public/audio/wolof/fas.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Nag",
+    "fr": "Vache",
+    "en": "Cow",
+    "expectedFile": "public/audio/wolof/nag.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xar",
+    "fr": "Mouton",
+    "en": "Sheep",
+    "expectedFile": "public/audio/wolof/xar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bëy",
+    "fr": "Chèvre",
+    "en": "Goat",
+    "expectedFile": "public/audio/wolof/bey.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Picc",
+    "fr": "Oiseau",
+    "en": "Bird",
+    "expectedFile": "public/audio/wolof/picc.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Gaynde",
+    "fr": "Lion",
+    "en": "Lion",
+    "expectedFile": "public/audio/wolof/gaynde.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñey",
+    "fr": "Éléphant",
+    "en": "Elephant",
+    "expectedFile": "public/audio/wolof/ney.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Golo",
+    "fr": "Singe",
+    "en": "Monkey",
+    "expectedFile": "public/audio/wolof/golo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jaan",
+    "fr": "Serpent",
+    "en": "Snake",
+    "expectedFile": "public/audio/wolof/jaan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ginaar",
+    "fr": "Poule",
+    "en": "Hen",
+    "expectedFile": "public/audio/wolof/ginaar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yëkk",
+    "fr": "Chameau",
+    "en": "Camel",
+    "expectedFile": "public/audio/wolof/yekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mala",
+    "fr": "Animal",
+    "en": "Animal",
+    "expectedFile": "public/audio/wolof/mala.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Marse",
+    "fr": "Marché",
+    "en": "Market",
+    "expectedFile": "public/audio/wolof/marse.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jumaa",
+    "fr": "Mosquée",
+    "en": "Mosque",
+    "expectedFile": "public/audio/wolof/jumaa.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jàngu",
+    "fr": "Église",
+    "en": "Church",
+    "expectedFile": "public/audio/wolof/jangu.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Lekool",
+    "fr": "École",
+    "en": "School",
+    "expectedFile": "public/audio/wolof/lekool.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Loppitaan",
+    "fr": "Hôpital",
+    "en": "Hospital",
+    "expectedFile": "public/audio/wolof/loppitaan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mbedd",
+    "fr": "Rue",
+    "en": "Street",
+    "expectedFile": "public/audio/wolof/mbedd.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yoon",
+    "fr": "Chemin / route",
+    "en": "Path / road",
+    "expectedFile": "public/audio/wolof/yoon.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Géej",
+    "fr": "Mer",
+    "en": "Sea",
+    "expectedFile": "public/audio/wolof/geej.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Tefes",
+    "fr": "Plage",
+    "en": "Beach",
+    "expectedFile": "public/audio/wolof/tefes.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Àll",
+    "fr": "Brousse / campagne",
+    "en": "Bush / countryside",
+    "expectedFile": "public/audio/wolof/all.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Butik",
+    "fr": "Boutique",
+    "en": "Shop",
+    "expectedFile": "public/audio/wolof/butik.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndakaaru",
+    "fr": "Dakar",
+    "en": "Dakar",
+    "expectedFile": "public/audio/wolof/ndakaaru.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Senegaal",
+    "fr": "Sénégal",
+    "en": "Senegal",
+    "expectedFile": "public/audio/wolof/senegaal.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fan la ... nekk?",
+    "fr": "Où se trouve ... ?",
+    "en": "Where is ... ?",
+    "expectedFile": "public/audio/wolof/fan-la-nekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jant",
+    "fr": "Soleil",
+    "en": "Sun",
+    "expectedFile": "public/audio/wolof/jant.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Taw",
+    "fr": "Pluie",
+    "en": "Rain",
+    "expectedFile": "public/audio/wolof/taw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ngelaw",
+    "fr": "Vent",
+    "en": "Wind",
+    "expectedFile": "public/audio/wolof/ngelaw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Asamaan",
+    "fr": "Ciel",
+    "en": "Sky",
+    "expectedFile": "public/audio/wolof/asamaan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Niir",
+    "fr": "Nuage",
+    "en": "Cloud",
+    "expectedFile": "public/audio/wolof/niir.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Suuf",
+    "fr": "Terre / sol",
+    "en": "Earth / ground",
+    "expectedFile": "public/audio/wolof/suuf.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Garab",
+    "fr": "Arbre / médicament",
+    "en": "Tree / medicine",
+    "expectedFile": "public/audio/wolof/garab.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Tàngaay",
+    "fr": "Chaleur",
+    "en": "Heat",
+    "expectedFile": "public/audio/wolof/tangaay.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sedd",
+    "fr": "Froid",
+    "en": "Cold",
+    "expectedFile": "public/audio/wolof/sedd.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Tàng na",
+    "fr": "Il fait chaud",
+    "en": "It's hot",
+    "expectedFile": "public/audio/wolof/tang-na.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sedd na",
+    "fr": "Il fait froid",
+    "en": "It's cold",
+    "expectedFile": "public/audio/wolof/sedd-na.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Taw bi dafay taw",
+    "fr": "Il pleut",
+    "en": "It's raining",
+    "expectedFile": "public/audio/wolof/taw-bi-dafay-taw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yére",
+    "fr": "Vêtement",
+    "en": "Clothing",
+    "expectedFile": "public/audio/wolof/yere.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Simis",
+    "fr": "Chemise",
+    "en": "Shirt",
+    "expectedFile": "public/audio/wolof/simis.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Tubéy",
+    "fr": "Pantalon",
+    "en": "Trousers / pants",
+    "expectedFile": "public/audio/wolof/tubey.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dàll",
+    "fr": "Chaussure",
+    "en": "Shoe",
+    "expectedFile": "public/audio/wolof/dall.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mbubb",
+    "fr": "Boubou (grande tunique)",
+    "en": "Boubou (large tunic)",
+    "expectedFile": "public/audio/wolof/mbubb.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sér",
+    "fr": "Pagne",
+    "en": "Wrap skirt (pagne)",
+    "expectedFile": "public/audio/wolof/ser.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mus(ó)or",
+    "fr": "Foulard de tête",
+    "en": "Headscarf",
+    "expectedFile": "public/audio/wolof/mus-o-or.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sol",
+    "fr": "Porter / mettre (vêtement)",
+    "en": "To wear / put on",
+    "expectedFile": "public/audio/wolof/sol.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Man",
+    "fr": "Moi / je",
+    "en": "Me / I",
+    "expectedFile": "public/audio/wolof/man.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yow",
+    "fr": "Toi / tu",
+    "en": "You (singular)",
+    "expectedFile": "public/audio/wolof/yow.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Moom",
+    "fr": "Lui / elle",
+    "en": "Him / her",
+    "expectedFile": "public/audio/wolof/moom.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Nun",
+    "fr": "Nous",
+    "en": "We / us",
+    "expectedFile": "public/audio/wolof/nun.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yéen",
+    "fr": "Vous",
+    "en": "You (plural)",
+    "expectedFile": "public/audio/wolof/yeen.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñoom",
+    "fr": "Eux / elles",
+    "en": "They / them",
+    "expectedFile": "public/audio/wolof/noom.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Kan?",
+    "fr": "Qui ?",
+    "en": "Who?",
+    "expectedFile": "public/audio/wolof/kan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Lan?",
+    "fr": "Quoi ?",
+    "en": "What?",
+    "expectedFile": "public/audio/wolof/lan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fan?",
+    "fr": "Où ?",
+    "en": "Where?",
+    "expectedFile": "public/audio/wolof/fan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Kañ?",
+    "fr": "Quand ?",
+    "en": "When?",
+    "expectedFile": "public/audio/wolof/kan.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Naka?",
+    "fr": "Comment ?",
+    "en": "How?",
+    "expectedFile": "public/audio/wolof/naka.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Lu tax?",
+    "fr": "Pourquoi ?",
+    "en": "Why?",
+    "expectedFile": "public/audio/wolof/lu-tax.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñaata?",
+    "fr": "Combien ?",
+    "en": "How many / how much?",
+    "expectedFile": "public/audio/wolof/naata.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Baax",
+    "fr": "Bon / gentil",
+    "en": "Good / kind",
+    "expectedFile": "public/audio/wolof/baax.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bon",
+    "fr": "Mauvais",
+    "en": "Bad",
+    "expectedFile": "public/audio/wolof/bon.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Rafet",
+    "fr": "Beau / belle",
+    "en": "Beautiful",
+    "expectedFile": "public/audio/wolof/rafet.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ñaaw",
+    "fr": "Laid / moche",
+    "en": "Ugly",
+    "expectedFile": "public/audio/wolof/naaw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Mag",
+    "fr": "Grand / âgé",
+    "en": "Big / old",
+    "expectedFile": "public/audio/wolof/mag.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndaw",
+    "fr": "Petit / jeune",
+    "en": "Small / young",
+    "expectedFile": "public/audio/wolof/ndaw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bees",
+    "fr": "Nouveau / neuf",
+    "en": "New",
+    "expectedFile": "public/audio/wolof/bees.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Gaaw",
+    "fr": "Rapide",
+    "en": "Fast",
+    "expectedFile": "public/audio/wolof/gaaw.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yomb",
+    "fr": "Facile / pas cher",
+    "en": "Easy / cheap",
+    "expectedFile": "public/audio/wolof/yomb.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jafe",
+    "fr": "Difficile / cher",
+    "en": "Difficult / expensive",
+    "expectedFile": "public/audio/wolof/jafe.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Sonn",
+    "fr": "Fatigué",
+    "en": "Tired",
+    "expectedFile": "public/audio/wolof/sonn.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bég",
+    "fr": "Content / heureux",
+    "en": "Happy / glad",
+    "expectedFile": "public/audio/wolof/beg.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Feebar",
+    "fr": "Malade",
+    "en": "Sick",
+    "expectedFile": "public/audio/wolof/feebar.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Set",
+    "fr": "Propre",
+    "en": "Clean",
+    "expectedFile": "public/audio/wolof/set.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dégg naa",
+    "fr": "J'ai compris",
+    "en": "I understand / understood",
+    "expectedFile": "public/audio/wolof/degg-naa.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Dégguma",
+    "fr": "Je ne comprends pas",
+    "en": "I don't understand",
+    "expectedFile": "public/audio/wolof/degguma.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Xamuma",
+    "fr": "Je ne sais pas",
+    "en": "I don't know",
+    "expectedFile": "public/audio/wolof/xamuma.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndax dégg nga wolof?",
+    "fr": "Est-ce que tu comprends le wolof ?",
+    "en": "Do you understand Wolof?",
+    "expectedFile": "public/audio/wolof/ndax-degg-nga-wolof.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Waaw, tuuti rekk",
+    "fr": "Oui, un petit peu seulement",
+    "en": "Yes, just a little",
+    "expectedFile": "public/audio/wolof/waaw-tuuti-rekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Damay jàng wolof",
+    "fr": "J'apprends le wolof",
+    "en": "I'm learning Wolof",
+    "expectedFile": "public/audio/wolof/damay-jang-wolof.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Waxal ndànk, su la neexee",
+    "fr": "Parle lentement, s'il te plaît",
+    "en": "Speak slowly, please",
+    "expectedFile": "public/audio/wolof/waxal-ndank-su-la-neexee.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Lu xew?",
+    "fr": "Qu'est-ce qui se passe ?",
+    "en": "What's happening?",
+    "expectedFile": "public/audio/wolof/lu-xew.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bëgg naa ko",
+    "fr": "Je le veux / je l'aime",
+    "en": "I want it / I like it",
+    "expectedFile": "public/audio/wolof/begg-naa-ko.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Bëgguma ko",
+    "fr": "Je ne le veux pas",
+    "en": "I don't want it",
+    "expectedFile": "public/audio/wolof/begguma-ko.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Maa ngi dem marse",
+    "fr": "Je vais au marché",
+    "en": "I'm going to the market",
+    "expectedFile": "public/audio/wolof/maa-ngi-dem-marse.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Kaay lekk!",
+    "fr": "Viens manger !",
+    "en": "Come eat!",
+    "expectedFile": "public/audio/wolof/kaay-lekk.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Yow nak?",
+    "fr": "Et toi ?",
+    "en": "And you?",
+    "expectedFile": "public/audio/wolof/yow-nak.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Amul solo",
+    "fr": "Ce n'est pas grave",
+    "en": "It doesn't matter / no problem",
+    "expectedFile": "public/audio/wolof/amul-solo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Ndank-ndank",
+    "fr": "Doucement / petit à petit",
+    "en": "Slowly / little by little",
+    "expectedFile": "public/audio/wolof/ndank-ndank.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Inch'Allah",
+    "fr": "Si Dieu le veut",
+    "en": "God willing",
+    "expectedFile": "public/audio/wolof/inch-allah.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jàmm nga fanaane?",
+    "fr": "As-tu passé la nuit en paix ? (bonjour du matin)",
+    "en": "Did you spend the night in peace? (morning greeting)",
+    "expectedFile": "public/audio/wolof/jamm-nga-fanaane.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Jàmm nga yendoo?",
+    "fr": "As-tu passé la journée en paix ?",
+    "en": "Did you spend the day in peace?",
+    "expectedFile": "public/audio/wolof/jamm-nga-yendoo.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Fo jóge?",
+    "fr": "D'où viens-tu ?",
+    "en": "Where do you come from?",
+    "expectedFile": "public/audio/wolof/fo-joge.mp3",
+    "recorded": false
+  },
+  {
+    "wolof": "Su la neexee",
+    "fr": "S'il te plaît",
+    "en": "Please",
+    "expectedFile": "public/audio/wolof/su-la-neexee.mp3",
+    "recorded": false
+  }
+]

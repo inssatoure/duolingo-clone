@@ -1,0 +1,1 @@
+Wolof native-speaker recordings go here, named per seeds/audio-recording-manifest.json (e.g. jerejef.mp3). Re-run 'npx tsx scripts/generate-wolof-content.ts' after adding files so the seed links them.

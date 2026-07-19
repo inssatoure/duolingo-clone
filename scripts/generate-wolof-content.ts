@@ -11,7 +11,7 @@
  *
  * Run with: npx tsx scripts/generate-wolof-content.ts
  */
-import { writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 
 type Category =
@@ -335,6 +335,120 @@ const VOCAB: VocabItem[] = [
   { wolof: "Su la neexee", fr: "S'il te plaît", en: "Please", category: "phrases", confidence: "core" },
 ];
 
+// ---------------------------------------------------------------------------
+// Illustrations: emoji-based SVG cards for concrete vocabulary, color swatches
+// for the colors unit, numerals for numbers. Keyed by the Wolof word.
+// ---------------------------------------------------------------------------
+const EMOJI: Record<string, string> = {
+  // family & people
+  Yaay: "👩", Baay: "👨", Ndey: "👩", Jigéen: "👧", "Góor": "👦", Doom: "🧒",
+  Xale: "🧒", Maam: "👵", "Jëkkër": "🤵", Jabar: "👰", "Kër": "🏠", Xarit: "🤝",
+  Njaboot: "👨‍👩‍👧‍👦",
+  // food
+  Ceeb: "🍚", "Jën": "🐟", "Yàpp": "🥩", Ndox: "💧", Meew: "🥛", Soow: "🥛",
+  Attaaya: "🍵", Kafe: "☕", Mburu: "🥖", Nen: "🥚", Ganaar: "🍗", Xorom: "🧂",
+  Suukar: "🍬", "Ñebbe": "🫘", "Màngo": "🥭", Banaana: "🍌", "Ceebu jën": "🍛",
+  Yassa: "🍲", "Ndékki": "🥐", "Añ": "🍽️", Reer: "🌙",
+  // objects
+  "Téere": "📖", Oto: "🚗", Bunt: "🚪", Palanteer: "🪟", Siis: "🪑",
+  Taabal: "🛋️", Lal: "🛏️", Xaalis: "💰", Telefon: "📱", Paaka: "🔪",
+  Ndab: "🥣", Sabu: "🧼", "Dëkk": "🏘️",
+  // body
+  Bopp: "🙂", "Bët": "👁️", Nopp: "👂", Bakkan: "👃", "Gémmiñ": "👄",
+  "Bëñ": "🦷", Loxo: "✋", "Tànk": "🦶", Biir: "🫃", Xol: "❤️", Kawar: "💇",
+  // animals
+  Xaj: "🐕", Muus: "🐈", Fas: "🐎", Nag: "🐄", Xar: "🐑", "Bëy": "🐐",
+  Picc: "🐦", Gaynde: "🦁", "Ñey": "🐘", Golo: "🐒", Jaan: "🐍",
+  Ginaar: "🐔", "Yëkk": "🐪", Mala: "🦓",
+  // places
+  Marse: "🛒", Jumaa: "🕌", "Jàngu": "⛪", Lekool: "🏫", Loppitaan: "🏥",
+  Mbedd: "🛣️", Yoon: "🛤️", "Géej": "🌊", Tefes: "🏖️", "Àll": "🌾",
+  Butik: "🏪", Ndakaaru: "🌆", Senegaal: "🇸🇳",
+  // weather & nature
+  Jant: "☀️", Taw: "🌧️", Ngelaw: "💨", Asamaan: "🌌", Niir: "☁️",
+  Suuf: "🟤", Garab: "🌳", "Tàngaay": "🥵", Sedd: "🥶", "Tàng na": "🌡️",
+  "Sedd na": "❄️", "Taw bi dafay taw": "☔",
+  // clothing
+  "Yére": "👕", Simis: "👔", "Tubéy": "👖", "Dàll": "👞", Mbubb: "🥻",
+  "Sér": "🧣", "Mus(ó)or": "🧕", Sol: "🧥",
+  // verbs (concrete ones)
+  Lekk: "🍽️", Naan: "🥤", Nelaw: "😴", Daw: "🏃", Dox: "🚶", Ree: "😂",
+  Jooy: "😢", Sangu: "🚿", Togg: "👨‍🍳", Fo: "⚽", Woo: "📞", Bind: "✍️",
+  "Jàng": "📚", "Liggéey": "🔨", "Jënd": "🛍️", Jaay: "🏷️", Toog: "🪑",
+  // days/time
+  Tey: "📅", Suba: "🌅", "Démb": "⏪", Guddi: "🌃", Weer: "🌙", At: "🗓️",
+};
+
+const COLOR_SWATCH: Record<string, string> = {
+  Weex: "#f5f5f5", "Ñuul": "#1a1a1a", Xonq: "#d92121", Wert: "#1f9e3d",
+  Bulo: "#1f5fd9", Mboq: "#f0c419",
+};
+
+const NUMERAL: Record<string, string> = {
+  Benn: "1", "Ñaar": "2", "Ñett": "3", "Ñeent": "4", "Juróom": "5",
+  "Juróom-benn": "6", "Juróom-ñaar": "7", "Juróom-ñett": "8",
+  "Juróom-ñeent": "9", Fukk: "10", "Fukk ak benn": "11", "Fukk ak ñaar": "12",
+  "Fukk ak juróom": "15", "Ñaar-fukk": "20", Fanweer: "30", "Ñeent-fukk": "40",
+  "Juróom-fukk": "50", "Téeméer": "100", Junni: "1000",
+};
+
+function slugify(wolof: string): string {
+  return wolof
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/ŋ/g, "ng")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+const VOCAB_IMG_DIR = join(process.cwd(), "public", "vocab");
+const AUDIO_DIR = join(process.cwd(), "public", "audio", "wolof");
+
+function svgCard(inner: string): string {
+  return (
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">` +
+    `<rect width="200" height="200" rx="24" fill="#fff7ed"/>` +
+    inner +
+    `</svg>`
+  );
+}
+
+/** Writes the SVG for an item if it has one; returns its public path or null. */
+function ensureImage(item: VocabItem): string | null {
+  const slug = slugify(item.wolof);
+  let svg: string | null = null;
+  if (COLOR_SWATCH[item.wolof]) {
+    svg = svgCard(
+      `<rect x="40" y="40" width="120" height="120" rx="16" fill="${COLOR_SWATCH[item.wolof]}" stroke="#00000022" stroke-width="2"/>`
+    );
+  } else if (NUMERAL[item.wolof]) {
+    svg = svgCard(
+      `<text x="100" y="132" font-size="${NUMERAL[item.wolof].length > 2 ? 64 : 96}" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" fill="#b45309">${NUMERAL[item.wolof]}</text>`
+    );
+  } else if (EMOJI[item.wolof]) {
+    svg = svgCard(
+      `<text x="100" y="138" font-size="104" text-anchor="middle">${EMOJI[item.wolof]}</text>`
+    );
+  }
+  if (!svg) return null;
+  mkdirSync(VOCAB_IMG_DIR, { recursive: true });
+  const rel = `/vocab/${slug}.svg`;
+  writeFileSync(join(VOCAB_IMG_DIR, `${slug}.svg`), svg);
+  return rel;
+}
+
+/** Audio is recorded by a native speaker and dropped into public/audio/wolof.
+ *  The generator links it automatically once the file exists. */
+function audioFor(wolof: string): string | null {
+  const slug = slugify(wolof);
+  for (const ext of ["mp3", "ogg", "wav", "m4a"]) {
+    if (existsSync(join(AUDIO_DIR, `${slug}.${ext}`)))
+      return `/audio/wolof/${slug}.${ext}`;
+  }
+  return null;
+}
+
 const CATEGORY_META: Record<
   Category,
   { titleFr: string; titleEn: string; descFr: string; descEn: string; order: number }
@@ -533,8 +647,16 @@ function buildChallengesForItem(
   const challenges: Challenge[] = [];
   let order = startOrder;
 
-  // SELECT: "How do you say X in Wolof?" -> pick the wolof word
+  // SELECT: "How do you say X in Wolof?" -> pick the wolof word.
+  // Every wolof-side option carries its illustration (Duolingo-style image
+  // cards) and its native-speaker audio when the recording exists.
   const distractorsWolof = pickDistractors(categoryPool, item, 3, "wolof");
+  const wolofOption = (wolof: string, correct: boolean): ChallengeOption => ({
+    text: wolof,
+    correct,
+    imageSrc: imageByWolof.get(wolof) ?? null,
+    audioSrc: audioFor(wolof),
+  });
   challenges.push({
     type: "SELECT",
     question:
@@ -543,13 +665,8 @@ function buildChallengesForItem(
         : `How do you say "${translation}" in Wolof?`,
     order: order++,
     options: shuffle([
-      { text: item.wolof, correct: true, imageSrc: null, audioSrc: null },
-      ...distractorsWolof.map((t) => ({
-        text: t,
-        correct: false,
-        imageSrc: null,
-        audioSrc: null,
-      })),
+      wolofOption(item.wolof, true),
+      ...distractorsWolof.map((t) => wolofOption(t, false)),
     ]),
   });
 
@@ -672,6 +789,28 @@ function validate(units: UnitOut[]) {
 
 const coreCount = VOCAB.filter((v) => v.confidence === "core").length;
 const reviewCount = VOCAB.filter((v) => v.confidence === "review").length;
+
+// Generate illustration SVGs up front and index them by Wolof word.
+const imageByWolof = new Map<string, string>();
+for (const item of VOCAB) {
+  const img = ensureImage(item);
+  if (img) imageByWolof.set(item.wolof, img);
+}
+
+// Manifest of every recording a native speaker should produce, with the exact
+// file path the generator will auto-link once the file is dropped in.
+mkdirSync(AUDIO_DIR, { recursive: true });
+const audioManifest = VOCAB.map((v) => ({
+  wolof: v.wolof,
+  fr: v.fr,
+  en: v.en,
+  expectedFile: `public/audio/wolof/${slugify(v.wolof)}.mp3`,
+  recorded: audioFor(v.wolof) !== null,
+}));
+writeFileSync(
+  join(process.cwd(), "seeds", "audio-recording-manifest.json"),
+  JSON.stringify(audioManifest, null, 2)
+);
 
 const frUnits = buildUnits("fr");
 const enUnits = buildUnits("en");

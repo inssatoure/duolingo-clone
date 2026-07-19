@@ -6,5 +6,6 @@ export const CustomMenu = () => (
   <Menu>
     <Menu.ResourceItems />
     <Menu.Item to="/import" primaryText="CSV Import" />
+    <Menu.Item to="/media" primaryText="Media Library" />
   </Menu>
 );
