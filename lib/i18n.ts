@@ -20,9 +20,13 @@ const fr = {
     obReadySub: "Le wolof t'attend… Ndank-ndank !",
     // Sidebar / nav
     navLearn: "Apprendre",
+    navDictionary: "Dictionnaire",
     navLeaderboard: "Classement",
+    navLeagues: "Ligues",
     navQuests: "Quêtes",
     navShop: "Boutique",
+    navCourses: "Cours",
+    navAdmin: "Admin",
     // Courses
     coursesTitle: "Cours de langues",
     // Lesson footer
@@ -51,9 +55,13 @@ export const DICT: Record<Locale, Dict> = {
     obReady: "Jërëjëf! Let's go 🎉",
     obReadySub: "Wolof awaits you… Ndank-ndank!",
     navLearn: "Learn",
+    navDictionary: "Dictionary",
     navLeaderboard: "Leaderboard",
+    navLeagues: "Leagues",
     navQuests: "Quests",
     navShop: "Shop",
+    navCourses: "Courses",
+    navAdmin: "Admin",
     coursesTitle: "Language courses",
     check: "Check",
     next: "Next",

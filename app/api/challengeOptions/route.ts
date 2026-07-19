@@ -3,14 +3,13 @@ import { type NextRequest, NextResponse } from "next/server";
 import db from "@/db/drizzle";
 import { challengeOptions } from "@/db/schema";
 import { getIsAdmin } from "@/lib/admin";
+import { adminListResponse } from "@/lib/admin-list";
 
-export const GET = async () => {
+export const GET = async (req: NextRequest) => {
   const isAdmin = await getIsAdmin();
   if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
 
-  const data = await db.query.challengeOptions.findMany();
-
-  return NextResponse.json(data);
+  return adminListResponse(req, challengeOptions, "challengeOptions");
 };
 
 export const POST = async (req: NextRequest) => {

@@ -1,0 +1,2042 @@
+[
+  {
+    "wolof": "Salaamaalekum",
+    "fr": "Bonjour (paix sur toi)",
+    "en": "Hello (peace be upon you)",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Maalekum salaam",
+    "fr": "Réponse à bonjour",
+    "en": "Reply to hello",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Na nga def?",
+    "fr": "Comment vas-tu ?",
+    "en": "How are you?",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Maa ngi fi rekk",
+    "fr": "Je vais bien (je suis là seulement)",
+    "en": "I'm fine (I'm just here)",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jàmm rekk",
+    "fr": "La paix seulement (ça va)",
+    "en": "Peace only (all is well)",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jërëjëf",
+    "fr": "Merci",
+    "en": "Thank you",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñoo ko bokk",
+    "fr": "De rien (on le partage)",
+    "en": "You're welcome (we share it)",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Baal ma",
+    "fr": "Excuse-moi / pardon",
+    "en": "Excuse me / sorry",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Waaw",
+    "fr": "Oui",
+    "en": "Yes",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Déedéet",
+    "fr": "Non",
+    "en": "No",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ba beneen yoon",
+    "fr": "À la prochaine",
+    "en": "See you next time",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ba suba",
+    "fr": "À demain",
+    "en": "See you tomorrow",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Naka nga tudd?",
+    "fr": "Comment tu t'appelles ?",
+    "en": "What's your name?",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Maa ngi tudd...",
+    "fr": "Je m'appelle...",
+    "en": "My name is...",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fan nga dëkk?",
+    "fr": "Où habites-tu ?",
+    "en": "Where do you live?",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ana waa kër gi?",
+    "fr": "Comment va la famille ?",
+    "en": "How is the family?",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñu ngi fi",
+    "fr": "Ils vont bien (ils sont là)",
+    "en": "They are fine (they are here)",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mangi dem",
+    "fr": "J'y vais / au revoir",
+    "en": "I'm going / goodbye",
+    "category": "greetings",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yaay",
+    "fr": "Maman / mère",
+    "en": "Mom / mother",
+    "category": "family",
+    "imageSrc": "/vocab/yaay.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Baay",
+    "fr": "Papa / père",
+    "en": "Dad / father",
+    "category": "family",
+    "imageSrc": "/vocab/baay.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndey",
+    "fr": "Mère",
+    "en": "Mother",
+    "category": "family",
+    "imageSrc": "/vocab/ndey.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Rakk",
+    "fr": "Petit frère / petite sœur",
+    "en": "Younger sibling",
+    "category": "family",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mag",
+    "fr": "Grand frère / grande sœur",
+    "en": "Older sibling",
+    "category": "family",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jigéen",
+    "fr": "Femme / fille",
+    "en": "Woman / girl",
+    "category": "family",
+    "imageSrc": "/vocab/jigeen.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Góor",
+    "fr": "Homme / garçon",
+    "en": "Man / boy",
+    "category": "family",
+    "imageSrc": "/vocab/goor.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Doom",
+    "fr": "Enfant (fils/fille de)",
+    "en": "Child (son/daughter)",
+    "category": "family",
+    "imageSrc": "/vocab/doom.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xale",
+    "fr": "Enfant",
+    "en": "Child / kid",
+    "category": "family",
+    "imageSrc": "/vocab/xale.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Maam",
+    "fr": "Grand-parent",
+    "en": "Grandparent",
+    "category": "family",
+    "imageSrc": "/vocab/maam.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sët",
+    "fr": "Petit-enfant",
+    "en": "Grandchild",
+    "category": "family",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Nijaay",
+    "fr": "Oncle maternel",
+    "en": "Maternal uncle",
+    "category": "family",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bàjjan",
+    "fr": "Tante paternelle",
+    "en": "Paternal aunt",
+    "category": "family",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jëkkër",
+    "fr": "Mari",
+    "en": "Husband",
+    "category": "family",
+    "imageSrc": "/vocab/jekker.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jabar",
+    "fr": "Épouse",
+    "en": "Wife",
+    "category": "family",
+    "imageSrc": "/vocab/jabar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Kër",
+    "fr": "Maison / foyer",
+    "en": "Home / household",
+    "category": "family",
+    "imageSrc": "/vocab/ker.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xarit",
+    "fr": "Ami(e)",
+    "en": "Friend",
+    "category": "family",
+    "imageSrc": "/vocab/xarit.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Njaboot",
+    "fr": "Famille",
+    "en": "Family",
+    "category": "family",
+    "imageSrc": "/vocab/njaboot.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Benn",
+    "fr": "Un",
+    "en": "One",
+    "category": "numbers",
+    "imageSrc": "/vocab/benn.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñaar",
+    "fr": "Deux",
+    "en": "Two",
+    "category": "numbers",
+    "imageSrc": "/vocab/naar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñett",
+    "fr": "Trois",
+    "en": "Three",
+    "category": "numbers",
+    "imageSrc": "/vocab/nett.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñeent",
+    "fr": "Quatre",
+    "en": "Four",
+    "category": "numbers",
+    "imageSrc": "/vocab/neent.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Juróom",
+    "fr": "Cinq",
+    "en": "Five",
+    "category": "numbers",
+    "imageSrc": "/vocab/juroom.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Juróom-benn",
+    "fr": "Six",
+    "en": "Six",
+    "category": "numbers",
+    "imageSrc": "/vocab/juroom-benn.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Juróom-ñaar",
+    "fr": "Sept",
+    "en": "Seven",
+    "category": "numbers",
+    "imageSrc": "/vocab/juroom-naar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Juróom-ñett",
+    "fr": "Huit",
+    "en": "Eight",
+    "category": "numbers",
+    "imageSrc": "/vocab/juroom-nett.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Juróom-ñeent",
+    "fr": "Neuf",
+    "en": "Nine",
+    "category": "numbers",
+    "imageSrc": "/vocab/juroom-neent.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fukk",
+    "fr": "Dix",
+    "en": "Ten",
+    "category": "numbers",
+    "imageSrc": "/vocab/fukk.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fukk ak benn",
+    "fr": "Onze",
+    "en": "Eleven",
+    "category": "numbers",
+    "imageSrc": "/vocab/fukk-ak-benn.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fukk ak ñaar",
+    "fr": "Douze",
+    "en": "Twelve",
+    "category": "numbers",
+    "imageSrc": "/vocab/fukk-ak-naar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fukk ak juróom",
+    "fr": "Quinze",
+    "en": "Fifteen",
+    "category": "numbers",
+    "imageSrc": "/vocab/fukk-ak-juroom.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñaar-fukk",
+    "fr": "Vingt",
+    "en": "Twenty",
+    "category": "numbers",
+    "imageSrc": "/vocab/naar-fukk.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fanweer",
+    "fr": "Trente",
+    "en": "Thirty",
+    "category": "numbers",
+    "imageSrc": "/vocab/fanweer.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñeent-fukk",
+    "fr": "Quarante",
+    "en": "Forty",
+    "category": "numbers",
+    "imageSrc": "/vocab/neent-fukk.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Juróom-fukk",
+    "fr": "Cinquante",
+    "en": "Fifty",
+    "category": "numbers",
+    "imageSrc": "/vocab/juroom-fukk.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Téeméer",
+    "fr": "Cent",
+    "en": "One hundred",
+    "category": "numbers",
+    "imageSrc": "/vocab/teemeer.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Junni",
+    "fr": "Mille",
+    "en": "One thousand",
+    "category": "numbers",
+    "imageSrc": "/vocab/junni.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñaata la?",
+    "fr": "Combien ça coûte ?",
+    "en": "How much is it?",
+    "category": "numbers",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ceeb",
+    "fr": "Riz",
+    "en": "Rice",
+    "category": "food",
+    "imageSrc": "/vocab/ceeb.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jën",
+    "fr": "Poisson",
+    "en": "Fish",
+    "category": "food",
+    "imageSrc": "/vocab/jen.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yàpp",
+    "fr": "Viande",
+    "en": "Meat",
+    "category": "food",
+    "imageSrc": "/vocab/yapp.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndox",
+    "fr": "Eau",
+    "en": "Water",
+    "category": "food",
+    "imageSrc": "/vocab/ndox.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Meew",
+    "fr": "Lait",
+    "en": "Milk",
+    "category": "food",
+    "imageSrc": "/vocab/meew.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Soow",
+    "fr": "Lait caillé",
+    "en": "Curdled milk",
+    "category": "food",
+    "imageSrc": "/vocab/soow.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Attaaya",
+    "fr": "Thé (à la menthe)",
+    "en": "(Mint) tea",
+    "category": "food",
+    "imageSrc": "/vocab/attaaya.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Kafe",
+    "fr": "Café",
+    "en": "Coffee",
+    "category": "food",
+    "imageSrc": "/vocab/kafe.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mburu",
+    "fr": "Pain",
+    "en": "Bread",
+    "category": "food",
+    "imageSrc": "/vocab/mburu.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Nen",
+    "fr": "Œuf",
+    "en": "Egg",
+    "category": "food",
+    "imageSrc": "/vocab/nen.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ganaar",
+    "fr": "Poulet",
+    "en": "Chicken",
+    "category": "food",
+    "imageSrc": "/vocab/ganaar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xorom",
+    "fr": "Sel",
+    "en": "Salt",
+    "category": "food",
+    "imageSrc": "/vocab/xorom.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Suukar",
+    "fr": "Sucre",
+    "en": "Sugar",
+    "category": "food",
+    "imageSrc": "/vocab/suukar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Diwtiir",
+    "fr": "Huile",
+    "en": "Oil",
+    "category": "food",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñebbe",
+    "fr": "Haricots",
+    "en": "Beans",
+    "category": "food",
+    "imageSrc": "/vocab/nebbe.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Màngo",
+    "fr": "Mangue",
+    "en": "Mango",
+    "category": "food",
+    "imageSrc": "/vocab/mango.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Banaana",
+    "fr": "Banane",
+    "en": "Banana",
+    "category": "food",
+    "imageSrc": "/vocab/banaana.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ceebu jën",
+    "fr": "Riz au poisson (plat national)",
+    "en": "Rice with fish (national dish)",
+    "category": "food",
+    "imageSrc": "/vocab/ceebu-jen.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yassa",
+    "fr": "Yassa (plat à la sauce oignon-citron)",
+    "en": "Yassa (onion-lemon sauce dish)",
+    "category": "food",
+    "imageSrc": "/vocab/yassa.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndékki",
+    "fr": "Petit-déjeuner",
+    "en": "Breakfast",
+    "category": "food",
+    "imageSrc": "/vocab/ndekki.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Añ",
+    "fr": "Déjeuner",
+    "en": "Lunch",
+    "category": "food",
+    "imageSrc": "/vocab/an.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Reer",
+    "fr": "Dîner",
+    "en": "Dinner",
+    "category": "food",
+    "imageSrc": "/vocab/reer.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xiif naa",
+    "fr": "J'ai faim",
+    "en": "I'm hungry",
+    "category": "food",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mar naa",
+    "fr": "J'ai soif",
+    "en": "I'm thirsty",
+    "category": "food",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Neex na",
+    "fr": "C'est délicieux",
+    "en": "It's delicious",
+    "category": "food",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Weex",
+    "fr": "Blanc",
+    "en": "White",
+    "category": "colors",
+    "imageSrc": "/vocab/weex.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñuul",
+    "fr": "Noir",
+    "en": "Black",
+    "category": "colors",
+    "imageSrc": "/vocab/nuul.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xonq",
+    "fr": "Rouge",
+    "en": "Red",
+    "category": "colors",
+    "imageSrc": "/vocab/xonq.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Wert",
+    "fr": "Vert",
+    "en": "Green",
+    "category": "colors",
+    "imageSrc": "/vocab/wert.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bulo",
+    "fr": "Bleu",
+    "en": "Blue",
+    "category": "colors",
+    "imageSrc": "/vocab/bulo.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mboq",
+    "fr": "Jaune",
+    "en": "Yellow",
+    "category": "colors",
+    "imageSrc": "/vocab/mboq.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Melo",
+    "fr": "Couleur",
+    "en": "Color",
+    "category": "colors",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Téere",
+    "fr": "Livre",
+    "en": "Book",
+    "category": "objects",
+    "imageSrc": "/vocab/teere.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bind",
+    "fr": "Stylo (bic)",
+    "en": "Pen",
+    "category": "objects",
+    "imageSrc": "/vocab/bind.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Oto",
+    "fr": "Voiture",
+    "en": "Car",
+    "category": "objects",
+    "imageSrc": "/vocab/oto.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bunt",
+    "fr": "Porte",
+    "en": "Door",
+    "category": "objects",
+    "imageSrc": "/vocab/bunt.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Palanteer",
+    "fr": "Fenêtre",
+    "en": "Window",
+    "category": "objects",
+    "imageSrc": "/vocab/palanteer.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Siis",
+    "fr": "Chaise",
+    "en": "Chair",
+    "category": "objects",
+    "imageSrc": "/vocab/siis.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Taabal",
+    "fr": "Table",
+    "en": "Table",
+    "category": "objects",
+    "imageSrc": "/vocab/taabal.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Lal",
+    "fr": "Lit",
+    "en": "Bed",
+    "category": "objects",
+    "imageSrc": "/vocab/lal.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xaalis",
+    "fr": "Argent",
+    "en": "Money",
+    "category": "objects",
+    "imageSrc": "/vocab/xaalis.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Telefon",
+    "fr": "Téléphone",
+    "en": "Phone",
+    "category": "objects",
+    "imageSrc": "/vocab/telefon.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Paaka",
+    "fr": "Couteau",
+    "en": "Knife",
+    "category": "objects",
+    "imageSrc": "/vocab/paaka.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndab",
+    "fr": "Récipient / bol",
+    "en": "Container / bowl",
+    "category": "objects",
+    "imageSrc": "/vocab/ndab.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sabu",
+    "fr": "Savon",
+    "en": "Soap",
+    "category": "objects",
+    "imageSrc": "/vocab/sabu.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dëkk",
+    "fr": "Ville / village",
+    "en": "Town / village",
+    "category": "objects",
+    "imageSrc": "/vocab/dekk.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dem",
+    "fr": "Aller",
+    "en": "To go",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñëw",
+    "fr": "Venir",
+    "en": "To come",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Lekk",
+    "fr": "Manger",
+    "en": "To eat",
+    "category": "verbs",
+    "imageSrc": "/vocab/lekk.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Naan",
+    "fr": "Boire",
+    "en": "To drink",
+    "category": "verbs",
+    "imageSrc": "/vocab/naan.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Gis",
+    "fr": "Voir",
+    "en": "To see",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dégg",
+    "fr": "Entendre / comprendre",
+    "en": "To hear / understand",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Wax",
+    "fr": "Parler / dire",
+    "en": "To speak / say",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bind",
+    "fr": "Écrire",
+    "en": "To write",
+    "category": "verbs",
+    "imageSrc": "/vocab/bind.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jàng",
+    "fr": "Étudier / lire / apprendre",
+    "en": "To study / read / learn",
+    "category": "verbs",
+    "imageSrc": "/vocab/jang.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jàngale",
+    "fr": "Enseigner",
+    "en": "To teach",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Liggéey",
+    "fr": "Travailler",
+    "en": "To work",
+    "category": "verbs",
+    "imageSrc": "/vocab/liggeey.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Nelaw",
+    "fr": "Dormir",
+    "en": "To sleep",
+    "category": "verbs",
+    "imageSrc": "/vocab/nelaw.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Def",
+    "fr": "Faire",
+    "en": "To do",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bëgg",
+    "fr": "Vouloir / aimer",
+    "en": "To want / love",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Am",
+    "fr": "Avoir",
+    "en": "To have",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jënd",
+    "fr": "Acheter",
+    "en": "To buy",
+    "category": "verbs",
+    "imageSrc": "/vocab/jend.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jaay",
+    "fr": "Vendre",
+    "en": "To sell",
+    "category": "verbs",
+    "imageSrc": "/vocab/jaay.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Toog",
+    "fr": "S'asseoir / rester",
+    "en": "To sit / stay",
+    "category": "verbs",
+    "imageSrc": "/vocab/toog.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Taxaw",
+    "fr": "Se lever / être debout",
+    "en": "To stand up",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Daw",
+    "fr": "Courir",
+    "en": "To run",
+    "category": "verbs",
+    "imageSrc": "/vocab/daw.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dox",
+    "fr": "Marcher",
+    "en": "To walk",
+    "category": "verbs",
+    "imageSrc": "/vocab/dox.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ree",
+    "fr": "Rire",
+    "en": "To laugh",
+    "category": "verbs",
+    "imageSrc": "/vocab/ree.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jooy",
+    "fr": "Pleurer",
+    "en": "To cry",
+    "category": "verbs",
+    "imageSrc": "/vocab/jooy.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sangu",
+    "fr": "Se laver / se doucher",
+    "en": "To wash / shower",
+    "category": "verbs",
+    "imageSrc": "/vocab/sangu.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Togg",
+    "fr": "Cuisiner",
+    "en": "To cook",
+    "category": "verbs",
+    "imageSrc": "/vocab/togg.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fo",
+    "fr": "Jouer",
+    "en": "To play",
+    "category": "verbs",
+    "imageSrc": "/vocab/fo.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Woo",
+    "fr": "Appeler",
+    "en": "To call",
+    "category": "verbs",
+    "imageSrc": "/vocab/woo.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xam",
+    "fr": "Savoir / connaître",
+    "en": "To know",
+    "category": "verbs",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Altine",
+    "fr": "Lundi",
+    "en": "Monday",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Talaata",
+    "fr": "Mardi",
+    "en": "Tuesday",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Àllarba",
+    "fr": "Mercredi",
+    "en": "Wednesday",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Alxamis",
+    "fr": "Jeudi",
+    "en": "Thursday",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Àjjuma",
+    "fr": "Vendredi",
+    "en": "Friday",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Gaawu",
+    "fr": "Samedi",
+    "en": "Saturday",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dibéer",
+    "fr": "Dimanche",
+    "en": "Sunday",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Tey",
+    "fr": "Aujourd'hui",
+    "en": "Today",
+    "category": "days",
+    "imageSrc": "/vocab/tey.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Suba",
+    "fr": "Demain / matin",
+    "en": "Tomorrow / morning",
+    "category": "days",
+    "imageSrc": "/vocab/suba.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Démb",
+    "fr": "Hier",
+    "en": "Yesterday",
+    "category": "days",
+    "imageSrc": "/vocab/demb.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ngoon",
+    "fr": "Après-midi / soir",
+    "en": "Afternoon / evening",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Guddi",
+    "fr": "Nuit",
+    "en": "Night",
+    "category": "days",
+    "imageSrc": "/vocab/guddi.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bés",
+    "fr": "Jour",
+    "en": "Day",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ayubés",
+    "fr": "Semaine",
+    "en": "Week",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Weer",
+    "fr": "Mois / lune",
+    "en": "Month / moon",
+    "category": "days",
+    "imageSrc": "/vocab/weer.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "At",
+    "fr": "Année",
+    "en": "Year",
+    "category": "days",
+    "imageSrc": "/vocab/at.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Léegi",
+    "fr": "Maintenant",
+    "en": "Now",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ban waxtu moo jot?",
+    "fr": "Quelle heure est-il ?",
+    "en": "What time is it?",
+    "category": "days",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bopp",
+    "fr": "Tête",
+    "en": "Head",
+    "category": "body",
+    "imageSrc": "/vocab/bopp.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bët",
+    "fr": "Œil",
+    "en": "Eye",
+    "category": "body",
+    "imageSrc": "/vocab/bet.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Nopp",
+    "fr": "Oreille",
+    "en": "Ear",
+    "category": "body",
+    "imageSrc": "/vocab/nopp.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bakkan",
+    "fr": "Nez",
+    "en": "Nose",
+    "category": "body",
+    "imageSrc": "/vocab/bakkan.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Gémmiñ",
+    "fr": "Bouche",
+    "en": "Mouth",
+    "category": "body",
+    "imageSrc": "/vocab/gemmin.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bëñ",
+    "fr": "Dent",
+    "en": "Tooth",
+    "category": "body",
+    "imageSrc": "/vocab/ben.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Loxo",
+    "fr": "Main / bras",
+    "en": "Hand / arm",
+    "category": "body",
+    "imageSrc": "/vocab/loxo.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Tànk",
+    "fr": "Pied / jambe",
+    "en": "Foot / leg",
+    "category": "body",
+    "imageSrc": "/vocab/tank.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Biir",
+    "fr": "Ventre",
+    "en": "Belly",
+    "category": "body",
+    "imageSrc": "/vocab/biir.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xol",
+    "fr": "Cœur",
+    "en": "Heart",
+    "category": "body",
+    "imageSrc": "/vocab/xol.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Kawar",
+    "fr": "Cheveux",
+    "en": "Hair",
+    "category": "body",
+    "imageSrc": "/vocab/kawar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Der",
+    "fr": "Peau",
+    "en": "Skin",
+    "category": "body",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xaj",
+    "fr": "Chien",
+    "en": "Dog",
+    "category": "animals",
+    "imageSrc": "/vocab/xaj.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Muus",
+    "fr": "Chat",
+    "en": "Cat",
+    "category": "animals",
+    "imageSrc": "/vocab/muus.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fas",
+    "fr": "Cheval",
+    "en": "Horse",
+    "category": "animals",
+    "imageSrc": "/vocab/fas.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Nag",
+    "fr": "Vache",
+    "en": "Cow",
+    "category": "animals",
+    "imageSrc": "/vocab/nag.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xar",
+    "fr": "Mouton",
+    "en": "Sheep",
+    "category": "animals",
+    "imageSrc": "/vocab/xar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bëy",
+    "fr": "Chèvre",
+    "en": "Goat",
+    "category": "animals",
+    "imageSrc": "/vocab/bey.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Picc",
+    "fr": "Oiseau",
+    "en": "Bird",
+    "category": "animals",
+    "imageSrc": "/vocab/picc.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Gaynde",
+    "fr": "Lion",
+    "en": "Lion",
+    "category": "animals",
+    "imageSrc": "/vocab/gaynde.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñey",
+    "fr": "Éléphant",
+    "en": "Elephant",
+    "category": "animals",
+    "imageSrc": "/vocab/ney.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Golo",
+    "fr": "Singe",
+    "en": "Monkey",
+    "category": "animals",
+    "imageSrc": "/vocab/golo.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jaan",
+    "fr": "Serpent",
+    "en": "Snake",
+    "category": "animals",
+    "imageSrc": "/vocab/jaan.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ginaar",
+    "fr": "Poule",
+    "en": "Hen",
+    "category": "animals",
+    "imageSrc": "/vocab/ginaar.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yëkk",
+    "fr": "Chameau",
+    "en": "Camel",
+    "category": "animals",
+    "imageSrc": "/vocab/yekk.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mala",
+    "fr": "Animal",
+    "en": "Animal",
+    "category": "animals",
+    "imageSrc": "/vocab/mala.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Marse",
+    "fr": "Marché",
+    "en": "Market",
+    "category": "places",
+    "imageSrc": "/vocab/marse.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jumaa",
+    "fr": "Mosquée",
+    "en": "Mosque",
+    "category": "places",
+    "imageSrc": "/vocab/jumaa.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jàngu",
+    "fr": "Église",
+    "en": "Church",
+    "category": "places",
+    "imageSrc": "/vocab/jangu.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Lekool",
+    "fr": "École",
+    "en": "School",
+    "category": "places",
+    "imageSrc": "/vocab/lekool.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Loppitaan",
+    "fr": "Hôpital",
+    "en": "Hospital",
+    "category": "places",
+    "imageSrc": "/vocab/loppitaan.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mbedd",
+    "fr": "Rue",
+    "en": "Street",
+    "category": "places",
+    "imageSrc": "/vocab/mbedd.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yoon",
+    "fr": "Chemin / route",
+    "en": "Path / road",
+    "category": "places",
+    "imageSrc": "/vocab/yoon.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Géej",
+    "fr": "Mer",
+    "en": "Sea",
+    "category": "places",
+    "imageSrc": "/vocab/geej.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Tefes",
+    "fr": "Plage",
+    "en": "Beach",
+    "category": "places",
+    "imageSrc": "/vocab/tefes.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Àll",
+    "fr": "Brousse / campagne",
+    "en": "Bush / countryside",
+    "category": "places",
+    "imageSrc": "/vocab/all.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Butik",
+    "fr": "Boutique",
+    "en": "Shop",
+    "category": "places",
+    "imageSrc": "/vocab/butik.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndakaaru",
+    "fr": "Dakar",
+    "en": "Dakar",
+    "category": "places",
+    "imageSrc": "/vocab/ndakaaru.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Senegaal",
+    "fr": "Sénégal",
+    "en": "Senegal",
+    "category": "places",
+    "imageSrc": "/vocab/senegaal.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fan la ... nekk?",
+    "fr": "Où se trouve ... ?",
+    "en": "Where is ... ?",
+    "category": "places",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jant",
+    "fr": "Soleil",
+    "en": "Sun",
+    "category": "weather",
+    "imageSrc": "/vocab/jant.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Taw",
+    "fr": "Pluie",
+    "en": "Rain",
+    "category": "weather",
+    "imageSrc": "/vocab/taw.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ngelaw",
+    "fr": "Vent",
+    "en": "Wind",
+    "category": "weather",
+    "imageSrc": "/vocab/ngelaw.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Asamaan",
+    "fr": "Ciel",
+    "en": "Sky",
+    "category": "weather",
+    "imageSrc": "/vocab/asamaan.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Niir",
+    "fr": "Nuage",
+    "en": "Cloud",
+    "category": "weather",
+    "imageSrc": "/vocab/niir.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Suuf",
+    "fr": "Terre / sol",
+    "en": "Earth / ground",
+    "category": "weather",
+    "imageSrc": "/vocab/suuf.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Garab",
+    "fr": "Arbre / médicament",
+    "en": "Tree / medicine",
+    "category": "weather",
+    "imageSrc": "/vocab/garab.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Tàngaay",
+    "fr": "Chaleur",
+    "en": "Heat",
+    "category": "weather",
+    "imageSrc": "/vocab/tangaay.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sedd",
+    "fr": "Froid",
+    "en": "Cold",
+    "category": "weather",
+    "imageSrc": "/vocab/sedd.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Tàng na",
+    "fr": "Il fait chaud",
+    "en": "It's hot",
+    "category": "weather",
+    "imageSrc": "/vocab/tang-na.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sedd na",
+    "fr": "Il fait froid",
+    "en": "It's cold",
+    "category": "weather",
+    "imageSrc": "/vocab/sedd-na.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Taw bi dafay taw",
+    "fr": "Il pleut",
+    "en": "It's raining",
+    "category": "weather",
+    "imageSrc": "/vocab/taw-bi-dafay-taw.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yére",
+    "fr": "Vêtement",
+    "en": "Clothing",
+    "category": "clothing",
+    "imageSrc": "/vocab/yere.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Simis",
+    "fr": "Chemise",
+    "en": "Shirt",
+    "category": "clothing",
+    "imageSrc": "/vocab/simis.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Tubéy",
+    "fr": "Pantalon",
+    "en": "Trousers / pants",
+    "category": "clothing",
+    "imageSrc": "/vocab/tubey.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dàll",
+    "fr": "Chaussure",
+    "en": "Shoe",
+    "category": "clothing",
+    "imageSrc": "/vocab/dall.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mbubb",
+    "fr": "Boubou (grande tunique)",
+    "en": "Boubou (large tunic)",
+    "category": "clothing",
+    "imageSrc": "/vocab/mbubb.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sér",
+    "fr": "Pagne",
+    "en": "Wrap skirt (pagne)",
+    "category": "clothing",
+    "imageSrc": "/vocab/ser.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mus(ó)or",
+    "fr": "Foulard de tête",
+    "en": "Headscarf",
+    "category": "clothing",
+    "imageSrc": "/vocab/mus-o-or.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sol",
+    "fr": "Porter / mettre (vêtement)",
+    "en": "To wear / put on",
+    "category": "clothing",
+    "imageSrc": "/vocab/sol.svg",
+    "audioSrc": null
+  },
+  {
+    "wolof": "Man",
+    "fr": "Moi / je",
+    "en": "Me / I",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yow",
+    "fr": "Toi / tu",
+    "en": "You (singular)",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Moom",
+    "fr": "Lui / elle",
+    "en": "Him / her",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Nun",
+    "fr": "Nous",
+    "en": "We / us",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yéen",
+    "fr": "Vous",
+    "en": "You (plural)",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñoom",
+    "fr": "Eux / elles",
+    "en": "They / them",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Kan?",
+    "fr": "Qui ?",
+    "en": "Who?",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Lan?",
+    "fr": "Quoi ?",
+    "en": "What?",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fan?",
+    "fr": "Où ?",
+    "en": "Where?",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Kañ?",
+    "fr": "Quand ?",
+    "en": "When?",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Naka?",
+    "fr": "Comment ?",
+    "en": "How?",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Lu tax?",
+    "fr": "Pourquoi ?",
+    "en": "Why?",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñaata?",
+    "fr": "Combien ?",
+    "en": "How many / how much?",
+    "category": "pronouns",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Baax",
+    "fr": "Bon / gentil",
+    "en": "Good / kind",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bon",
+    "fr": "Mauvais",
+    "en": "Bad",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Rafet",
+    "fr": "Beau / belle",
+    "en": "Beautiful",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ñaaw",
+    "fr": "Laid / moche",
+    "en": "Ugly",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Mag",
+    "fr": "Grand / âgé",
+    "en": "Big / old",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndaw",
+    "fr": "Petit / jeune",
+    "en": "Small / young",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bees",
+    "fr": "Nouveau / neuf",
+    "en": "New",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Gaaw",
+    "fr": "Rapide",
+    "en": "Fast",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yomb",
+    "fr": "Facile / pas cher",
+    "en": "Easy / cheap",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jafe",
+    "fr": "Difficile / cher",
+    "en": "Difficult / expensive",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Sonn",
+    "fr": "Fatigué",
+    "en": "Tired",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bég",
+    "fr": "Content / heureux",
+    "en": "Happy / glad",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Feebar",
+    "fr": "Malade",
+    "en": "Sick",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Set",
+    "fr": "Propre",
+    "en": "Clean",
+    "category": "adjectives",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dégg naa",
+    "fr": "J'ai compris",
+    "en": "I understand / understood",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Dégguma",
+    "fr": "Je ne comprends pas",
+    "en": "I don't understand",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Xamuma",
+    "fr": "Je ne sais pas",
+    "en": "I don't know",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndax dégg nga wolof?",
+    "fr": "Est-ce que tu comprends le wolof ?",
+    "en": "Do you understand Wolof?",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Waaw, tuuti rekk",
+    "fr": "Oui, un petit peu seulement",
+    "en": "Yes, just a little",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Damay jàng wolof",
+    "fr": "J'apprends le wolof",
+    "en": "I'm learning Wolof",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Waxal ndànk, su la neexee",
+    "fr": "Parle lentement, s'il te plaît",
+    "en": "Speak slowly, please",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Lu xew?",
+    "fr": "Qu'est-ce qui se passe ?",
+    "en": "What's happening?",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bëgg naa ko",
+    "fr": "Je le veux / je l'aime",
+    "en": "I want it / I like it",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Bëgguma ko",
+    "fr": "Je ne le veux pas",
+    "en": "I don't want it",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Maa ngi dem marse",
+    "fr": "Je vais au marché",
+    "en": "I'm going to the market",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Kaay lekk!",
+    "fr": "Viens manger !",
+    "en": "Come eat!",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Yow nak?",
+    "fr": "Et toi ?",
+    "en": "And you?",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Amul solo",
+    "fr": "Ce n'est pas grave",
+    "en": "It doesn't matter / no problem",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Ndank-ndank",
+    "fr": "Doucement / petit à petit",
+    "en": "Slowly / little by little",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Inch'Allah",
+    "fr": "Si Dieu le veut",
+    "en": "God willing",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jàmm nga fanaane?",
+    "fr": "As-tu passé la nuit en paix ? (bonjour du matin)",
+    "en": "Did you spend the night in peace? (morning greeting)",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Jàmm nga yendoo?",
+    "fr": "As-tu passé la journée en paix ?",
+    "en": "Did you spend the day in peace?",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Fo jóge?",
+    "fr": "D'où viens-tu ?",
+    "en": "Where do you come from?",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  },
+  {
+    "wolof": "Su la neexee",
+    "fr": "S'il te plaît",
+    "en": "Please",
+    "category": "phrases",
+    "imageSrc": null,
+    "audioSrc": null
+  }
+]

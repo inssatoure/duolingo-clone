@@ -14,6 +14,7 @@ import {
   getUserSubscription,
   getUserStreak,
 } from "@/db/queries";
+import { getIsAdmin } from "@/lib/admin";
 
 import { Header } from "./header";
 import { Unit } from "./unit";
@@ -27,6 +28,7 @@ const LearnPage = async () => {
   const unitsData = getUnits();
   const userSubscriptionData = getUserSubscription();
   const userStreakData = getUserStreak();
+  const isAdminData = getIsAdmin();
 
   const [
     userProgress,
@@ -35,6 +37,7 @@ const LearnPage = async () => {
     lessonPercentage,
     userSubscription,
     userStreak,
+    isAdmin,
   ] = await Promise.all([
     userProgressData,
     unitsData,
@@ -42,6 +45,7 @@ const LearnPage = async () => {
     lessonPercentageData,
     userSubscriptionData,
     userStreakData,
+    isAdminData,
   ]);
 
   if (!courseProgress || !userProgress || !userProgress.activeCourse)
@@ -78,6 +82,7 @@ const LearnPage = async () => {
               lessons={unit.lessons}
               activeLesson={courseProgress.activeLesson}
               activeLessonPercentage={lessonPercentage}
+              allUnlocked={isAdmin}
             />
           </div>
         ))}

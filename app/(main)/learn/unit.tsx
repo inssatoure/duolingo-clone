@@ -17,6 +17,8 @@ type UnitProps = {
       })
     | undefined;
   activeLessonPercentage: number;
+  /** Admin preview mode: every lesson is playable regardless of progress. */
+  allUnlocked?: boolean;
 };
 
 export const Unit = ({
@@ -25,6 +27,7 @@ export const Unit = ({
   lessons,
   activeLesson,
   activeLessonPercentage,
+  allUnlocked,
 }: UnitProps) => {
   return (
     <>
@@ -33,7 +36,7 @@ export const Unit = ({
       <div className="relative flex flex-col items-center">
         {lessons.map((lesson, i) => {
           const isCurrent = lesson.id === activeLesson?.id;
-          const isLocked = !lesson.completed && !isCurrent;
+          const isLocked = !allUnlocked && !lesson.completed && !isCurrent;
 
           return (
             <LessonButton

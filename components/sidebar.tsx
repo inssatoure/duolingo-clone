@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
+import { getIsAdmin } from "@/lib/admin";
 import { DICT, LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +17,7 @@ type SidebarProps = {
 export const Sidebar = async ({ className }: SidebarProps) => {
   const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
   const t = DICT[isLocale(cookieLocale) ? cookieLocale : "fr"];
+  const isAdmin = await getIsAdmin();
 
   return (
     <div
@@ -37,12 +39,34 @@ export const Sidebar = async ({ className }: SidebarProps) => {
       <div className="flex flex-1 flex-col gap-y-2">
         <SidebarItem label={t.navLearn} href="/learn" iconSrc="/learn.svg" />
         <SidebarItem
+          label={t.navDictionary}
+          href="/dictionary"
+          iconSrc="/icon-dictionary.svg"
+        />
+        <SidebarItem
           label={t.navLeaderboard}
           href="/leaderboard"
           iconSrc="/leaderboard.svg"
         />
+        <SidebarItem
+          label={t.navLeagues}
+          href="/leagues"
+          iconSrc="/icon-leagues.svg"
+        />
         <SidebarItem label={t.navQuests} href="/quests" iconSrc="/quests.svg" />
         <SidebarItem label={t.navShop} href="/shop" iconSrc="/shop.svg" />
+        <SidebarItem
+          label={t.navCourses}
+          href="/courses"
+          iconSrc="/icon-courses.svg"
+        />
+        {isAdmin && (
+          <SidebarItem
+            label={t.navAdmin}
+            href="/admin"
+            iconSrc="/icon-admin.svg"
+          />
+        )}
       </div>
 
       <div className="p-4">

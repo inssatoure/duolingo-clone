@@ -812,6 +812,20 @@ writeFileSync(
   JSON.stringify(audioManifest, null, 2)
 );
 
+// Dictionary export consumed by the in-app /dictionary page.
+const dictionary = VOCAB.map((v) => ({
+  wolof: v.wolof,
+  fr: v.fr,
+  en: v.en,
+  category: v.category,
+  imageSrc: imageByWolof.get(v.wolof) ?? null,
+  audioSrc: audioFor(v.wolof),
+}));
+writeFileSync(
+  join(process.cwd(), "seeds", "dictionary.json"),
+  JSON.stringify(dictionary, null, 2)
+);
+
 const frUnits = buildUnits("fr");
 const enUnits = buildUnits("en");
 validate(frUnits);
