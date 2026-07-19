@@ -71,7 +71,7 @@ export const adminListResponse = async (
 
   return NextResponse.json(rows, {
     headers: {
-      "Content-Range": `${resource} ${start}-${Math.min(end, start + rows.length - 1)}/${total}`,
+      "Content-Range": `${resource} ${start}-${Math.max(start, Math.min(end, start + rows.length - 1))}/${total}`,
       "Access-Control-Expose-Headers": "Content-Range",
     },
   });
