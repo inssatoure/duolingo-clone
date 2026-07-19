@@ -8,6 +8,7 @@ import { MAX_HEARTS } from "@/constants";
 import db from "@/db/drizzle";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { challengeProgress, challenges, userProgress } from "@/db/schema";
+import { updateStreak } from "./streaks";
 
 export const upsertChallengeProgress = async (challengeId: number) => {
   const { userId } = await auth();
@@ -59,6 +60,9 @@ export const upsertChallengeProgress = async (challengeId: number) => {
       })
       .where(eq(userProgress.userId, userId));
 
+    // Update streak on practice completion
+    await updateStreak();
+
     revalidatePath("/learn");
     revalidatePath("/lesson");
     revalidatePath("/quests");
@@ -79,6 +83,9 @@ export const upsertChallengeProgress = async (challengeId: number) => {
       points: currentUserProgress.points + 10,
     })
     .where(eq(userProgress.userId, userId));
+
+  // Update streak on first completion
+  await updateStreak();
 
   revalidatePath("/learn");
   revalidatePath("/lesson");

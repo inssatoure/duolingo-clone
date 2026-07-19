@@ -137,12 +137,18 @@ export const userProgress = pgTable("user_progress", {
   }),
   hearts: integer("hearts").notNull().default(MAX_HEARTS),
   points: integer("points").notNull().default(0),
+  cfaBalance: integer("cfa_balance").notNull().default(0),
+  leagueId: integer("league_id").references(() => weeklyLeagues.id),
 });
 
 export const userProgressRelations = relations(userProgress, ({ one }) => ({
   activeCourse: one(courses, {
     fields: [userProgress.activeCourseId],
     references: [courses.id],
+  }),
+  league: one(weeklyLeagues, {
+    fields: [userProgress.leagueId],
+    references: [weeklyLeagues.id],
   }),
 }));
 
@@ -154,3 +160,110 @@ export const userSubscription = pgTable("user_subscription", {
   stripePriceId: text("stripe_price_id").notNull(),
   stripeCurrentPeriodEnd: timestamp("stripe_current_period_end").notNull(),
 });
+
+export const userStreaks = pgTable("user_streaks", {
+  userId: text("user_id").primaryKey().references(() => userProgress.userId),
+  currentStreak: integer("current_streak").notNull().default(0),
+  longestStreak: integer("longest_streak").notNull().default(0),
+  lastPracticeDate: timestamp("last_practice_date"),
+  streakFreezeActive: boolean("streak_freeze_active").notNull().default(false),
+  streakFreezeUntil: timestamp("streak_freeze_until"),
+});
+
+export const userStreaksRelations = relations(userStreaks, ({ one }) => ({
+  user: one(userProgress, {
+    fields: [userStreaks.userId],
+    references: [userProgress.userId],
+  }),
+}));
+
+export const weeklyLeagues = pgTable("weekly_leagues", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  minRank: integer("min_rank").notNull(),
+  maxRank: integer("max_rank").notNull(),
+  iconSrc: text("icon_src").notNull(),
+  color: text("color").notNull(),
+});
+
+export const weeklyLeaguesRelations = relations(weeklyLeagues, ({ many }) => ({
+  users: many(userProgress),
+  participations: many(userLeagueParticipation),
+}));
+
+export const userLeagueParticipation = pgTable("user_league_participation", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => userProgress.userId),
+  leagueId: integer("league_id").notNull().references(() => weeklyLeagues.id),
+  weekStart: timestamp("week_start").notNull(),
+  weekEnd: timestamp("week_end").notNull(),
+  xpEarned: integer("xp_earned").notNull().default(0),
+  rank: integer("rank").notNull(),
+  promoted: boolean("promoted").notNull().default(false),
+  relegated: boolean("relegated").notNull().default(false),
+});
+
+export const userLeagueParticipationRelations = relations(
+  userLeagueParticipation,
+  ({ one }) => ({
+    user: one(userProgress, {
+      fields: [userLeagueParticipation.userId],
+      references: [userProgress.userId],
+    }),
+    league: one(weeklyLeagues, {
+      fields: [userLeagueParticipation.leagueId],
+      references: [weeklyLeagues.id],
+    }),
+  })
+);
+
+export const friendships = pgTable("friendships", {
+  id: serial("id").primaryKey(),
+  requesterId: text("requester_id").notNull().references(() => userProgress.userId),
+  receiverId: text("receiver_id").notNull().references(() => userProgress.userId),
+  status: text("status").notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const friendshipsRelations = relations(friendships, ({ one }) => ({
+  requester: one(userProgress, {
+    fields: [friendships.requesterId],
+    references: [userProgress.userId],
+  }),
+  receiver: one(userProgress, {
+    fields: [friendships.receiverId],
+    references: [userProgress.userId],
+  }),
+}));
+
+export const shopItems = pgTable("shop_items", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  price: integer("price").notNull(),
+  type: text("type").notNull(),
+  iconSrc: text("icon_src").notNull(),
+  active: boolean("active").notNull().default(true),
+});
+
+export const shopItemsRelations = relations(shopItems, ({ many }) => ({
+  purchases: many(userPurchases),
+}));
+
+export const userPurchases = pgTable("user_purchases", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => userProgress.userId),
+  itemId: integer("item_id").notNull().references(() => shopItems.id),
+  purchasedAt: timestamp("purchased_at").notNull().defaultNow(),
+});
+
+export const userPurchasesRelations = relations(userPurchases, ({ one }) => ({
+  user: one(userProgress, {
+    fields: [userPurchases.userId],
+    references: [userProgress.userId],
+  }),
+  item: one(shopItems, {
+    fields: [userPurchases.itemId],
+    references: [shopItems.id],
+  }),
+}));

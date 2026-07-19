@@ -11,6 +11,7 @@ import {
   units,
   userProgress,
   userSubscription,
+  userStreaks,
 } from "./schema";
 
 const DAY_IN_MS = 86_400_000;
@@ -240,6 +241,18 @@ export const getTopTenUsers = cache(async () => {
       userImageSrc: true,
       points: true,
     },
+  });
+
+  return data;
+});
+
+export const getUserStreak = cache(async () => {
+  const { userId } = await auth();
+
+  if (!userId) return null;
+
+  const data = await db.query.userStreaks.findFirst({
+    where: eq(userStreaks.userId, userId),
   });
 
   return data;

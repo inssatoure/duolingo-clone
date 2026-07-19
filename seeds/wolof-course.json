@@ -1,0 +1,585 @@
+{
+  "meta": {
+    "language": "Wolof",
+    "note": "DEMO CONTENT - NATIVE SPEAKER VALIDATION REQUIRED - This is basic vocabulary for demonstration purposes only",
+    "version": "0.1.0-demo"
+  },
+  "course": {
+    "title": "Wolof",
+    "imageSrc": "/flags/sn.svg"
+  },
+  "units": [
+    {
+      "title": "Unité 1",
+      "description": "Salutations et bases du wolof",
+      "order": 1,
+      "lessons": [
+        {
+          "title": "Salutations",
+          "order": 1,
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'Bonjour' en wolof?",
+              "order": 1,
+              "options": [
+                {
+                  "text": "Salaam",
+                  "correct": true,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Bonjour",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Na nga def?",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'Comment ça va?' en wolof?",
+              "order": 2,
+              "options": [
+                {
+                  "text": "Na nga def?",
+                  "correct": true,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Salaam",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Ça va?",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "Salaam",
+              "order": 3,
+              "options": [
+                {
+                  "text": "Bonjour",
+                  "correct": true,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Au revoir",
+                  "correct": false,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Merci",
+                  "correct": false,
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment répond-on 'Ça va bien' à 'Na nga def?'",
+              "order": 4,
+              "options": [
+                {
+                  "text": "Maangi fi rekk",
+                  "correct": true,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Salaam",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Na nga def?",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Nombres 1-5",
+          "order": 2,
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'un' en wolof?",
+              "order": 1,
+              "options": [
+                {
+                  "text": "Benn",
+                  "correct": true,
+                  "imageSrc": "/number-1.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Ñaar",
+                  "correct": false,
+                  "imageSrc": "/number-2.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Ñatt",
+                  "correct": false,
+                  "imageSrc": "/number-3.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'deux' en wolof?",
+              "order": 2,
+              "options": [
+                {
+                  "text": "Ñaar",
+                  "correct": true,
+                  "imageSrc": "/number-2.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Benn",
+                  "correct": false,
+                  "imageSrc": "/number-1.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Þatt",
+                  "correct": false,
+                  "imageSrc": "/number-3.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "Benn",
+              "order": 3,
+              "options": [
+                {
+                  "text": "Un",
+                  "correct": true,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Deux",
+                  "correct": false,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Trois",
+                  "correct": false,
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'trois' en wolof?",
+              "order": 4,
+              "options": [
+                {
+                  "text": "Þatt",
+                  "correct": true,
+                  "imageSrc": "/number-3.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Benn",
+                  "correct": false,
+                  "imageSrc": "/number-1.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Ñaar",
+                  "correct": false,
+                  "imageSrc": "/number-2.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'quatre' en wolof?",
+              "order": 5,
+              "options": [
+                {
+                  "text": "Ñent",
+                  "correct": true,
+                  "imageSrc": "/number-4.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Juróom",
+                  "correct": false,
+                  "imageSrc": "/number-5.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Þatt",
+                  "correct": false,
+                  "imageSrc": "/number-3.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'cinq' en wolof?",
+              "order": 6,
+              "options": [
+                {
+                  "text": "Juróom",
+                  "correct": true,
+                  "imageSrc": "/number-5.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Ñent",
+                  "correct": false,
+                  "imageSrc": "/number-4.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Benn",
+                  "correct": false,
+                  "imageSrc": "/number-1.svg",
+                  "audioSrc": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Famille",
+          "order": 3,
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'mère' en wolof?",
+              "order": 1,
+              "options": [
+                {
+                  "text": "Yaay",
+                  "correct": true,
+                  "imageSrc": "/mother.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Baay",
+                  "correct": false,
+                  "imageSrc": "/father.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Rakk",
+                  "correct": false,
+                  "imageSrc": "/sibling.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'père' en wolof?",
+              "order": 2,
+              "options": [
+                {
+                  "text": "Baay",
+                  "correct": true,
+                  "imageSrc": "/father.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Yaay",
+                  "correct": false,
+                  "imageSrc": "/mother.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Rakk",
+                  "correct": false,
+                  "imageSrc": "/sibling.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "Yaay",
+              "order": 3,
+              "options": [
+                {
+                  "text": "Mère",
+                  "correct": true,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Père",
+                  "correct": false,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Frère/Soeur",
+                  "correct": false,
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'enfant' en wolof?",
+              "order": 4,
+              "options": [
+                {
+                  "text": "Doom",
+                  "correct": true,
+                  "imageSrc": "/child.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Yaay",
+                  "correct": false,
+                  "imageSrc": "/mother.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Baay",
+                  "correct": false,
+                  "imageSrc": "/father.svg",
+                  "audioSrc": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Couleurs de base",
+          "order": 4,
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'rouge' en wolof?",
+              "order": 1,
+              "options": [
+                {
+                  "text": "Weex",
+                  "correct": false,
+                  "imageSrc": "/color-white.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Noon",
+                  "correct": false,
+                  "imageSrc": "/color-black.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Xonq",
+                  "correct": true,
+                  "imageSrc": "/color-red.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'blanc' en wolof?",
+              "order": 2,
+              "options": [
+                {
+                  "text": "Weex",
+                  "correct": true,
+                  "imageSrc": "/color-white.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Xonq",
+                  "correct": false,
+                  "imageSrc": "/color-red.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Noon",
+                  "correct": false,
+                  "imageSrc": "/color-black.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "Weex",
+              "order": 3,
+              "options": [
+                {
+                  "text": "Blanc",
+                  "correct": true,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Noir",
+                  "correct": false,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Rouge",
+                  "correct": false,
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'noir' en wolof?",
+              "order": 4,
+              "options": [
+                {
+                  "text": "Noon",
+                  "correct": true,
+                  "imageSrc": "/color-black.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Weex",
+                  "correct": false,
+                  "imageSrc": "/color-white.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Xonq",
+                  "correct": false,
+                  "imageSrc": "/color-red.svg",
+                  "audioSrc": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Phrases simples",
+          "order": 5,
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'Merci' en wolof?",
+              "order": 1,
+              "options": [
+                {
+                  "text": "Jërejëf",
+                  "correct": true,
+                  "imageSrc": "/thanks.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Salaam",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Na nga def?",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'S'il vous plaît' en wolof?",
+              "order": 2,
+              "options": [
+                {
+                  "text": "Naka la",
+                  "correct": false,
+                  "imageSrc": "/please.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Jërejëf",
+                  "correct": false,
+                  "imageSrc": "/thanks.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Baax na",
+                  "correct": true,
+                  "imageSrc": "/please.svg",
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "Jërejëf",
+              "order": 3,
+              "options": [
+                {
+                  "text": "Merci",
+                  "correct": true,
+                  "audioSrc": null
+                },
+                {
+                  "text": "S'il vous plaît",
+                  "correct": false,
+                  "audioSrc": null
+                },
+                {
+                  "text": "Bonjour",
+                  "correct": false,
+                  "audioSrc": null
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "Comment dit-on 'Au revoir' en wolof?",
+              "order": 4,
+              "options": [
+                {
+                  "text": "Ba beneen yoon",
+                  "correct": true,
+                  "imageSrc": "/goodbye.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Salaam",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                },
+                {
+                  "text": "Na nga def?",
+                  "correct": false,
+                  "imageSrc": "/greeting.svg",
+                  "audioSrc": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

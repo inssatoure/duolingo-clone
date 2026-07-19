@@ -40,8 +40,8 @@ export const Header = () => {
           >
             <Image src="/mascot.svg" alt="Mascot" height={40} width={40} />
 
-            <h1 className="text-2xl font-extrabold tracking-wide text-green-600">
-              Lingo
+            <h1 className="text-2xl font-extrabold tracking-wide text-sahel">
+              WolofLingo
             </h1>
           </Link>
 
@@ -57,7 +57,7 @@ export const Header = () => {
               <Show when="signed-out">
                 <SignInButton mode="modal">
                   <Button size="lg" variant="ghost">
-                    Login
+                    Connexion
                   </Button>
                 </SignInButton>
               </Show>

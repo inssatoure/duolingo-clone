@@ -7,6 +7,8 @@ import { toast } from "sonner";
 
 import { refillHearts } from "@/actions/user-progress";
 import { createStripeUrl } from "@/actions/user-subscription";
+import { purchaseShopItem } from "@/actions/purchase-item";
+import { activateStreakFreeze } from "@/actions/streaks";
 import { Button } from "@/components/ui/button";
 import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
 
@@ -14,12 +16,14 @@ type ItemsProps = {
   hearts: number;
   points: number;
   hasActiveSubscription: boolean;
+  cfaBalance: number;
 };
 
 export const Items = ({
   hearts,
   points,
   hasActiveSubscription,
+  cfaBalance,
 }: ItemsProps) => {
   const [pending, startTransition] = useTransition();
 
@@ -38,6 +42,26 @@ export const Items = ({
         .then((response) => {
           if (response.data) window.location.href = response.data;
         })
+        .catch(() => toast.error("Something went wrong."));
+    });
+  };
+
+  const onPurchaseStreakFreeze = () => {
+    if (pending || cfaBalance < 500) return;
+
+    startTransition(() => {
+      activateStreakFreeze()
+        .then(() => toast.success("Streak freeze activé!"))
+        .catch(() => toast.error("Something went wrong."));
+    });
+  };
+
+  const onPurchaseCFABoost = () => {
+    if (pending || cfaBalance < 100) return;
+
+    startTransition(() => {
+      purchaseShopItem(4) // Assuming CFA boost is item ID 4
+        .then(() => toast.success("+1000 CFA ajoutés!"))
         .catch(() => toast.error("Something went wrong."));
     });
   };
@@ -85,6 +109,60 @@ export const Items = ({
 
         <Button onClick={onUpgrade} disabled={pending} aria-disabled={pending}>
           {hasActiveSubscription ? "settings" : "upgrade"}
+        </Button>
+      </div>
+
+      <div className="flex w-full items-center gap-x-4 border-t-2 p-4 pt-8">
+        <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-gold/20 text-3xl">
+          ❄️
+        </div>
+
+        <div className="flex-1">
+          <p className="text-base font-bold text-sahel lg:text-xl">
+            Streak Freeze
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Protège ta série pendant 24h
+          </p>
+        </div>
+
+        <Button
+          onClick={onPurchaseStreakFreeze}
+          disabled={pending || cfaBalance < 500}
+          aria-disabled={pending || cfaBalance < 500}
+          className="bg-gold hover:bg-gold/90"
+        >
+          <div className="flex items-center">
+            <span className="mr-1">500</span>
+            <span className="text-xs">CFA</span>
+          </div>
+        </Button>
+      </div>
+
+      <div className="flex w-full items-center gap-x-4 border-t-2 p-4 pt-8">
+        <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-mangrove/20 text-3xl">
+          💰
+        </div>
+
+        <div className="flex-1">
+          <p className="text-base font-bold text-mangrove lg:text-xl">
+            CFA Boost
+          </p>
+          <p className="text-xs text-muted-foreground">
+            +1000 CFA instantanés
+          </p>
+        </div>
+
+        <Button
+          onClick={onPurchaseCFABoost}
+          disabled={pending || cfaBalance < 100}
+          aria-disabled={pending || cfaBalance < 100}
+          className="bg-mangrove hover:bg-mangrove/90"
+        >
+          <div className="flex items-center">
+            <span className="mr-1">100</span>
+            <span className="text-xs">CFA</span>
+          </div>
         </Button>
       </div>
     </ul>

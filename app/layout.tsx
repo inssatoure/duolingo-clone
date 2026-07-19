@@ -1,6 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
-import { Nunito } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 
 import { ExitModal } from "@/components/modals/exit-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
@@ -10,10 +10,20 @@ import { siteConfig } from "@/config";
 
 import "./globals.css";
 
-const font = Nunito({ subsets: ["latin"] });
+const poppins = Poppins({ 
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+});
 
 export const viewport: Viewport = {
-  themeColor: "#22C55E",
+  themeColor: "#D35400",
 };
 
 export const metadata: Metadata = siteConfig;
@@ -30,14 +40,14 @@ export default function RootLayout({
           logoImageUrl: "/favicon.ico",
         },
         variables: {
-          colorPrimary: "#22C55E",
+          colorPrimary: "#D35400",
         },
       }}
       telemetry={false}
       afterSignOutUrl="/"
     >
       <html lang="en">
-        <body className={font.className}>
+        <body className={`${poppins.variable} ${inter.variable} font-sans`}>
           <Toaster theme="light" richColors closeButton />
           <ExitModal />
           <HeartsModal />

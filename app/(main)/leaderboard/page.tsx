@@ -13,6 +13,7 @@ import {
   getTopTenUsers,
   getUserProgress,
   getUserSubscription,
+  getUserStreak,
 } from "@/db/queries";
 
 const LeaderboardPage = async () => {
@@ -21,11 +22,13 @@ const LeaderboardPage = async () => {
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
   const leaderboardData = getTopTenUsers();
+  const userStreakData = getUserStreak();
 
-  const [userProgress, userSubscription, leaderboard] = await Promise.all([
+  const [userProgress, userSubscription, leaderboard, userStreak] = await Promise.all([
     userProgressData,
     userSubscriptionData,
     leaderboardData,
+    userStreakData,
   ]);
 
   if (!userProgress || !userProgress.activeCourse) redirect("/courses");
@@ -40,6 +43,10 @@ const LeaderboardPage = async () => {
           hearts={userProgress.hearts}
           points={userProgress.points}
           hasActiveSubscription={isPro}
+          currentStreak={userStreak?.currentStreak || 0}
+          longestStreak={userStreak?.longestStreak || 0}
+          streakFreezeActive={userStreak?.streakFreezeActive || false}
+          cfaBalance={userProgress.cfaBalance || 0}
         />
         {!isPro && <Promo />}
         <Quests points={userProgress.points} />
@@ -54,11 +61,11 @@ const LeaderboardPage = async () => {
             width={90}
           />
 
-          <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
-            Leaderboard
+          <h1 className="my-6 text-center text-2xl font-bold text-sahel">
+            Classement
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            See where you stand among other learners in the community.
+            Voici où tu te situes parmi les autres apprenants
           </p>
 
           <Separator className="mb-4 h-0.5 rounded-full" />
@@ -67,9 +74,15 @@ const LeaderboardPage = async () => {
               key={userProgress.userId}
               className="flex w-full items-center rounded-xl p-2 px-4 hover:bg-gray-200/50"
             >
-              <p className="mr-4 font-bold text-lime-700">{i + 1}</p>
+              <p
+                className={`mr-4 font-bold ${
+                  i < 3 ? "text-gold" : i < 10 ? "text-sahel" : "text-muted-foreground"
+                }`}
+              >
+                {i + 1}
+              </p>
 
-              <Avatar className="ml-3 mr-6 h-12 w-12 border bg-green-500">
+              <Avatar className="ml-3 mr-6 h-12 w-12 border bg-mangrove">
                 <AvatarImage
                   src={userProgress.userImageSrc}
                   className="object-cover"

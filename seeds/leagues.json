@@ -1,0 +1,32 @@
+{
+  "leagues": [
+    {
+      "name": "Diamond League",
+      "minRank": 1,
+      "maxRank": 30,
+      "iconSrc": "/leagues/diamond.svg",
+      "color": "#B9F2FF"
+    },
+    {
+      "name": "Gold League",
+      "minRank": 31,
+      "maxRank": 100,
+      "iconSrc": "/leagues/gold.svg",
+      "color": "#FFD700"
+    },
+    {
+      "name": "Silver League",
+      "minRank": 101,
+      "maxRank": 300,
+      "iconSrc": "/leagues/silver.svg",
+      "color": "#C0C0C0"
+    },
+    {
+      "name": "Bronze League",
+      "minRank": 301,
+      "maxRank": 1000,
+      "iconSrc": "/leagues/bronze.svg",
+      "color": "#CD7F32"
+    }
+  ]
+}

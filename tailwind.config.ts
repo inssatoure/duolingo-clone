@@ -53,6 +53,31 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom Senegal-inspired colors
+        sahel: {
+          DEFAULT: "#D35400",
+          light: "#E67E22",
+          dark: "#A04000",
+        },
+        mangrove: {
+          DEFAULT: "#2ECC71",
+          light: "#58D68D",
+          dark: "#27AE60",
+        },
+        gold: {
+          DEFAULT: "#F39C12",
+          light: "#F7DC6F",
+          dark: "#D68910",
+        },
+        sand: {
+          DEFAULT: "#FDF6E3",
+          light: "#FEF9E7",
+          dark: "#F5E6C8",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-poppins)", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

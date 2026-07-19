@@ -31,14 +31,14 @@ export const Card = ({
   type,
 }: CardProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [audio, _, controls] = useAudio({ src: audioSrc || "" });
+  const [audio, _, controls] = useAudio(audioSrc ? { src: audioSrc } : { src: "" });
 
   const handleClick = useCallback(() => {
     if (disabled) return;
 
-    void controls.play();
+    if (audioSrc) void controls.play();
     onClick();
-  }, [disabled, onClick, controls]);
+  }, [disabled, onClick, controls, audioSrc]);
 
   useKey(shortcut, handleClick, {}, [handleClick]);
 

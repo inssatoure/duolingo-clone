@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "name": "Streak Freeze",
+      "description": "Protège ta série pendant 24h si tu rates une journée",
+      "price": 500,
+      "type": "streak_freeze",
+      "iconSrc": "/shop/streak-freeze.svg",
+      "active": true
+    },
+    {
+      "name": "Bonus XP x2",
+      "description": "Double tes XP pendant 30 minutes",
+      "price": 300,
+      "type": "bonus_xp",
+      "iconSrc": "/shop/bonus-xp.svg",
+      "active": true
+    },
+    {
+      "name": "Cœurs Pleins",
+      "description": "Restaure tous tes cœurs instantanément",
+      "price": 200,
+      "type": "hearts_refill",
+      "iconSrc": "/shop/hearts-refill.svg",
+      "active": true
+    },
+    {
+      "name": "CFA Boost",
+      "description": "Reçois 1000 CFA bonus",
+      "price": 100,
+      "type": "currency_boost",
+      "iconSrc": "/shop/cfa-boost.svg",
+      "active": true
+    }
+  ]
+}
