@@ -69,7 +69,7 @@ const LeaguesPage = async () => {
             {userLeague?.name || "Bronze League"}
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            Compétis avec d'autres apprenants dans ta ligue hebdomadaire
+            Compétis avec d&apos;autres apprenants dans ta ligue hebdomadaire
           </p>
 
           <Separator className="mb-4 h-0.5 rounded-full" />

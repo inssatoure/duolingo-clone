@@ -32,7 +32,7 @@ export default function MarketingPage() {
             <Show when="signed-in">
               <Button size="lg" variant="secondary" className="w-full" asChild>
                 <Link href="/learn" prefetch>
-                  Continuer l'apprentissage
+                  Continuer l&apos;apprentissage
                 </Link>
               </Button>
             </Show>
@@ -46,7 +46,7 @@ export default function MarketingPage() {
 
               <SignInButton mode="modal">
                 <Button size="lg" variant="primaryOutline" className="w-full">
-                  J'ai déjà un compte
+                  J&apos;ai déjà un compte
                 </Button>
               </SignInButton>
             </Show>
