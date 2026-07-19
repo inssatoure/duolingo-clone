@@ -6,22 +6,37 @@ import {
   Show,
 } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Onboarding } from "@/components/onboarding";
 import { Button } from "@/components/ui/button";
+import { DICT, LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 
-export default function MarketingPage() {
+export default async function MarketingPage() {
+  const cookieStore = await cookies();
+  const cookieLocale = cookieStore.get(LOCALE_COOKIE)?.value;
+  const locale = isLocale(cookieLocale) ? cookieLocale : "fr";
+  const t = DICT[locale];
+
   return (
     <div className="mx-auto flex w-full max-w-[988px] flex-1 flex-col items-center justify-center gap-2 p-4 lg:flex-row">
+      <Onboarding />
+
       <div className="relative mb-8 h-[240px] w-[240px] lg:mb-0 lg:h-[424px] lg:w-[424px]">
         <Image src="/hero.svg" alt="Hero" fill />
       </div>
 
       <div className="flex flex-col items-center gap-y-8">
-        <h1 className="max-w-[480px] text-center text-xl font-bold text-sahel lg:text-3xl">
-          Apprends, pratique et maîtrise de nouvelles langues avec WolofLingo.
-        </h1>
+        <div className="flex flex-col items-center gap-y-2">
+          <h1 className="max-w-[480px] text-center text-xl font-bold text-sahel lg:text-3xl">
+            {t.heroTitle}
+          </h1>
+          <p className="max-w-[480px] text-center text-muted-foreground">
+            {t.heroSubtitle}
+          </p>
+        </div>
 
         <div className="flex w-full max-w-[330px] flex-col items-center gap-y-3">
           <ClerkLoading>
@@ -32,7 +47,7 @@ export default function MarketingPage() {
             <Show when="signed-in">
               <Button size="lg" variant="secondary" className="w-full" asChild>
                 <Link href="/learn" prefetch>
-                  Continuer l&apos;apprentissage
+                  {t.continueLearning}
                 </Link>
               </Button>
             </Show>
@@ -40,13 +55,13 @@ export default function MarketingPage() {
             <Show when="signed-out">
               <SignUpButton mode="modal">
                 <Button size="lg" variant="secondary" className="w-full">
-                  Commencer
+                  {t.getStarted}
                 </Button>
               </SignUpButton>
 
               <SignInButton mode="modal">
                 <Button size="lg" variant="primaryOutline" className="w-full">
-                  J&apos;ai déjà un compte
+                  {t.haveAccount}
                 </Button>
               </SignInButton>
             </Show>

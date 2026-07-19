@@ -1,8 +1,10 @@
 import { ClerkLoading, ClerkLoaded, UserButton } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
+import { cookies } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
+import { DICT, LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 import { SidebarItem } from "./sidebar-item";
@@ -11,7 +13,10 @@ type SidebarProps = {
   className?: string;
 };
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = async ({ className }: SidebarProps) => {
+  const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
+  const t = DICT[isLocale(cookieLocale) ? cookieLocale : "fr"];
+
   return (
     <div
       className={cn(
@@ -24,20 +29,20 @@ export const Sidebar = ({ className }: SidebarProps) => {
           <Image src="/mascot.svg" alt="Mascot" height={40} width={40} />
 
           <h1 className="text-2xl font-extrabold tracking-wide text-green-600">
-            Lingo
+            WolofLingo
           </h1>
         </div>
       </Link>
 
       <div className="flex flex-1 flex-col gap-y-2">
-        <SidebarItem label="Learn" href="/learn" iconSrc="/learn.svg" />
+        <SidebarItem label={t.navLearn} href="/learn" iconSrc="/learn.svg" />
         <SidebarItem
-          label="Leaderboard"
+          label={t.navLeaderboard}
           href="/leaderboard"
           iconSrc="/leaderboard.svg"
         />
-        <SidebarItem label="Quests" href="/quests" iconSrc="/quests.svg" />
-        <SidebarItem label="Shop" href="/shop" iconSrc="/shop.svg" />
+        <SidebarItem label={t.navQuests} href="/quests" iconSrc="/quests.svg" />
+        <SidebarItem label={t.navShop} href="/shop" iconSrc="/shop.svg" />
       </div>
 
       <div className="p-4">

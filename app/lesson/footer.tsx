@@ -2,6 +2,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 import { useKey, useMedia } from "react-use";
 
 import { Button } from "@/components/ui/button";
+import { useLocale } from "@/lib/use-locale";
 import { cn } from "@/lib/utils";
 
 type FooterProps = {
@@ -19,6 +20,7 @@ export const Footer = ({
 }: FooterProps) => {
   useKey("Enter", onCheck, {}, [onCheck]);
   const isMobile = useMedia("(max-width: 1024px)");
+  const { t } = useLocale();
 
   return (
     <footer
@@ -61,10 +63,10 @@ export const Footer = ({
           size={isMobile ? "sm" : "lg"}
           variant={status === "wrong" ? "danger" : "secondary"}
         >
-          {status === "none" && "Check"}
-          {status === "correct" && "Next"}
-          {status === "wrong" && "Retry"}
-          {status === "completed" && "Continue"}
+          {status === "none" && t.check}
+          {status === "correct" && t.next}
+          {status === "wrong" && t.retry}
+          {status === "completed" && t.continue}
         </Button>
       </div>
     </footer>

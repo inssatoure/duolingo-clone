@@ -12,11 +12,21 @@ import { Loader } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useRouter } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import { links } from "@/config";
+import { useLocale, writeLocaleCookie } from "@/lib/use-locale";
 
 export const Header = () => {
   const { isSignedIn } = useAuth();
+  const router = useRouter();
+  const { locale, t } = useLocale();
+
+  const toggleLocale = () => {
+    writeLocaleCookie(locale === "fr" ? "en" : "fr");
+    router.refresh();
+  };
 
   return (
     <>
@@ -34,7 +44,15 @@ export const Header = () => {
             </h1>
           </Link>
 
-          <div className="flex gap-x-3">
+          <div className="flex items-center gap-x-3">
+            <button
+              onClick={toggleLocale}
+              className="rounded-xl border-2 border-b-4 border-slate-200 bg-white px-3 py-1.5 text-sm font-bold text-neutral-600 transition hover:bg-slate-50 active:border-b-2"
+              title={locale === "fr" ? "Switch to English" : "Passer en français"}
+            >
+              {locale === "fr" ? "🇫🇷 FR" : "🇬🇧 EN"}
+            </button>
+
             <ClerkLoading>
               <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
             </ClerkLoading>
@@ -46,7 +64,7 @@ export const Header = () => {
               <Show when="signed-out">
                 <SignInButton mode="modal">
                   <Button size="lg" variant="ghost">
-                    Connexion
+                    {t.login}
                   </Button>
                 </SignInButton>
               </Show>
