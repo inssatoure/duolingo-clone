@@ -17,6 +17,7 @@ import { CustomMenu } from "./custom-menu";
 import { CsvImportPage } from "./import/csv-import-page";
 import { MediaPage } from "./media/media-page";
 import { SeedPage } from "./seed/seed-page";
+import { StudioPage } from "./studio/studio-page";
 import { LessonCreate } from "./lesson/create";
 import { LessonEdit } from "./lesson/edit";
 import { LessonList } from "./lesson/list";
@@ -35,6 +36,7 @@ const AppContent = () => {
         <Route path="/import" element={<CsvImportPage />} />
         <Route path="/media" element={<MediaPage />} />
         <Route path="/seed" element={<SeedPage />} />
+        <Route path="/studio" element={<StudioPage />} />
       </CustomRoutes>
 
       <Resource

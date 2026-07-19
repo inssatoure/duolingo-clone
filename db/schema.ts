@@ -267,3 +267,16 @@ export const userPurchasesRelations = relations(userPurchases, ({ one }) => ({
     references: [shopItems.id],
   }),
 }));
+
+// Native-speaker audio recordings, keyed by the exact display text so lessons
+// can look up audio for any option or question without reseeding. Created at
+// runtime by the recordings API (CREATE TABLE IF NOT EXISTS) so no migration
+// step is needed.
+export const recordings = pgTable("recordings", {
+  id: serial("id").primaryKey(),
+  textKey: text("text_key").notNull(),
+  lang: text("lang").notNull(), // "wo" | "fr" | "en"
+  mime: text("mime").notNull(),
+  data: text("data").notNull(), // base64-encoded audio
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});

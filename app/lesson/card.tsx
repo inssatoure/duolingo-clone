@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useAudio, useKey } from "react-use";
 
 import { challenges } from "@/db/schema";
+import { isWolofText, playText } from "@/lib/audio-client";
+import { readLocaleCookie, readTargetCookie } from "@/lib/use-locale";
 import { cn } from "@/lib/utils";
 
 type CardProps = {
@@ -36,9 +38,23 @@ export const Card = ({
   const handleClick = useCallback(() => {
     if (disabled) return;
 
-    if (audioSrc) void controls.play();
+    if (audioSrc) {
+      void controls.play();
+    } else {
+      // Every option is audible: native recording first; browser speech
+      // synthesis fallback for French/English text (never for Wolof).
+      const locale = readLocaleCookie();
+      const synthLang = isWolofText(text)
+        ? null
+        : locale === "wo"
+          ? (readTargetCookie() ?? "fr")
+          : locale === "en"
+            ? "en"
+            : "fr";
+      playText(text, synthLang);
+    }
     onClick();
-  }, [disabled, onClick, controls, audioSrc]);
+  }, [disabled, onClick, controls, audioSrc, text]);
 
   useKey(shortcut, handleClick, {}, [handleClick]);
 

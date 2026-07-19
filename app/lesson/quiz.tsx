@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,8 @@ import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { reduceHearts } from "@/actions/user-progress";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
-import { useLocale } from "@/lib/use-locale";
+import { extractQuoted, isWolofText, playText } from "@/lib/audio-client";
+import { readLocaleCookie, readTargetCookie, useLocale } from "@/lib/use-locale";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
 
@@ -85,6 +86,26 @@ export const Quiz = ({
 
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
+
+  // Duolingo-style: read the question aloud when a challenge appears.
+  // ASSIST questions are the word itself; SELECT questions embed the word in
+  // quotes — we pronounce the word (native recording first, speech synthesis
+  // fallback for French/English).
+  useEffect(() => {
+    if (!challenge) return;
+    const word = extractQuoted(challenge.question) ?? challenge.question;
+    const locale = readLocaleCookie();
+    const synthLang = isWolofText(word)
+      ? null
+      : locale === "wo"
+        ? (readTargetCookie() ?? "fr")
+        : locale === "en"
+          ? "en"
+          : "fr";
+    const timer = setTimeout(() => playText(word, synthLang), 350);
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [challenge?.id]);
 
   const onNext = () => {
     setActiveIndex((current) => current + 1);
