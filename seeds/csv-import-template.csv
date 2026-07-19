@@ -1,0 +1,7 @@
+lesson_title,lesson_order,challenge_type,question,challenge_order,option_text,option_correct,option_image_src,option_audio_src
+Salutations 1,1,SELECT,"Comment dit-on ""Bonjour"" en wolof ?",1,Salaam aleekum,true,,
+Salutations 1,1,SELECT,"Comment dit-on ""Bonjour"" en wolof ?",1,Ba beneen yoon,false,,
+Salutations 1,1,SELECT,"Comment dit-on ""Bonjour"" en wolof ?",1,Dieuredieuf,false,,
+Salutations 1,1,ASSIST,Dieuredieuf,2,Merci,true,,
+Salutations 1,1,ASSIST,Dieuredieuf,2,Au revoir,false,,
+Salutations 1,1,ASSIST,Dieuredieuf,2,Bonjour,false,,

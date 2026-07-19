@@ -51,17 +51,53 @@ const main = async () => {
       readFileSync(join(process.cwd(), "seeds/wolof-course.json"), "utf-8")
     );
     
-    console.log(`Course: ${wolofCourseData.course.title} - ${wolofCourseData.meta.note}`);
+    console.log(`Wolof seed meta: ${wolofCourseData.meta.note}`);
 
-    // Insert course
-    const courses = await db
-      .insert(schema.courses)
-      .values([wolofCourseData.course])
-      .returning();
+    // Support both the legacy single-course shape ({ course, units }) and
+    // the current multi-course shape ({ courses: [{ course, units }, ...] })
+    interface SeedOption {
+      text: string;
+      correct: boolean;
+      imageSrc?: string | null;
+      audioSrc?: string | null;
+    }
+    interface SeedChallenge {
+      type: string;
+      question: string;
+      order: number;
+      options: SeedOption[];
+    }
+    interface SeedLesson {
+      title: string;
+      order: number;
+      challenges: SeedChallenge[];
+    }
+    interface SeedUnit {
+      title: string;
+      description: string;
+      order: number;
+      lessons: SeedLesson[];
+    }
+    interface SeedCourseEntry {
+      course: typeof schema.courses.$inferInsert;
+      units: SeedUnit[];
+    }
 
-    // For each course, insert units
-    for (const course of courses) {
-      for (const unitData of wolofCourseData.units) {
+    const courseEntries: SeedCourseEntry[] = wolofCourseData.courses
+      ? wolofCourseData.courses
+      : [{ course: wolofCourseData.course, units: wolofCourseData.units }];
+
+    for (const entry of courseEntries) {
+      console.log(`Seeding course: ${entry.course.title}`);
+
+      const courses = await db
+        .insert(schema.courses)
+        .values([entry.course])
+        .returning();
+
+      // For each course, insert units
+      for (const course of courses) {
+        for (const unitData of entry.units) {
         const units = await db
           .insert(schema.units)
           .values([
@@ -108,7 +144,7 @@ const main = async () => {
                   await db
                     .insert(schema.challengeOptions)
                     .values(
-                      challengeData.options.map((option: any) => ({
+                      challengeData.options.map((option: SeedOption) => ({
                         challengeId: challenge.id,
                         text: option.text,
                         correct: option.correct,
@@ -121,6 +157,7 @@ const main = async () => {
             }
           }
         }
+      }
       }
     }
 

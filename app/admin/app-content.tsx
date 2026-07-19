@@ -1,7 +1,8 @@
 "use client";
 
 import simpleRestProvider from "ra-data-simple-rest";
-import { Admin, Resource } from "react-admin";
+import { Admin, CustomRoutes, Layout, type LayoutProps, Resource } from "react-admin";
+import { Route } from "react-router-dom";
 
 import { ChallengeCreate } from "./challenge/create";
 import { ChallengeEdit } from "./challenge/edit";
@@ -12,6 +13,8 @@ import { ChallengeOptionsList } from "./challengeOption/list";
 import { CourseCreate } from "./course/create";
 import { CourseEdit } from "./course/edit";
 import { CourseList } from "./course/list";
+import { CustomMenu } from "./custom-menu";
+import { CsvImportPage } from "./import/csv-import-page";
 import { LessonCreate } from "./lesson/create";
 import { LessonEdit } from "./lesson/edit";
 import { LessonList } from "./lesson/list";
@@ -21,9 +24,15 @@ import { UnitList } from "./unit/list";
 
 const dataProvider = simpleRestProvider("/api");
 
+const CustomLayout = (props: LayoutProps) => <Layout {...props} menu={CustomMenu} />;
+
 const AppContent = () => {
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin dataProvider={dataProvider} layout={CustomLayout}>
+      <CustomRoutes>
+        <Route path="/import" element={<CsvImportPage />} />
+      </CustomRoutes>
+
       <Resource
         name="courses"
         recordRepresentation="title"
