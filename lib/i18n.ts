@@ -36,6 +36,29 @@ const fr = {
     next: "Suivant",
     retry: "Réessayer",
     continue: "Continuer",
+    // Lesson flow
+    selectMeaning: "Choisis la bonne traduction",
+    nicelyDone: "Bien joué !",
+    tryAgain: "Essaie encore.",
+    practiceAgain: "Refaire la leçon",
+    lessonComplete: "Bravo ! Tu as terminé la leçon.",
+    somethingWrong: "Une erreur est survenue. Réessaie.",
+    heartsLeft: "Cœurs restants",
+    totalXp: "XP gagnés",
+    // Modals
+    exitTitle: "Attends, ne pars pas !",
+    exitDescription: "Tu es sur le point de quitter la leçon. Tu es sûr(e) ?",
+    keepLearning: "Continuer la leçon",
+    endSession: "Quitter",
+    noHeartsTitle: "Tu n'as plus de cœurs !",
+    noHeartsDescription:
+      "Passe en Pro pour des cœurs illimités, ou achètes-en dans la boutique.",
+    unlimitedHearts: "Cœurs illimités",
+    noThanks: "Non merci",
+    practiceTitle: "Leçon d'entraînement",
+    practiceDescription:
+      "Refais des leçons pour regagner des cœurs et des points. Tu ne peux pas en perdre ici.",
+    understood: "J'ai compris",
 };
 
 export type Dict = { [K in keyof typeof fr]: string };
@@ -69,6 +92,27 @@ export const DICT: Record<Locale, Dict> = {
     next: "Next",
     retry: "Retry",
     continue: "Continue",
+    selectMeaning: "Select the correct meaning",
+    nicelyDone: "Nicely done!",
+    tryAgain: "Try again.",
+    practiceAgain: "Practice again",
+    lessonComplete: "Great job! You've completed the lesson.",
+    somethingWrong: "Something went wrong. Please try again.",
+    heartsLeft: "Hearts left",
+    totalXp: "Total XP",
+    exitTitle: "Wait, don't go!",
+    exitDescription: "You're about to leave the lesson. Are you sure?",
+    keepLearning: "Keep learning",
+    endSession: "End session",
+    noHeartsTitle: "You ran out of hearts!",
+    noHeartsDescription:
+      "Get Pro for unlimited hearts, or purchase them in the store.",
+    unlimitedHearts: "Get unlimited hearts",
+    noThanks: "No thanks",
+    practiceTitle: "Practice lesson",
+    practiceDescription:
+      "Use practice lessons to regain hearts and points. You cannot lose hearts here.",
+    understood: "I understand",
   },
   // Wolof interface strings (standard everyday Wolof; native review welcome).
   wo: {
@@ -98,6 +142,27 @@ export const DICT: Record<Locale, Dict> = {
     next: "Ci kanam",
     retry: "Jéemaat",
     continue: "Wéyal",
+    selectMeaning: "Tannal tekki bi baax",
+    nicelyDone: "Baax na lool !",
+    tryAgain: "Jéemaatal.",
+    practiceAgain: "Defaat leson bi",
+    lessonComplete: "Jërëjëf ! Pare nga leson bi.",
+    somethingWrong: "Am na njumte. Jéemaatal.",
+    heartsLeft: "Xol yi des",
+    totalXp: "XP yi nga am",
+    exitTitle: "Xaaral, bul dem !",
+    exitDescription: "Dangay génn leson bi. Ndax wóor nga ?",
+    keepLearning: "Wéyal jàng bi",
+    endSession: "Génn",
+    noHeartsTitle: "Amatoo xol !",
+    noHeartsDescription:
+      "Jëlal Pro ngir xol yu amul àpp, walla jënd ci bitik bi.",
+    unlimitedHearts: "Xol yu amul àpp",
+    noThanks: "Déedéet, jërëjëf",
+    practiceTitle: "Leson tàggat",
+    practiceDescription:
+      "Defaat leson yi ngir amaat xol ak poñ. Fii mënuloo ñàkk xol.",
+    understood: "Dégg naa",
   },
 };
 

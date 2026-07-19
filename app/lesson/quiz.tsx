@@ -12,6 +12,7 @@ import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { reduceHearts } from "@/actions/user-progress";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
+import { useLocale } from "@/lib/use-locale";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
 
@@ -59,6 +60,7 @@ export const Quiz = ({
   const [pending, startTransition] = useTransition();
   const { open: openHeartsModal } = useHeartsModal();
   const { open: openPracticeModal } = usePracticeModal();
+  const { t } = useLocale();
 
   useMount(() => {
     if (initialPercentage === 100) openPracticeModal();
@@ -132,7 +134,7 @@ export const Quiz = ({
               setHearts((prev) => Math.min(prev + 1, MAX_HEARTS));
             }
           })
-          .catch(() => toast.error("Something went wrong. Please try again."));
+          .catch(() => toast.error(t.somethingWrong));
       });
     } else {
       startTransition(() => {
@@ -148,7 +150,7 @@ export const Quiz = ({
 
             if (!response?.error) setHearts((prev) => Math.max(prev - 1, 0));
           })
-          .catch(() => toast.error("Something went wrong. Please try again."));
+          .catch(() => toast.error(t.somethingWrong));
       });
     }
   };
@@ -182,7 +184,7 @@ export const Quiz = ({
           />
 
           <h1 className="text-lg font-bold text-neutral-700 lg:text-3xl">
-            Great job! <br /> You&apos;ve completed the lesson.
+            {t.lessonComplete}
           </h1>
 
           <div className="flex w-full items-center gap-x-4">
@@ -205,7 +207,7 @@ export const Quiz = ({
 
   const title =
     challenge.type === "ASSIST"
-      ? "Select the correct meaning"
+      ? t.selectMeaning
       : challenge.question;
 
   return (
