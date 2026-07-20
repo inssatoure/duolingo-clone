@@ -1,6 +1,6 @@
-# WolofLingo 🇸🇳
+# WoLingo 🇸🇳
 
-**WolofLingo** is a Duolingo-style app to learn **Wolof** from French or English — and for Wolof speakers to learn **French** and **English**. Interactive lessons, streaks, leagues, quests, a shop and a full admin back-office.
+**WoLingo** is a Duolingo-style app to learn **Wolof** from French or English — and for Wolof speakers to learn **French** and **English**. Interactive lessons, streaks, leagues, quests, a shop and a full admin back-office.
 
 Created by **[Issa Touré](https://www.issatoure.com)** · [LinkedIn](https://sn.linkedin.com/in/01issatoure) · [Instagram](https://www.instagram.com/inssa_tourei)
 

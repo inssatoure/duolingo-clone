@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  title: "WolofLingo",
+  title: "WoLingo",
   description:
     "Learn Wolof from French or English — and French or English from Wolof. Interactive lessons, quizzes, gamification and progress tracking.",
   keywords: [

@@ -73,14 +73,14 @@ export const Onboarding = () => {
         <div className="flex flex-col items-center gap-4">
           <Image
             src="/mascot.svg"
-            alt="WolofLingo"
+            alt="WoLingo"
             height={120}
             width={120}
             className="animate-bounce"
             priority
           />
           <h1 className="animate-pulse text-4xl font-extrabold tracking-wide text-sahel">
-            WolofLingo
+            WoLingo
           </h1>
           <p className="text-lg font-semibold text-muted-foreground">
             Salaamaalekum ! 👋
@@ -171,7 +171,7 @@ export const Onboarding = () => {
           </div>
 
           <p className="text-center text-sm text-muted-foreground">
-            🇸🇳 Wolof, français, English — WolofLingo dina la jàppale !
+            🇸🇳 Wolof, français, English — WoLingo dina la jàppale !
           </p>
         </div>
       )}

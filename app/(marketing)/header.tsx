@@ -41,7 +41,7 @@ export const Header = () => {
             <Image src="/mascot.svg" alt="Mascot" height={40} width={40} />
 
             <h1 className="text-2xl font-extrabold tracking-wide text-sahel">
-              WolofLingo
+              WoLingo
             </h1>
           </Link>
 

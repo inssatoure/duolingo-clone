@@ -6,7 +6,7 @@ export const TARGET_COOKIE = "wolingo-target";
 
 const fr = {
     // Marketing
-    heroTitle: "Apprends, pratique et maîtrise le wolof avec WolofLingo.",
+    heroTitle: "Apprends, pratique et maîtrise le wolof avec WoLingo.",
     heroSubtitle: "La langue du Sénégal, à ton rythme. Gratuit et fun !",
     getStarted: "Commencer",
     haveAccount: "J'ai déjà un compte",
@@ -88,7 +88,7 @@ export type Dict = { [K in keyof typeof fr]: string };
 export const DICT: Record<Locale, Dict> = {
   fr,
   en: {
-    heroTitle: "Learn, practice and master Wolof with WolofLingo.",
+    heroTitle: "Learn, practice and master Wolof with WoLingo.",
     heroSubtitle: "The language of Senegal, at your own pace. Free and fun!",
     getStarted: "Get started",
     haveAccount: "I already have an account",
@@ -159,7 +159,7 @@ export const DICT: Record<Locale, Dict> = {
   },
   // Wolof interface strings (standard everyday Wolof; native review welcome).
   wo: {
-    heroTitle: "Jàngal farañse ak angale ci wolof, ak WolofLingo.",
+    heroTitle: "Jàngal farañse ak angale ci wolof, ak WoLingo.",
     heroSubtitle: "Ci sa lakk, ci sa waxtu. Amul fey, am na bànneex !",
     getStarted: "Tàmbali",
     haveAccount: "Am naa kont ba noppi",
