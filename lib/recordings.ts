@@ -2,6 +2,8 @@ import { sql } from "drizzle-orm";
 
 import db from "@/db/drizzle";
 
+export { normalizeKey } from "@/lib/recordings-key";
+
 let ensured = false;
 
 /** Creates the recordings table on first use — no migration step needed. */
@@ -26,6 +28,3 @@ export const ensureRecordingsTable = async () => {
   `);
   ensured = true;
 };
-
-export const normalizeKey = (text: string) =>
-  text.trim().toLowerCase().normalize("NFC");
