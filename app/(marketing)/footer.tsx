@@ -1,17 +1,35 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { links } from "@/config";
+import { type Locale } from "@/lib/i18n";
+import { writeLocaleCookie, writeTargetCookie } from "@/lib/use-locale";
 
-const tracks = [
-  { flag: "/fr.svg", label: "Wolof depuis le français" },
-  { flag: "/sn.svg", label: "Wolof from English" },
-  { flag: "/sn.svg", label: "Français ci wolof" },
-  { flag: "/sn.svg", label: "English ci wolof" },
+const tracks: {
+  flag: string;
+  label: string;
+  locale: Locale;
+  target: "fr" | "en" | null;
+}[] = [
+  { flag: "/fr.svg", label: "Wolof depuis le français", locale: "fr", target: null },
+  { flag: "/sn.svg", label: "Wolof from English", locale: "en", target: null },
+  { flag: "/sn.svg", label: "Français ci wolof", locale: "wo", target: "fr" },
+  { flag: "/sn.svg", label: "English ci wolof", locale: "wo", target: "en" },
 ];
 
 export const Footer = () => {
+  const router = useRouter();
+
+  const goToCourse = (track: (typeof tracks)[number]) => {
+    writeLocaleCookie(track.locale);
+    if (track.target) writeTargetCookie(track.target);
+    router.push("/courses");
+  };
+
   return (
     <div className="hidden w-full border-t-2 border-slate-200 p-2 lg:block">
       <div className="mx-auto flex h-16 max-w-screen-lg items-center justify-evenly">
@@ -20,7 +38,8 @@ export const Footer = () => {
             key={track.label}
             size="lg"
             variant="ghost"
-            className="w-full cursor-default"
+            className="w-full"
+            onClick={() => goToCourse(track)}
           >
             <Image
               src={track.flag}

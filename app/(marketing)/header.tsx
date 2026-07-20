@@ -5,8 +5,7 @@ import {
   ClerkLoading,
   SignInButton,
   Show,
-  UserButton,
-  useAuth,
+  useUser,
 } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
@@ -15,11 +14,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
-import { links } from "@/config";
 import { useLocale, writeLocaleCookie } from "@/lib/use-locale";
 
 export const Header = () => {
-  const { isSignedIn } = useAuth();
+  const { user } = useUser();
   const router = useRouter();
   const { locale, t } = useLocale();
 
@@ -59,7 +57,21 @@ export const Header = () => {
             </ClerkLoading>
             <ClerkLoaded>
               <Show when="signed-in">
-                <UserButton />
+                <Link href="/learn" prefetch title={t.continueLearning}>
+                  {user?.imageUrl ? (
+                    <Image
+                      src={user.imageUrl}
+                      alt={user.fullName ?? "Profil"}
+                      height={32}
+                      width={32}
+                      className="rounded-full"
+                    />
+                  ) : (
+                    <Button size="lg" variant="ghost">
+                      {t.continueLearning}
+                    </Button>
+                  )}
+                </Link>
               </Show>
 
               <Show when="signed-out">
@@ -69,20 +81,6 @@ export const Header = () => {
                   </Button>
                 </SignInButton>
               </Show>
-
-              <Link
-                href={links.sourceCode}
-                target="_blank"
-                rel="noreferrer noopener"
-                className={isSignedIn ? "pt-1.5" : "pt-3"}
-              >
-                <Image
-                  src="/github.svg"
-                  alt="Source Code"
-                  height={20}
-                  width={20}
-                />
-              </Link>
             </ClerkLoaded>
           </div>
         </div>

@@ -84,12 +84,18 @@ importers:
       react-use:
         specifier: ^17.6.1
         version: 17.6.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      resend:
+        specifier: ^6.17.2
+        version: 6.17.2
       sonner:
         specifier: ^2.0.7
         version: 2.0.7(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       stripe:
         specifier: ^22.3.0
         version: 22.3.2(@types/node@25.9.5)
+      svix:
+        specifier: ^1.98.0
+        version: 1.98.0
       tailwind-merge:
         specifier: ^3.6.0
         version: 3.6.0
@@ -3325,6 +3331,9 @@ packages:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
 
+  postal-mime@2.7.4:
+    resolution: {integrity: sha512-0WdnFQYUrPGGTFu1uOqD2s7omwua8xaeYGdO6rb88oD5yJ/4pPHDA4sdWqfD8wQVfCny563n/HQS7zTFft+f/g==}
+
   postcss-import@15.1.0:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
@@ -3670,6 +3679,15 @@ packages:
     engines: {node: '>= 6'}
     deprecated: request has been deprecated, see https://github.com/request/request/issues/3142
 
+  resend@6.17.2:
+    resolution: {integrity: sha512-hbaXEORFIFfT2Bh03NsA/akTTTKkD1hiuJ88ke64c5dWVV6DyoLxzFve3OiZqVOQ+JKLJ5uVkPR6hlUslpJFoA==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@react-email/render': '*'
+    peerDependenciesMeta:
+      '@react-email/render':
+        optional: true
+
   resize-img@1.1.2:
     resolution: {integrity: sha512-/4nKUmuNPuM6gYTWad136ica81baOVjpesgv8FGaIvP0KWcbCWahOWBKaM4tFoM+aVcSA+qQDg28pcnIzFRpJw==}
     engines: {node: '>=4'}
@@ -3944,6 +3962,9 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  svix@1.98.0:
+    resolution: {integrity: sha512-Pe7zeGemPEFrpSmfzaX8/u2PballejtzoYQejklzK3qB1tQHDePbFcIStArAsaIx292/pDH5cU+YeIBro5Awww==}
 
   tailwind-merge@3.6.0:
     resolution: {integrity: sha512-uxL7qAVQriqRQPAyK3pj66VqskWqoZ37PW94jwOTwNfq/z9oyu1V+eqrZqtR2+fCiXdYOZe/Modt8GtvqNzu+w==}
@@ -7155,6 +7176,8 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
+  postal-mime@2.7.4: {}
+
   postcss-import@15.1.0(postcss@8.5.19):
     dependencies:
       postcss: 8.5.19
@@ -7515,6 +7538,11 @@ snapshots:
       tunnel-agent: 0.6.0
       uuid: 3.4.0
 
+  resend@6.17.2:
+    dependencies:
+      postal-mime: 2.7.4
+      standardwebhooks: 1.0.0
+
   resize-img@1.1.2:
     dependencies:
       bmp-js: 0.0.1
@@ -7874,6 +7902,10 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  svix@1.98.0:
+    dependencies:
+      standardwebhooks: 1.0.0
 
   tailwind-merge@3.6.0: {}
 

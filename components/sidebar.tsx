@@ -39,27 +39,21 @@ export const Sidebar = async ({ className }: SidebarProps) => {
       <div className="flex flex-1 flex-col gap-y-2">
         <SidebarItem label={t.navLearn} href="/learn" iconSrc="/learn.svg" />
         <SidebarItem
+          label={t.navCourses}
+          href="/courses"
+          iconSrc="/icon-courses.svg"
+        />
+        <SidebarItem
           label={t.navDictionary}
           href="/dictionary"
           iconSrc="/icon-dictionary.svg"
-        />
-        <SidebarItem
-          label={t.navLeaderboard}
-          href="/leaderboard"
-          iconSrc="/leaderboard.svg"
         />
         <SidebarItem
           label={t.navLeagues}
           href="/leagues"
           iconSrc="/icon-leagues.svg"
         />
-        <SidebarItem label={t.navQuests} href="/quests" iconSrc="/quests.svg" />
         <SidebarItem label={t.navShop} href="/shop" iconSrc="/shop.svg" />
-        <SidebarItem
-          label={t.navCourses}
-          href="/courses"
-          iconSrc="/icon-courses.svg"
-        />
         {isAdmin && (
           <SidebarItem
             label={t.navAdmin}

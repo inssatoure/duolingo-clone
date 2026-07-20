@@ -6,6 +6,7 @@ import { Poppins, Inter } from "next/font/google";
 
 import { LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 
+import { InstallPrompt } from "@/components/install-prompt";
 import { ExitModal } from "@/components/modals/exit-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
 import { PracticeModal } from "@/components/modals/practice-modal";
@@ -30,7 +31,15 @@ export const viewport: Viewport = {
   themeColor: "#D35400",
 };
 
-export const metadata: Metadata = siteConfig;
+export const metadata: Metadata = {
+  ...siteConfig,
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "WoLingo",
+  },
+};
 
 export default async function RootLayout({
   children,
@@ -63,6 +72,7 @@ export default async function RootLayout({
           <HeartsModal />
           <PracticeModal />
           {children}
+          <InstallPrompt />
         </body>
       </html>
     </ClerkProvider>
