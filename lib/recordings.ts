@@ -18,6 +18,12 @@ export const ensureRecordingsTable = async () => {
       UNIQUE (text_key, lang)
     )
   `);
+  // Tracks which Gemini voice (if any) generated a Wolof recording, so the
+  // admin can see and compare voices per word. NULL for native recordings
+  // and Cloud TTS (fr/en) clips.
+  await db.execute(sql`
+    ALTER TABLE recordings ADD COLUMN IF NOT EXISTS voice text
+  `);
   ensured = true;
 };
 

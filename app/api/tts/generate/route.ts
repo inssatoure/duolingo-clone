@@ -2,14 +2,17 @@ import { type NextRequest, NextResponse } from "next/server";
 
 import db from "@/db/drizzle";
 import { getIsAdmin } from "@/lib/admin";
-import { GeminiTtsError, synthesizeWolofSpeech } from "@/lib/gemini-tts";
+import { GEMINI_VOICES, GeminiTtsError, synthesizeWolofSpeech, type GeminiVoice } from "@/lib/gemini-tts";
 import { GoogleTtsError, synthesizeSpeech } from "@/lib/google-tts";
 import { ensureRecordingsTable, normalizeKey } from "@/lib/recordings";
 import { sql } from "drizzle-orm";
 
 export const maxDuration = 60;
 
-type Item = { text: string; lang: "fr" | "en" | "wo" };
+type Item = { text: string; lang: "fr" | "en" | "wo"; voice?: string };
+
+const isGeminiVoice = (v: unknown): v is GeminiVoice =>
+  typeof v === "string" && (GEMINI_VOICES as readonly string[]).includes(v);
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -25,7 +28,13 @@ const synthesizeWithRetry = async (
 ): Promise<[string, string]> => {
   try {
     if (item.lang === "wo")
-      return [await synthesizeWolofSpeech(item.text), "audio/wav"];
+      return [
+        await synthesizeWolofSpeech(
+          item.text,
+          isGeminiVoice(item.voice) ? item.voice : undefined
+        ),
+        "audio/wav",
+      ];
     return [await synthesizeSpeech(item.text, item.lang), "audio/mpeg"];
   } catch (error) {
     if (isRateLimited(error) && attempt < 4) {
@@ -60,11 +69,13 @@ export const POST = async (req: NextRequest) => {
       try {
         const [audioBase64, mime] = await synthesizeWithRetry(item);
         const key = normalizeKey(item.text);
+        const voiceUsed =
+          item.lang === "wo" ? (isGeminiVoice(item.voice) ? item.voice : "Aoede") : null;
         await db.execute(sql`
-          INSERT INTO recordings (text_key, lang, mime, data, updated_at)
-          VALUES (${key}, ${item.lang}, ${mime}, ${audioBase64}, now())
+          INSERT INTO recordings (text_key, lang, mime, data, voice, updated_at)
+          VALUES (${key}, ${item.lang}, ${mime}, ${audioBase64}, ${voiceUsed}, now())
           ON CONFLICT (text_key, lang)
-          DO UPDATE SET mime = EXCLUDED.mime, data = EXCLUDED.data, updated_at = now()
+          DO UPDATE SET mime = EXCLUDED.mime, data = EXCLUDED.data, voice = EXCLUDED.voice, updated_at = now()
         `);
         results.push({ text: item.text, lang: item.lang, ok: true });
       } catch (error) {

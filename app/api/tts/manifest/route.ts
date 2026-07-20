@@ -15,18 +15,21 @@ export const GET = async () => {
   try {
     await ensureRecordingsTable();
     const rows = (await db.execute(
-      sql`SELECT text_key, lang FROM recordings WHERE lang IN ('fr', 'en', 'wo')`
-    )) as unknown as { rows?: { text_key: string; lang: string }[] };
-    const recorded = new Set(
-      (rows.rows ?? (rows as unknown as { text_key: string; lang: string }[])).map(
-        (r) => `${r.lang}:${r.text_key}`
-      )
+      sql`SELECT text_key, lang, voice FROM recordings WHERE lang IN ('fr', 'en', 'wo')`
+    )) as unknown as { rows?: { text_key: string; lang: string; voice: string | null }[] };
+    const rowList = rows.rows ?? (rows as unknown as { text_key: string; lang: string; voice: string | null }[]);
+    const voiceByKey = new Map(
+      rowList.map((r) => [`${r.lang}:${r.text_key}`, r.voice])
     );
 
-    const items = buildTtsManifest().map((item) => ({
-      ...item,
-      recorded: recorded.has(`${item.lang}:${normalizeKey(item.text)}`),
-    }));
+    const items = buildTtsManifest().map((item) => {
+      const key = `${item.lang}:${normalizeKey(item.text)}`;
+      return {
+        ...item,
+        recorded: voiceByKey.has(key),
+        voice: voiceByKey.get(key) ?? null,
+      };
+    });
 
     return NextResponse.json({ items });
   } catch (error) {

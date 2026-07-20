@@ -9,7 +9,22 @@
 
 export class GeminiTtsError extends Error {}
 
-const GEMINI_VOICE = "Aoede"; // warm/neutral prebuilt voice; name only, no language binding
+// All 30 prebuilt Gemini native-audio voices. They're just names/timbres —
+// none are bound to a language, so quality on unsupported languages like
+// Wolof varies unpredictably per voice AND per request (same voice, same
+// text can come out differently each time - this is an LLM, not a
+// deterministic TTS engine). Let the admin try several and keep what sounds
+// best per word.
+export const GEMINI_VOICES = [
+  "Zephyr", "Puck", "Charon", "Kore", "Fenrir", "Leda", "Orus", "Aoede",
+  "Callirrhoe", "Autonoe", "Enceladus", "Iapetus", "Umbriel", "Algieba",
+  "Despina", "Erinome", "Algenib", "Rasalgethi", "Laomedeia", "Achernar",
+  "Alnilam", "Schedar", "Gacrux", "Pulcherrima", "Achird", "Zubenelgenubi",
+  "Vindemiatrix", "Sadachbia", "Sadaltager", "Sulafat",
+] as const;
+export type GeminiVoice = (typeof GEMINI_VOICES)[number];
+
+const DEFAULT_VOICE: GeminiVoice = "Aoede";
 
 // Gemini is a language model, not a dedicated TTS engine: a bare phrase like
 // "Na nga def?" reads as a question to *answer* rather than text to *read*,
@@ -47,7 +62,10 @@ const pcmToWav = (
 };
 
 /** Synthesizes `text` via Gemini and returns a base64-encoded WAV file. */
-export const synthesizeWolofSpeech = async (text: string): Promise<string> => {
+export const synthesizeWolofSpeech = async (
+  text: string,
+  voice: GeminiVoice = DEFAULT_VOICE
+): Promise<string> => {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new GeminiTtsError("GEMINI_API_KEY is not configured.");
 
@@ -62,7 +80,7 @@ export const synthesizeWolofSpeech = async (text: string): Promise<string> => {
         generationConfig: {
           responseModalities: ["AUDIO"],
           speechConfig: {
-            voiceConfig: { prebuiltVoiceConfig: { voiceName: GEMINI_VOICE } },
+            voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } },
           },
         },
       }),
