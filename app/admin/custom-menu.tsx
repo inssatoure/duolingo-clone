@@ -9,5 +9,6 @@ export const CustomMenu = () => (
     <Menu.Item to="/media" primaryText="Media Library" />
     <Menu.Item to="/seed" primaryText="Seed Database" />
     <Menu.Item to="/studio" primaryText="🎙️ Recording Studio" />
+    <Menu.Item to="/tts" primaryText="🔊 Google TTS" />
   </Menu>
 );
