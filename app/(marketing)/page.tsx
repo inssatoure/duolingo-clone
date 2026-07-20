@@ -1,10 +1,4 @@
-import {
-  ClerkLoaded,
-  ClerkLoading,
-  SignInButton,
-  SignUpButton,
-  Show,
-} from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading, Show } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import { cookies } from "next/headers";
 import Image from "next/image";
@@ -53,17 +47,17 @@ export default async function MarketingPage() {
             </Show>
 
             <Show when="signed-out">
-              <SignUpButton mode="modal">
-                <Button size="lg" variant="secondary" className="w-full">
+              <Button size="lg" variant="secondary" className="w-full" asChild>
+                <Link href="/sign-up" prefetch>
                   {t.getStarted}
-                </Button>
-              </SignUpButton>
+                </Link>
+              </Button>
 
-              <SignInButton mode="modal">
-                <Button size="lg" variant="primaryOutline" className="w-full">
+              <Button size="lg" variant="primaryOutline" className="w-full" asChild>
+                <Link href="/sign-in" prefetch>
                   {t.haveAccount}
-                </Button>
-              </SignInButton>
+                </Link>
+              </Button>
             </Show>
           </ClerkLoaded>
         </div>

@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  ClerkLoaded,
-  ClerkLoading,
-  SignInButton,
-  Show,
-  useUser,
-} from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading, Show, useUser } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -75,11 +69,11 @@ export const Header = () => {
               </Show>
 
               <Show when="signed-out">
-                <SignInButton mode="modal">
-                  <Button size="lg" variant="ghost">
+                <Button size="lg" variant="ghost" asChild>
+                  <Link href="/sign-in" prefetch>
                     {t.login}
-                  </Button>
-                </SignInButton>
+                  </Link>
+                </Button>
               </Show>
             </ClerkLoaded>
           </div>
