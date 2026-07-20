@@ -1,19 +1,15 @@
 // Server-only: calls the Google Cloud Text-to-Speech REST API.
 // Requires GOOGLE_TTS_API_KEY to be set (Vercel project env var) — never
 // commit the key itself to the repo.
+//
+// Wolof is NOT among Google's supported languages (verified against the
+// live /v1/voices list: 63 languages, no "wo" prefix, not even under the
+// newer Chirp3-HD voices). Only French and English are TTS-able here —
+// Wolof audio must come from the Recording Studio (native speaker).
 
-const VOICE_BY_LANG: Record<
-  "fr" | "en" | "wo",
-  { languageCode: string; name: string }
-> = {
+const VOICE_BY_LANG: Record<"fr" | "en", { languageCode: string; name: string }> = {
   fr: { languageCode: "fr-FR", name: "fr-FR-Wavenet-C" },
   en: { languageCode: "en-US", name: "en-US-Wavenet-F" },
-  // Chirp3-HD "Autonoe" — Google's newest voice family, with usable Wolof
-  // coverage unlike the older Standard/WaveNet voices. Still experimental:
-  // always let a native recording (Studio) override this if quality isn't
-  // good enough for a given word (same recordings table, same key -> the
-  // native recording simply replaces the TTS one).
-  wo: { languageCode: "wo-SN", name: "wo-SN-Chirp3-HD-Autonoe" },
 };
 
 export class GoogleTtsError extends Error {}
@@ -21,7 +17,7 @@ export class GoogleTtsError extends Error {}
 /** Synthesizes `text` and returns the audio as a base64-encoded MP3. */
 export const synthesizeSpeech = async (
   text: string,
-  lang: "fr" | "en" | "wo"
+  lang: "fr" | "en"
 ): Promise<string> => {
   const apiKey = process.env.GOOGLE_TTS_API_KEY;
   if (!apiKey)

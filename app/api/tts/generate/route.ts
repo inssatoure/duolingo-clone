@@ -8,7 +8,7 @@ import { sql } from "drizzle-orm";
 
 export const maxDuration = 60;
 
-type Item = { text: string; lang: "fr" | "en" | "wo" };
+type Item = { text: string; lang: "fr" | "en" };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 

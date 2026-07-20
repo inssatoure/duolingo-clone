@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { Title } from "react-admin";
 
-type Item = { text: string; lang: "fr" | "en" | "wo"; recorded: boolean };
+type Item = { text: string; lang: "fr" | "en"; recorded: boolean };
 
 const BATCH_SIZE = 8;
 const PAUSE_BETWEEN_BATCHES_MS = 1500;
@@ -15,7 +15,7 @@ export const TtsPage = () => {
   const [running, setRunning] = useState(false);
   const [progress, setProgress] = useState(0);
   const [failures, setFailures] = useState<{ text: string; error?: string }[]>([]);
-  const [langFilter, setLangFilter] = useState<"fr" | "en" | "wo" | null>("fr");
+  const [langFilter, setLangFilter] = useState<"fr" | "en" | null>(null);
 
   useEffect(() => {
     fetch("/api/tts/manifest")
@@ -100,32 +100,17 @@ export const TtsPage = () => {
         textes de l&apos;interface et des questions complètes des cours
         &laquo;&nbsp;depuis le français&nbsp;&raquo; et
         &laquo;&nbsp;from English&nbsp;&raquo;, avec une voix Google
-        WaveNet naturelle.
+        WaveNet naturelle. Le wolof n&apos;est pas proposé ici : Google Cloud
+        ne propose aucune voix wolof (vérifié auprès de l&apos;API — 63
+        langues, wolof absent). Pour le wolof, utilise le Studio
+        d&apos;enregistrement.
       </p>
 
-      {langFilter === "wo" && (
-        <div
-          style={{
-            background: "#fef3c7",
-            border: "1px solid #f59e0b",
-            borderRadius: 8,
-            padding: 10,
-            fontSize: 14,
-            marginBottom: 8,
-          }}
-        >
-          ⚠️ <strong>Bêta</strong> — voix Google Chirp3-HD &laquo;Autonoe&raquo;
-          sur le wolof. Vérifie la prononciation avant de t&apos;y fier à
-          grande échelle. Un enregistrement natif fait dans le Studio pour le
-          même mot remplace automatiquement cette version TTS.
-        </div>
-      )}
-
       <div style={{ display: "flex", gap: 8, margin: "12px 0" }}>
-        {[null, "fr", "en", "wo"].map((l) => (
+        {[null, "fr", "en"].map((l) => (
           <button
             key={l ?? "all"}
-            onClick={() => setLangFilter(l as "fr" | "en" | "wo" | null)}
+            onClick={() => setLangFilter(l as "fr" | "en" | null)}
             style={{
               padding: "4px 12px",
               borderRadius: 999,
@@ -135,13 +120,7 @@ export const TtsPage = () => {
               fontWeight: langFilter === l ? 700 : 400,
             }}
           >
-            {l === null
-              ? "Tout"
-              : l === "fr"
-                ? "🇫🇷 Français"
-                : l === "en"
-                  ? "🇬🇧 English"
-                  : "🇸🇳 Wolof (bêta)"}
+            {l === null ? "Tout" : l === "fr" ? "🇫🇷 Français" : "🇬🇧 English"}
           </button>
         ))}
       </div>

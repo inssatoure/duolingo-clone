@@ -3,7 +3,7 @@ import { DICT } from "@/lib/i18n";
 import dictionaryData from "@/seeds/dictionary.json";
 import courseData from "@/seeds/wolof-course.json";
 
-export type TtsItem = { text: string; lang: "fr" | "en" | "wo" };
+export type TtsItem = { text: string; lang: "fr" | "en" };
 
 interface SeedCourseEntry {
   course: { title: string };
@@ -18,7 +18,7 @@ interface SeedCourseEntry {
 export const buildTtsManifest = (): TtsItem[] => {
   const seen = new Set<string>();
   const items: TtsItem[] = [];
-  const add = (text: string | undefined | null, lang: "fr" | "en" | "wo") => {
+  const add = (text: string | undefined | null, lang: "fr" | "en") => {
     const trimmed = text?.trim();
     if (!trimmed) return;
     const key = `${lang}:${trimmed.toLowerCase()}`;
@@ -28,13 +28,9 @@ export const buildTtsManifest = (): TtsItem[] => {
   };
 
   // Dictionary words
-  for (const entry of dictionaryData as { wolof: string; fr: string; en: string }[]) {
+  for (const entry of dictionaryData as { fr: string; en: string }[]) {
     add(entry.fr, "fr");
     add(entry.en, "en");
-    // Experimental: Google's Chirp3-HD "Autonoe" voice has usable Wolof
-    // coverage. A native recording (Studio) always takes priority over this
-    // if the same word is later recorded by hand.
-    add(entry.wolof, "wo");
   }
 
   // Fixed UI strings (skip interpolation placeholders, added below with
