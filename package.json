@@ -45,6 +45,7 @@
     "svix": "^1.98.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "twilio": "^6.0.2",
     "zustand": "^5.0.14"
   },
   "devDependencies": {

@@ -12,7 +12,7 @@ import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
 import { phoneToUsername } from "@/lib/phone";
 
-type Step = "method" | "phone" | "profile";
+type Step = "method" | "phone" | "otp" | "profile";
 
 const SignUpPage = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -21,6 +21,7 @@ const SignUpPage = () => {
   const [step, setStep] = useState<Step>("method");
   const [countryCode, setCountryCode] = useState("+221");
   const [number, setNumber] = useState("");
+  const [code, setCode] = useState("");
   const [pin, setPin] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -46,9 +47,47 @@ const SignUpPage = () => {
     }
   };
 
-  const submitPhone = () => {
+  const submitPhone = async () => {
     if (number.length < 6) return;
-    setStep("profile");
+    setPending(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/auth/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phoneNumber }),
+      });
+      if (!res.ok) throw new Error();
+      setStep("otp");
+    } catch {
+      setError("Impossible d'envoyer le code. Vérifie le numéro et réessaie.");
+    } finally {
+      setPending(false);
+    }
+  };
+
+  const submitCode = async (value: string) => {
+    setPending(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/auth/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phoneNumber, code: value }),
+      });
+      const data = (await res.json()) as { valid?: boolean };
+      if (res.ok && data.valid) {
+        setStep("profile");
+      } else {
+        setError("Code incorrect. Réessaie.");
+        setCode("");
+      }
+    } catch {
+      setError("Code incorrect. Réessaie.");
+      setCode("");
+    } finally {
+      setPending(false);
+    }
   };
 
   const finish = async (finalPin: string) => {
@@ -63,7 +102,7 @@ const SignUpPage = () => {
         username,
         password: finalPin,
         firstName: name.trim(),
-        unsafeMetadata: { phoneNumber },
+        unsafeMetadata: { phoneNumber, phoneVerified: true },
       });
       if (result.status === "complete" && result.createdSessionId) {
         await setActive({ session: result.createdSessionId });
@@ -117,10 +156,22 @@ const SignUpPage = () => {
             variant="secondary"
             className="w-full"
             disabled={pending || number.length < 6}
-            onClick={submitPhone}
+            onClick={() => void submitPhone()}
           >
             Continuer
           </Button>
+        </>
+      )}
+
+      {step === "otp" && (
+        <>
+          <h1 className="text-center text-2xl font-extrabold text-sahel">
+            Entre le code reçu par SMS
+          </h1>
+          <p className="text-center text-sm text-muted-foreground">
+            Envoyé au {phoneNumber}
+          </p>
+          <PinPad value={code} onChange={setCode} length={6} autoSubmit={submitCode} />
         </>
       )}
 
