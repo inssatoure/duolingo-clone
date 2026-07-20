@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { PhoneInput } from "@/components/phone-input";
 import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
+import { phoneToUsername } from "@/lib/phone";
 
 type Step = "method" | "phone" | "pin";
 
@@ -25,6 +26,7 @@ const SignInPage = () => {
   const [pending, setPending] = useState(false);
 
   const phoneNumber = `${countryCode}${number}`;
+  const username = phoneToUsername(countryCode, number);
 
   const describeError = (e: unknown, fallback: string) =>
     isClerkAPIResponseError(e) ? (e.errors[0]?.longMessage ?? fallback) : fallback;
@@ -48,7 +50,7 @@ const SignInPage = () => {
     setPending(true);
     setError(null);
     try {
-      const result = await signIn.create({ identifier: phoneNumber, password: value });
+      const result = await signIn.create({ identifier: username, password: value });
       if (result.status === "complete" && result.createdSessionId) {
         await setActive({ session: result.createdSessionId });
         router.push("/learn");

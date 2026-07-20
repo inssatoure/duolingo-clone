@@ -10,8 +10,9 @@ import { useRouter } from "next/navigation";
 import { PhoneInput } from "@/components/phone-input";
 import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
+import { phoneToUsername } from "@/lib/phone";
 
-type Step = "method" | "phone" | "otp" | "profile";
+type Step = "method" | "phone" | "profile";
 
 const SignUpPage = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -20,13 +21,13 @@ const SignUpPage = () => {
   const [step, setStep] = useState<Step>("method");
   const [countryCode, setCountryCode] = useState("+221");
   const [number, setNumber] = useState("");
-  const [code, setCode] = useState("");
   const [pin, setPin] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
   const phoneNumber = `${countryCode}${number}`;
+  const username = phoneToUsername(countryCode, number);
 
   const describeError = (e: unknown, fallback: string) =>
     isClerkAPIResponseError(e) ? (e.errors[0]?.longMessage ?? fallback) : fallback;
@@ -45,41 +46,9 @@ const SignUpPage = () => {
     }
   };
 
-  const submitPhone = async () => {
-    if (!isLoaded || number.length < 6) return;
-    setPending(true);
-    setError(null);
-    try {
-      await signUp.create({ phoneNumber });
-      await signUp.preparePhoneNumberVerification({ strategy: "phone_code" });
-      setStep("otp");
-    } catch (e) {
-      setError(
-        describeError(e, "Ce numéro n'a pas pu être utilisé. Vérifie-le et réessaie.")
-      );
-    } finally {
-      setPending(false);
-    }
-  };
-
-  const submitCode = async (value: string) => {
-    if (!isLoaded) return;
-    setPending(true);
-    setError(null);
-    try {
-      const result = await signUp.attemptPhoneNumberVerification({ code: value });
-      if (result.status === "complete" || result.status === "missing_requirements") {
-        setStep("profile");
-      } else {
-        setError("Code incorrect. Réessaie.");
-        setCode("");
-      }
-    } catch {
-      setError("Code incorrect. Réessaie.");
-      setCode("");
-    } finally {
-      setPending(false);
-    }
+  const submitPhone = () => {
+    if (number.length < 6) return;
+    setStep("profile");
   };
 
   const finish = async (finalPin: string) => {
@@ -90,18 +59,21 @@ const SignUpPage = () => {
     setPending(true);
     setError(null);
     try {
-      const result = await signUp.update({
+      const result = await signUp.create({
+        username,
         password: finalPin,
         firstName: name.trim(),
+        unsafeMetadata: { phoneNumber },
       });
       if (result.status === "complete" && result.createdSessionId) {
         await setActive({ session: result.createdSessionId });
         router.push("/learn");
       } else {
-        setError("Impossible de finaliser l'inscription. Réessaie.");
+        setError("Ce numéro est peut-être déjà utilisé. Réessaie.");
+        setPin("");
       }
     } catch (e) {
-      setError(describeError(e, "Impossible de finaliser l'inscription. Réessaie."));
+      setError(describeError(e, "Ce numéro est peut-être déjà utilisé. Réessaie."));
       setPin("");
     } finally {
       setPending(false);
@@ -145,22 +117,10 @@ const SignUpPage = () => {
             variant="secondary"
             className="w-full"
             disabled={pending || number.length < 6}
-            onClick={() => void submitPhone()}
+            onClick={submitPhone}
           >
             Continuer
           </Button>
-        </>
-      )}
-
-      {step === "otp" && (
-        <>
-          <h1 className="text-center text-2xl font-extrabold text-sahel">
-            Entre le code reçu par SMS
-          </h1>
-          <p className="text-center text-sm text-muted-foreground">
-            Envoyé au {phoneNumber}
-          </p>
-          <PinPad value={code} onChange={setCode} length={6} autoSubmit={submitCode} />
         </>
       )}
 
