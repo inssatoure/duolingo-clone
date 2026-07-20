@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { FeedWrapper } from "@/components/feed-wrapper";
@@ -9,9 +10,13 @@ import { Progress } from "@/components/ui/progress";
 import { UserProgress } from "@/components/user-progress";
 import { QUESTS } from "@/constants";
 import { getUserProgress, getUserSubscription, getUserStreak } from "@/db/queries";
+import { DICT, LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 
 const QuestsPage = async () => {
   await auth.protect();
+
+  const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
+  const t = DICT[isLocale(cookieLocale) ? cookieLocale : "fr"];
 
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
@@ -48,10 +53,10 @@ const QuestsPage = async () => {
           <Image src="/quests.svg" alt="Quests" height={90} width={90} />
 
           <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
-            Quêtes
+            {t.questsWidget}
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            Complète les quêtes en gagnant des XP
+            {t.questsSubtitle}
           </p>
 
           <ul className="w-full">
@@ -72,7 +77,7 @@ const QuestsPage = async () => {
 
                   <div className="flex w-full flex-col gap-y-2">
                     <p className="text-xl font-bold text-neutral-700">
-                      {quest.title}
+                      {t.earnXp.replace("{n}", String(quest.value))}
                     </p>
 
                     <Progress value={progress} className="h-3" />

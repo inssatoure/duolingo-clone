@@ -11,6 +11,7 @@ import { purchaseShopItem } from "@/actions/purchase-item";
 import { activateStreakFreeze } from "@/actions/streaks";
 import { Button } from "@/components/ui/button";
 import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
+import { useLocale } from "@/lib/use-locale";
 
 type ItemsProps = {
   hearts: number;
@@ -26,23 +27,24 @@ export const Items = ({
   cfaBalance,
 }: ItemsProps) => {
   const [pending, startTransition] = useTransition();
+  const { t } = useLocale();
 
   const onRefillHearts = () => {
     if (pending || hearts === MAX_HEARTS || points < POINTS_TO_REFILL) return;
 
     startTransition(() => {
-      refillHearts().catch(() => toast.error("Something went wrong."));
+      refillHearts().catch(() => toast.error(t.somethingWrong));
     });
   };
 
   const onUpgrade = () => {
-    toast.loading("Redirecting to checkout...");
+    toast.loading(t.redirecting);
     startTransition(() => {
       createStripeUrl()
         .then((response) => {
           if (response.data) window.location.href = response.data;
         })
-        .catch(() => toast.error("Something went wrong."));
+        .catch(() => toast.error(t.somethingWrong));
     });
   };
 
@@ -51,8 +53,8 @@ export const Items = ({
 
     startTransition(() => {
       activateStreakFreeze()
-        .then(() => toast.success("Streak freeze activé!"))
-        .catch(() => toast.error("Something went wrong."));
+        .then(() => toast.success(t.streakFreezeActivated))
+        .catch(() => toast.error(t.somethingWrong));
     });
   };
 
@@ -61,8 +63,8 @@ export const Items = ({
 
     startTransition(() => {
       purchaseShopItem(4) // Assuming CFA boost is item ID 4
-        .then(() => toast.success("+1000 CFA ajoutés!"))
-        .catch(() => toast.error("Something went wrong."));
+        .then(() => toast.success(t.cfaBoostAdded))
+        .catch(() => toast.error(t.somethingWrong));
     });
   };
 
@@ -73,7 +75,7 @@ export const Items = ({
 
         <div className="flex-1">
           <p className="text-base font-bold text-neutral-700 lg:text-xl">
-            Refill hearts
+            {t.refillHearts}
           </p>
         </div>
 
@@ -87,7 +89,7 @@ export const Items = ({
           }
         >
           {hearts === MAX_HEARTS ? (
-            "full"
+            t.full
           ) : (
             <div className="flex items-center">
               <Image src="/points.svg" alt="Points" height={20} width={20} />
@@ -103,12 +105,12 @@ export const Items = ({
 
         <div className="flex-1">
           <p className="text-base font-bold text-neutral-700 lg:text-xl">
-            Unlimited hearts
+            {t.unlimitedHearts}
           </p>
         </div>
 
         <Button onClick={onUpgrade} disabled={pending} aria-disabled={pending}>
-          {hasActiveSubscription ? "settings" : "upgrade"}
+          {hasActiveSubscription ? t.settings : t.upgrade}
         </Button>
       </div>
 
@@ -119,10 +121,10 @@ export const Items = ({
 
         <div className="flex-1">
           <p className="text-base font-bold text-sahel lg:text-xl">
-            Streak Freeze
+            {t.streakFreeze}
           </p>
           <p className="text-xs text-muted-foreground">
-            Protège ta série pendant 24h
+            {t.streakFreezeDesc}
           </p>
         </div>
 
@@ -146,10 +148,10 @@ export const Items = ({
 
         <div className="flex-1">
           <p className="text-base font-bold text-mangrove lg:text-xl">
-            CFA Boost
+            {t.cfaBoost}
           </p>
           <p className="text-xs text-muted-foreground">
-            +1000 CFA instantanés
+            {t.cfaBoostDesc}
           </p>
         </div>
 

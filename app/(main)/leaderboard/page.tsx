@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { FeedWrapper } from "@/components/feed-wrapper";
@@ -15,9 +16,13 @@ import {
   getUserSubscription,
   getUserStreak,
 } from "@/db/queries";
+import { DICT, LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 
 const LeaderboardPage = async () => {
   await auth.protect();
+
+  const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
+  const t = DICT[isLocale(cookieLocale) ? cookieLocale : "fr"];
 
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
@@ -62,10 +67,10 @@ const LeaderboardPage = async () => {
           />
 
           <h1 className="my-6 text-center text-2xl font-bold text-sahel">
-            Classement
+            {t.navLeaderboard}
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            Voici où tu te situes parmi les autres apprenants
+            {t.leaderboardSubtitle}
           </p>
 
           <Separator className="mb-4 h-0.5 rounded-full" />

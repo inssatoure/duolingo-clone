@@ -1,6 +1,10 @@
+import { frFR, enUS } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { Poppins, Inter } from "next/font/google";
+
+import { LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 
 import { ExitModal } from "@/components/modals/exit-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
@@ -28,13 +32,19 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = siteConfig;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
+  const locale = isLocale(cookieLocale) ? cookieLocale : "fr";
+  // Clerk has no Wolof pack; French is the closest fit for Wolof speakers.
+  const clerkLocalization = locale === "en" ? enUS : frFR;
+
   return (
     <ClerkProvider
+      localization={clerkLocalization}
       appearance={{
         options: {
           logoImageUrl: "/favicon.ico",
@@ -46,7 +56,7 @@ export default function RootLayout({
       telemetry={false}
       afterSignOutUrl="/"
     >
-      <html lang="en">
+      <html lang={locale === "en" ? "en" : locale === "wo" ? "wo" : "fr"}>
         <body className={`${poppins.variable} ${inter.variable} font-sans`}>
           <Toaster theme="light" richColors closeButton />
           <ExitModal />

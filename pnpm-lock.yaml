@@ -4,10 +4,17 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  react-router: ^7.18.1
+  react-router-dom: ^7.18.1
+
 importers:
 
   .:
     dependencies:
+      '@clerk/localizations':
+        specifier: ^4.13.5
+        version: 4.13.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@clerk/nextjs':
         specifier: ^7.5.20
         version: 7.5.20(next@16.2.10(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -221,6 +228,10 @@ packages:
 
   '@clerk/backend@3.11.7':
     resolution: {integrity: sha512-il2wyzS2I10Gv8v+ECEKQqDfaW7gCD2BWUZp37LOMFBn6/DJ7FhHfe4XwgQLUDBkHyk2LxyTt3Lbg5GnpNJPUQ==}
+    engines: {node: '>=20.9.0'}
+
+  '@clerk/localizations@4.13.5':
+    resolution: {integrity: sha512-DX2rXqWqf6cxl83PDJGfB6jG0dkBQ6F5pmijxImtH4ARN2FKWi+KseLRk+oV5Czj10qn7HacRN/daqnz1eC7Iw==}
     engines: {node: '>=20.9.0'}
 
   '@clerk/nextjs@7.5.20':
@@ -3068,8 +3079,8 @@ packages:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0
       react-hook-form: ^7.72.0
-      react-router: ^6.28.1 || ^7.1.1
-      react-router-dom: ^6.28.1 || ^7.1.1
+      react-router: ^7.18.1
+      react-router-dom: ^7.18.1
 
   ra-data-simple-rest@5.15.0:
     resolution: {integrity: sha512-C7WwkUX+xAXPsCiA01cn6SwxNS7eLugwlw7iT8VyoENpQp6Q66nhT6ZXtwh2SOLFdjBk5Tyl6lKIEtrgFkEGgA==}
@@ -3096,8 +3107,8 @@ packages:
       react-dom: ^18.0.0 || ^19.0.0
       react-hook-form: '*'
       react-is: ^18.0.0 || ^19.0.0
-      react-router: ^6.28.1 || ^7.1.1
-      react-router-dom: ^6.28.1 || ^7.1.1
+      react-router: ^7.18.1
+      react-router-dom: ^7.18.1
 
   react-admin@5.15.1:
     resolution: {integrity: sha512-1FFDs7yCxAn17aPfCovssMYQHVda5YTosGR6fK8kdBe9Ew6iGunmB+nj7ajdKKOIJ2PdZpBluOTiN9yBrSGuWg==}
@@ -3799,6 +3810,13 @@ snapshots:
       '@clerk/shared': 4.25.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       standardwebhooks: 1.0.0
       tslib: 2.8.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
+  '@clerk/localizations@4.13.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+    dependencies:
+      '@clerk/shared': 4.25.5(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     transitivePeerDependencies:
       - react
       - react-dom

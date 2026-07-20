@@ -1,5 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { FeedWrapper } from "@/components/feed-wrapper";
@@ -7,11 +8,15 @@ import { Quests } from "@/components/quests";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
 import { getUserProgress, getUserSubscription, getUserStreak } from "@/db/queries";
+import { DICT, LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 
 import { Items } from "./items";
 
 const ShopPage = async () => {
   await auth.protect();
+
+  const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
+  const t = DICT[isLocale(cookieLocale) ? cookieLocale : "fr"];
 
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
@@ -49,10 +54,10 @@ const ShopPage = async () => {
           <Image src="/shop.svg" alt="Shop" height={90} width={90} />
 
           <h1 className="my-6 text-center text-2xl font-bold text-sahel">
-            Boutique
+            {t.navShop}
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            Dépense tes CFA pour des bonus et améliorations
+            {t.shopSubtitle}
           </p>
 
           <Items
