@@ -66,7 +66,7 @@ export const SocialTabs = ({
 
       {tab === "leagues" && (
         <>
-          <Image src="/mascot.svg" alt="" height={90} width={90} className="mb-4" />
+          <Image src="/mascot.png" alt="" height={90} width={90} className="mb-4" />
           <h1 className="my-2 text-center text-2xl font-bold text-sahel">
             {leagueName}
           </h1>

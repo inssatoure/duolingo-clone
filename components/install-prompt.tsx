@@ -77,7 +77,7 @@ export const InstallPrompt = () => {
 
   return (
     <div className="fixed inset-x-4 bottom-4 z-[90] mx-auto flex max-w-md items-center gap-3 rounded-2xl border-2 bg-white p-4 shadow-lg">
-      <Image src="/mascot.svg" alt="" height={40} width={40} />
+      <Image src="/mascot.png" alt="" height={40} width={40} />
       <div className="flex-1 text-sm">
         <p className="font-bold text-neutral-800">Installe WoLingo</p>
         <p className="text-muted-foreground">

@@ -72,7 +72,7 @@ export const Onboarding = () => {
       {step === "splash" && (
         <div className="flex flex-col items-center gap-4">
           <Image
-            src="/mascot.svg"
+            src="/mascot.png"
             alt="WoLingo"
             height={120}
             width={120}
@@ -90,7 +90,7 @@ export const Onboarding = () => {
 
       {step === "pick" && (
         <div className="flex w-full max-w-md flex-col items-center gap-6 duration-500 animate-in fade-in slide-in-from-bottom-4">
-          <Image src="/mascot.svg" alt="" height={80} width={80} priority />
+          <Image src="/mascot.png" alt="" height={80} width={80} priority />
 
           <div className="text-center">
             <h1 className="text-2xl font-extrabold text-sahel lg:text-3xl">
@@ -178,7 +178,7 @@ export const Onboarding = () => {
 
       {step === "pickTarget" && (
         <div className="flex w-full max-w-md flex-col items-center gap-6 duration-500 animate-in fade-in slide-in-from-bottom-4">
-          <Image src="/mascot.svg" alt="" height={80} width={80} priority />
+          <Image src="/mascot.png" alt="" height={80} width={80} priority />
 
           <div className="text-center">
             <h1 className="text-2xl font-extrabold text-sahel lg:text-3xl">
@@ -244,7 +244,7 @@ export const Onboarding = () => {
       {step === "ready" && (
         <div className="flex flex-col items-center gap-4 duration-300 animate-in fade-in zoom-in-90">
           <Image
-            src="/mascot.svg"
+            src="/mascot.png"
             alt=""
             height={110}
             width={110}

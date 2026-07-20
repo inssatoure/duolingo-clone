@@ -15,7 +15,7 @@ export const StreakDisplay = ({
     <div className="flex items-center gap-x-3 rounded-xl border-2 border-sahel/20 bg-sand/50 p-4">
       <div className="relative">
         <Image
-          src="/mascot.svg"
+          src="/mascot.png"
           alt="Kumba"
           width={48}
           height={48}
