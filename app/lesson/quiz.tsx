@@ -12,7 +12,7 @@ import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { reduceHearts } from "@/actions/user-progress";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
-import { extractQuoted, isWolofText, playText } from "@/lib/audio-client";
+import { extractQuoted, speakSmart } from "@/lib/audio-client";
 import { readLocaleCookie, readTargetCookie, useLocale } from "@/lib/use-locale";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
@@ -87,23 +87,31 @@ export const Quiz = ({
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
 
-  // Duolingo-style: read the question aloud when a challenge appears.
-  // ASSIST questions are the word itself; SELECT questions embed the word in
-  // quotes — we pronounce the word (native recording first, speech synthesis
-  // fallback for French/English).
+  // Duolingo-style: read the question aloud when a challenge appears, so
+  // learners who can't read can still use the app.
+  // - ASSIST: first the instruction ("Select the correct meaning"), then the
+  //   word to translate.
+  // - SELECT: the full question sentence, e.g. `Comment dit-on "X" en
+  //   wolof ?` — except when the interface language is Wolof itself: those
+  //   question sentences are written in Wolof and we have no reliable Wolof
+  //   TTS, so only the embedded foreign word is spoken.
   useEffect(() => {
     if (!challenge) return;
-    const word = extractQuoted(challenge.question) ?? challenge.question;
-    const locale = readLocaleCookie();
-    const synthLang = isWolofText(word)
-      ? null
-      : locale === "wo"
-        ? (readTargetCookie() ?? "fr")
-        : locale === "en"
-          ? "en"
-          : "fr";
-    const timer = setTimeout(() => playText(word, synthLang), 350);
-    return () => clearTimeout(timer);
+    const locale = readLocaleCookie() ?? "fr";
+    const target = readTargetCookie();
+    const speak = (text: string) => speakSmart(text, locale, target);
+
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    if (challenge.type === "ASSIST") {
+      timers.push(setTimeout(() => speak(t.selectMeaning), 300));
+      timers.push(setTimeout(() => speak(challenge.question), 1500));
+    } else if (locale === "wo") {
+      const word = extractQuoted(challenge.question);
+      if (word) timers.push(setTimeout(() => speak(word), 350));
+    } else {
+      timers.push(setTimeout(() => speak(challenge.question), 350));
+    }
+    return () => timers.forEach(clearTimeout);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [challenge?.id]);
 

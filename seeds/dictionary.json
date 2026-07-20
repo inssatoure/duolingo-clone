@@ -1,8 +1,8 @@
 [
   {
     "wolof": "Salaamaalekum",
-    "fr": "Bonjour (paix sur toi)",
-    "en": "Hello (peace be upon you)",
+    "fr": "Bonjour",
+    "en": "Hello",
     "category": "greetings",
     "imageSrc": null,
     "audioSrc": null
@@ -25,16 +25,16 @@
   },
   {
     "wolof": "Maa ngi fi rekk",
-    "fr": "Je vais bien (je suis là seulement)",
-    "en": "I'm fine (I'm just here)",
+    "fr": "Je vais bien",
+    "en": "I'm fine",
     "category": "greetings",
     "imageSrc": null,
     "audioSrc": null
   },
   {
     "wolof": "Jàmm rekk",
-    "fr": "La paix seulement (ça va)",
-    "en": "Peace only (all is well)",
+    "fr": "Ça va",
+    "en": "All is well",
     "category": "greetings",
     "imageSrc": null,
     "audioSrc": null
@@ -49,8 +49,8 @@
   },
   {
     "wolof": "Ñoo ko bokk",
-    "fr": "De rien (on le partage)",
-    "en": "You're welcome (we share it)",
+    "fr": "De rien",
+    "en": "You're welcome",
     "category": "greetings",
     "imageSrc": null,
     "audioSrc": null
@@ -129,8 +129,8 @@
   },
   {
     "wolof": "Ñu ngi fi",
-    "fr": "Ils vont bien (ils sont là)",
-    "en": "They are fine (they are here)",
+    "fr": "Ils vont bien",
+    "en": "They are fine",
     "category": "greetings",
     "imageSrc": null,
     "audioSrc": null
@@ -201,8 +201,8 @@
   },
   {
     "wolof": "Doom",
-    "fr": "Enfant (fils/fille de)",
-    "en": "Child (son/daughter)",
+    "fr": "Enfant",
+    "en": "Child",
     "category": "family",
     "imageSrc": "/vocab/doom.svg",
     "audioSrc": null
@@ -273,7 +273,7 @@
   },
   {
     "wolof": "Xarit",
-    "fr": "Ami(e)",
+    "fr": "Ami",
     "en": "Friend",
     "category": "family",
     "imageSrc": "/vocab/xarit.svg",
@@ -497,8 +497,8 @@
   },
   {
     "wolof": "Attaaya",
-    "fr": "Thé (à la menthe)",
-    "en": "(Mint) tea",
+    "fr": "Thé à la menthe",
+    "en": "Mint tea",
     "category": "food",
     "imageSrc": "/vocab/attaaya.svg",
     "audioSrc": null
@@ -585,16 +585,16 @@
   },
   {
     "wolof": "Ceebu jën",
-    "fr": "Riz au poisson (plat national)",
-    "en": "Rice with fish (national dish)",
+    "fr": "Riz au poisson",
+    "en": "Rice with fish",
     "category": "food",
     "imageSrc": "/vocab/ceebu-jen.svg",
     "audioSrc": null
   },
   {
     "wolof": "Yassa",
-    "fr": "Yassa (plat à la sauce oignon-citron)",
-    "en": "Yassa (onion-lemon sauce dish)",
+    "fr": "Yassa",
+    "en": "Yassa",
     "category": "food",
     "imageSrc": "/vocab/yassa.svg",
     "audioSrc": null
@@ -713,7 +713,7 @@
   },
   {
     "wolof": "Bind",
-    "fr": "Stylo (bic)",
+    "fr": "Stylo",
     "en": "Pen",
     "category": "objects",
     "imageSrc": "/vocab/bind.svg",
@@ -1633,8 +1633,8 @@
   },
   {
     "wolof": "Mbubb",
-    "fr": "Boubou (grande tunique)",
-    "en": "Boubou (large tunic)",
+    "fr": "Boubou",
+    "en": "Boubou",
     "category": "clothing",
     "imageSrc": "/vocab/mbubb.svg",
     "audioSrc": null
@@ -1642,7 +1642,7 @@
   {
     "wolof": "Sér",
     "fr": "Pagne",
-    "en": "Wrap skirt (pagne)",
+    "en": "Wrap skirt",
     "category": "clothing",
     "imageSrc": "/vocab/ser.svg",
     "audioSrc": null
@@ -1657,7 +1657,7 @@
   },
   {
     "wolof": "Sol",
-    "fr": "Porter / mettre (vêtement)",
+    "fr": "Porter un vêtement",
     "en": "To wear / put on",
     "category": "clothing",
     "imageSrc": "/vocab/sol.svg",
@@ -1674,7 +1674,7 @@
   {
     "wolof": "Yow",
     "fr": "Toi / tu",
-    "en": "You (singular)",
+    "en": "You",
     "category": "pronouns",
     "imageSrc": null,
     "audioSrc": null
@@ -1698,7 +1698,7 @@
   {
     "wolof": "Yéen",
     "fr": "Vous",
-    "en": "You (plural)",
+    "en": "You all",
     "category": "pronouns",
     "imageSrc": null,
     "audioSrc": null
@@ -2009,8 +2009,8 @@
   },
   {
     "wolof": "Jàmm nga fanaane?",
-    "fr": "As-tu passé la nuit en paix ? (bonjour du matin)",
-    "en": "Did you spend the night in peace? (morning greeting)",
+    "fr": "As-tu passé la nuit en paix ?",
+    "en": "Did you spend the night in peace?",
     "category": "phrases",
     "imageSrc": null,
     "audioSrc": null

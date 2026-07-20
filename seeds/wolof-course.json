@@ -49,7 +49,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Bonjour (paix sur toi)\" en wolof ?",
+                  "question": "Comment dit-on \"Bonjour\" en wolof ?",
                   "order": 1,
                   "options": [
                     {
@@ -102,7 +102,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -146,7 +146,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -241,7 +241,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Je vais bien (je suis là seulement)\" en wolof ?",
+                  "question": "Comment dit-on \"Je vais bien\" en wolof ?",
                   "order": 1,
                   "options": [
                     {
@@ -282,19 +282,19 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -303,7 +303,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"La paix seulement (ça va)\" en wolof ?",
+                  "question": "Comment dit-on \"Ça va\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -350,13 +350,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -412,7 +412,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -433,7 +433,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"De rien (on le partage)\" en wolof ?",
+                  "question": "Comment dit-on \"De rien\" en wolof ?",
                   "order": 1,
                   "options": [
                     {
@@ -474,7 +474,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -604,7 +604,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -728,7 +728,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -796,7 +796,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -994,7 +994,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1050,13 +1050,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1071,7 +1071,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Ils vont bien (ils sont là)\" en wolof ?",
+                  "question": "Comment dit-on \"Ils vont bien\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -1106,7 +1106,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1124,7 +1124,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1174,7 +1174,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1236,7 +1236,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1248,13 +1248,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1263,7 +1263,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"De rien (on le partage)\" en wolof ?",
+                  "question": "Comment dit-on \"De rien\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -1310,7 +1310,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1378,7 +1378,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1434,13 +1434,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1497,7 +1497,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1565,7 +1565,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1908,7 +1908,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Enfant (fils/fille de)\" en wolof ?",
+                  "question": "Comment dit-on \"Enfant\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -1943,7 +1943,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Enfant (fils/fille de)",
+                      "text": "Enfant",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -1955,7 +1955,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -2135,7 +2135,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Enfant (fils/fille de)",
+                      "text": "Enfant",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -2265,7 +2265,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -2389,7 +2389,7 @@
                   "order": 6,
                   "options": [
                     {
-                      "text": "Enfant",
+                      "text": "Grand-parent",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -2407,7 +2407,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Enfant (fils/fille de)",
+                      "text": "Enfant",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -2463,7 +2463,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -2484,7 +2484,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Ami(e)\" en wolof ?",
+                  "question": "Comment dit-on \"Ami\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -2519,7 +2519,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -4719,7 +4719,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Thé (à la menthe)",
+                      "text": "Thé à la menthe",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -4802,7 +4802,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Thé (à la menthe)\" en wolof ?",
+                  "question": "Comment dit-on \"Thé à la menthe\" en wolof ?",
                   "order": 1,
                   "options": [
                     {
@@ -4855,7 +4855,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Thé (à la menthe)",
+                      "text": "Thé à la menthe",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -4911,7 +4911,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5301,7 +5301,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5357,7 +5357,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Thé (à la menthe)",
+                      "text": "Thé à la menthe",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5413,7 +5413,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5475,7 +5475,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5493,7 +5493,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5502,7 +5502,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Riz au poisson (plat national)\" en wolof ?",
+                  "question": "Comment dit-on \"Riz au poisson\" en wolof ?",
                   "order": 5,
                   "options": [
                     {
@@ -5543,7 +5543,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5570,7 +5570,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Yassa (plat à la sauce oignon-citron)\" en wolof ?",
+                  "question": "Comment dit-on \"Yassa\" en wolof ?",
                   "order": 1,
                   "options": [
                     {
@@ -5611,7 +5611,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5747,7 +5747,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -5797,7 +5797,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -6069,7 +6069,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -6261,7 +6261,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -7058,7 +7058,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Stylo (bic)\" en wolof ?",
+                  "question": "Comment dit-on \"Stylo\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -7099,7 +7099,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -7241,7 +7241,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -7297,7 +7297,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -7681,7 +7681,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -7879,7 +7879,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16036,7 +16036,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16054,7 +16054,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16116,7 +16116,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16166,7 +16166,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16178,7 +16178,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16234,7 +16234,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16255,7 +16255,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Boubou (grande tunique)\" en wolof ?",
+                  "question": "Comment dit-on \"Boubou\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -16302,13 +16302,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16358,7 +16358,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16426,7 +16426,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16438,7 +16438,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16447,7 +16447,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Porter / mettre (vêtement)\" en wolof ?",
+                  "question": "Comment dit-on \"Porter un vêtement\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -16482,7 +16482,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16556,7 +16556,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16577,7 +16577,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"Porter / mettre (vêtement)\" en wolof ?",
+                  "question": "Comment dit-on \"Porter un vêtement\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -16624,7 +16624,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16674,7 +16674,7 @@
                   "order": 6,
                   "options": [
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16692,7 +16692,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -16742,13 +16742,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -19655,7 +19655,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "As-tu passé la nuit en paix ? (bonjour du matin)",
+                      "text": "As-tu passé la nuit en paix ?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20054,7 +20054,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "Comment dit-on \"As-tu passé la nuit en paix ? (bonjour du matin)\" en wolof ?",
+                  "question": "Comment dit-on \"As-tu passé la nuit en paix ?\" en wolof ?",
                   "order": 3,
                   "options": [
                     {
@@ -20101,7 +20101,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "As-tu passé la nuit en paix ? (bonjour du matin)",
+                      "text": "As-tu passé la nuit en paix ?",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20299,7 +20299,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "As-tu passé la nuit en paix ? (bonjour du matin)",
+                      "text": "As-tu passé la nuit en paix ?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20589,7 +20589,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Hello (peace be upon you)\" in Wolof?",
+                  "question": "How do you say \"Hello\" in Wolof?",
                   "order": 1,
                   "options": [
                     {
@@ -20630,13 +20630,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Hello (peace be upon you)",
+                      "text": "Hello",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20754,13 +20754,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20781,7 +20781,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"I'm fine (I'm just here)\" in Wolof?",
+                  "question": "How do you say \"I'm fine\" in Wolof?",
                   "order": 1,
                   "options": [
                     {
@@ -20816,7 +20816,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20834,7 +20834,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20843,7 +20843,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Peace only (all is well)\" in Wolof?",
+                  "question": "How do you say \"All is well\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -20878,25 +20878,25 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Hello (peace be upon you)",
+                      "text": "Hello",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -20973,7 +20973,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"You're welcome (we share it)\" in Wolof?",
+                  "question": "How do you say \"You're welcome\" in Wolof?",
                   "order": 1,
                   "options": [
                     {
@@ -21026,7 +21026,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21070,7 +21070,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21150,7 +21150,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21218,7 +21218,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21330,7 +21330,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21392,7 +21392,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21454,7 +21454,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21522,7 +21522,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21611,7 +21611,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"They are fine (they are here)\" in Wolof?",
+                  "question": "How do you say \"They are fine\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -21646,7 +21646,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21794,7 +21794,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21803,7 +21803,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"I'm fine (I'm just here)\" in Wolof?",
+                  "question": "How do you say \"I'm fine\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -21850,7 +21850,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21912,13 +21912,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Hello (peace be upon you)",
+                      "text": "Hello",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -21927,7 +21927,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"You're welcome (we share it)\" in Wolof?",
+                  "question": "How do you say \"You're welcome\" in Wolof?",
                   "order": 7,
                   "options": [
                     {
@@ -21974,7 +21974,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -22049,7 +22049,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -22241,7 +22241,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -22421,7 +22421,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -22448,7 +22448,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Child (son/daughter)\" in Wolof?",
+                  "question": "How do you say \"Child\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -22483,7 +22483,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -22929,7 +22929,7 @@
                   "order": 6,
                   "options": [
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -23009,7 +23009,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -23121,7 +23121,7 @@
                   "order": 6,
                   "options": [
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -23375,7 +23375,7 @@
                   "order": 8,
                   "options": [
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -24993,7 +24993,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -25259,7 +25259,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -25342,7 +25342,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"(Mint) tea\" in Wolof?",
+                  "question": "How do you say \"Mint tea\" in Wolof?",
                   "order": 1,
                   "options": [
                     {
@@ -25389,7 +25389,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -25439,7 +25439,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -25631,7 +25631,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -25649,7 +25649,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -25829,7 +25829,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -25959,7 +25959,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -26042,7 +26042,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Rice with fish (national dish)\" in Wolof?",
+                  "question": "How do you say \"Rice with fish\" in Wolof?",
                   "order": 5,
                   "options": [
                     {
@@ -26083,19 +26083,19 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (onion-lemon sauce dish)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -26110,7 +26110,7 @@
               "challenges": [
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Yassa (onion-lemon sauce dish)\" in Wolof?",
+                  "question": "How do you say \"Yassa\" in Wolof?",
                   "order": 1,
                   "options": [
                     {
@@ -26145,7 +26145,7 @@
                   "order": 2,
                   "options": [
                     {
-                      "text": "Yassa (onion-lemon sauce dish)",
+                      "text": "Yassa",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -26157,7 +26157,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -26399,7 +26399,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -36650,7 +36650,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -36706,7 +36706,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -36774,7 +36774,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -36795,7 +36795,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Boubou (large tunic)\" in Wolof?",
+                  "question": "How do you say \"Boubou\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -36830,7 +36830,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -36848,7 +36848,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -36857,7 +36857,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Wrap skirt (pagne)\" in Wolof?",
+                  "question": "How do you say \"Wrap skirt\" in Wolof?",
                   "order": 5,
                   "options": [
                     {
@@ -36898,7 +36898,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -36966,7 +36966,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37102,13 +37102,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37170,7 +37170,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37226,7 +37226,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37241,7 +37241,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Wrap skirt (pagne)\" in Wolof?",
+                  "question": "How do you say \"Wrap skirt\" in Wolof?",
                   "order": 7,
                   "options": [
                     {
@@ -37294,7 +37294,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37357,7 +37357,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37378,7 +37378,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"You (singular)\" in Wolof?",
+                  "question": "How do you say \"You\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -37413,7 +37413,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37475,7 +37475,7 @@
                   "order": 6,
                   "options": [
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37570,7 +37570,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"You (plural)\" in Wolof?",
+                  "question": "How do you say \"You all\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -37605,7 +37605,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37685,7 +37685,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -37995,7 +37995,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -38069,7 +38069,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -38249,7 +38249,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -38317,7 +38317,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -40053,7 +40053,7 @@
                   "order": 4,
                   "options": [
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -40449,7 +40449,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -40594,7 +40594,7 @@
                 },
                 {
                   "type": "SELECT",
-                  "question": "How do you say \"Did you spend the night in peace? (morning greeting)\" in Wolof?",
+                  "question": "How do you say \"Did you spend the night in peace?\" in Wolof?",
                   "order": 3,
                   "options": [
                     {
@@ -40635,7 +40635,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41025,7 +41025,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41133,7 +41133,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41145,7 +41145,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41160,7 +41160,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Bonjour (paix sur toi)",
+                  "question": "Bonjour",
                   "order": 2,
                   "options": [
                     {
@@ -41213,7 +41213,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41269,7 +41269,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41337,7 +41337,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41352,7 +41352,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Je vais bien (je suis là seulement)",
+                  "question": "Je vais bien",
                   "order": 2,
                   "options": [
                     {
@@ -41387,19 +41387,19 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41414,7 +41414,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "La paix seulement (ça va)",
+                  "question": "Ça va",
                   "order": 4,
                   "options": [
                     {
@@ -41461,7 +41461,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41517,19 +41517,19 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41544,7 +41544,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "De rien (on le partage)",
+                  "question": "De rien",
                   "order": 2,
                   "options": [
                     {
@@ -41833,7 +41833,7 @@
                   "order": 5,
                   "options": [
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41963,7 +41963,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -41975,7 +41975,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42105,7 +42105,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42155,7 +42155,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42173,7 +42173,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42182,7 +42182,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Ils vont bien (ils sont là)",
+                  "question": "Ils vont bien",
                   "order": 4,
                   "options": [
                     {
@@ -42235,7 +42235,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42285,7 +42285,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42297,7 +42297,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "La paix seulement (ça va)",
+                      "text": "Ça va",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42353,7 +42353,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Bonjour (paix sur toi)",
+                      "text": "Bonjour",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42365,7 +42365,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ils vont bien (ils sont là)",
+                      "text": "Ils vont bien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42427,7 +42427,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "De rien (on le partage)",
+                      "text": "De rien",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42471,7 +42471,7 @@
                   "order": 7,
                   "options": [
                     {
-                      "text": "Je vais bien (je suis là seulement)",
+                      "text": "Je vais bien",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42498,7 +42498,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Je vais bien (je suis là seulement)",
+                  "question": "Je vais bien",
                   "order": 8,
                   "options": [
                     {
@@ -42614,7 +42614,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Enfant (fils/fille de)",
+                      "text": "Enfant",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42948,7 +42948,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -42992,8 +42992,20 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Enfant",
+                      "text": "Tante paternelle",
                       "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Épouse",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Enfant",
+                      "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
@@ -43002,24 +43014,12 @@
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
-                    },
-                    {
-                      "text": "Enfant (fils/fille de)",
-                      "correct": true,
-                      "imageSrc": null,
-                      "audioSrc": null
-                    },
-                    {
-                      "text": "Tante paternelle",
-                      "correct": false,
-                      "imageSrc": null,
-                      "audioSrc": null
                     }
                   ]
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Enfant (fils/fille de)",
+                  "question": "Enfant",
                   "order": 4,
                   "options": [
                     {
@@ -43122,7 +43122,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -43382,7 +43382,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -43586,7 +43586,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Ami(e)",
+                      "text": "Ami",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -43595,7 +43595,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Ami(e)",
+                  "question": "Ami",
                   "order": 4,
                   "options": [
                     {
@@ -43884,7 +43884,7 @@
                   "order": 7,
                   "options": [
                     {
-                      "text": "Enfant (fils/fille de)",
+                      "text": "Enfant",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -45502,7 +45502,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -45638,7 +45638,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -45904,7 +45904,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Thé (à la menthe)",
+                      "text": "Thé à la menthe",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -45913,7 +45913,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Thé (à la menthe)",
+                  "question": "Thé à la menthe",
                   "order": 2,
                   "options": [
                     {
@@ -45948,7 +45948,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -45966,7 +45966,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -46220,7 +46220,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -46598,13 +46598,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -46613,7 +46613,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Riz au poisson (plat national)",
+                  "question": "Riz au poisson",
                   "order": 6,
                   "options": [
                     {
@@ -46660,13 +46660,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Thé (à la menthe)",
+                      "text": "Thé à la menthe",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -46681,7 +46681,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Yassa (plat à la sauce oignon-citron)",
+                  "question": "Yassa",
                   "order": 2,
                   "options": [
                     {
@@ -46722,7 +46722,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -46796,7 +46796,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -47056,7 +47056,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Riz au poisson (plat national)",
+                      "text": "Riz au poisson",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -47230,7 +47230,7 @@
                   "order": 5,
                   "options": [
                     {
-                      "text": "Yassa (plat à la sauce oignon-citron)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -48092,7 +48092,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -48154,7 +48154,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -48169,7 +48169,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Stylo (bic)",
+                  "question": "Stylo",
                   "order": 4,
                   "options": [
                     {
@@ -48668,7 +48668,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -49176,7 +49176,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Stylo (bic)",
+                      "text": "Stylo",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57085,7 +57085,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57103,7 +57103,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57159,7 +57159,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57215,7 +57215,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57289,7 +57289,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57339,7 +57339,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57366,7 +57366,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Boubou (grande tunique)",
+                  "question": "Boubou",
                   "order": 4,
                   "options": [
                     {
@@ -57475,7 +57475,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57531,7 +57531,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57558,7 +57558,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Porter / mettre (vêtement)",
+                  "question": "Porter un vêtement",
                   "order": 4,
                   "options": [
                     {
@@ -57661,7 +57661,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57688,7 +57688,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Boubou (grande tunique)",
+                  "question": "Boubou",
                   "order": 4,
                   "options": [
                     {
@@ -57729,7 +57729,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (grande tunique)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57803,7 +57803,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Porter / mettre (vêtement)",
+                      "text": "Porter un vêtement",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -57812,7 +57812,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Porter / mettre (vêtement)",
+                  "question": "Porter un vêtement",
                   "order": 8,
                   "options": [
                     {
@@ -60630,7 +60630,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "As-tu passé la nuit en paix ? (bonjour du matin)",
+                      "text": "As-tu passé la nuit en paix ?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -61144,7 +61144,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "As-tu passé la nuit en paix ? (bonjour du matin)",
+                      "text": "As-tu passé la nuit en paix ?",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -61165,7 +61165,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "As-tu passé la nuit en paix ? (bonjour du matin)",
+                  "question": "As-tu passé la nuit en paix ?",
                   "order": 4,
                   "options": [
                     {
@@ -61673,7 +61673,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -61685,7 +61685,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Hello (peace be upon you)",
+                      "text": "Hello",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -61700,7 +61700,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Hello (peace be upon you)",
+                  "question": "Hello",
                   "order": 2,
                   "options": [
                     {
@@ -61803,7 +61803,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -61883,7 +61883,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -61892,7 +61892,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "I'm fine (I'm just here)",
+                  "question": "I'm fine",
                   "order": 2,
                   "options": [
                     {
@@ -61939,7 +61939,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -61954,7 +61954,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Peace only (all is well)",
+                  "question": "All is well",
                   "order": 4,
                   "options": [
                     {
@@ -61989,7 +61989,7 @@
                   "order": 5,
                   "options": [
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62057,13 +62057,13 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62084,7 +62084,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "You're welcome (we share it)",
+                  "question": "You're welcome",
                   "order": 2,
                   "options": [
                     {
@@ -62119,7 +62119,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62137,7 +62137,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62193,7 +62193,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62441,7 +62441,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62459,7 +62459,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Hello (peace be upon you)",
+                      "text": "Hello",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62503,7 +62503,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62571,13 +62571,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62645,13 +62645,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62701,7 +62701,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62722,7 +62722,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "They are fine (they are here)",
+                  "question": "They are fine",
                   "order": 4,
                   "options": [
                     {
@@ -62769,13 +62769,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62825,7 +62825,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "I'm fine (I'm just here)",
+                      "text": "I'm fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62837,7 +62837,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "They are fine (they are here)",
+                      "text": "They are fine",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -62955,7 +62955,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You're welcome (we share it)",
+                      "text": "You're welcome",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -63023,7 +63023,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Peace only (all is well)",
+                      "text": "All is well",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -63038,7 +63038,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Peace only (all is well)",
+                  "question": "All is well",
                   "order": 8,
                   "options": [
                     {
@@ -63160,7 +63160,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -63544,7 +63544,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -63559,7 +63559,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Child (son/daughter)",
+                  "question": "Child",
                   "order": 4,
                   "options": [
                     {
@@ -63594,7 +63594,7 @@
                   "order": 5,
                   "options": [
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -63860,7 +63860,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -64442,7 +64442,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Child (son/daughter)",
+                      "text": "Child",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -66438,7 +66438,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -66453,7 +66453,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "(Mint) tea",
+                  "question": "Mint tea",
                   "order": 2,
                   "options": [
                     {
@@ -66686,7 +66686,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67144,7 +67144,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67153,7 +67153,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Rice with fish (national dish)",
+                  "question": "Rice with fish",
                   "order": 6,
                   "options": [
                     {
@@ -67212,7 +67212,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (onion-lemon sauce dish)",
+                      "text": "Yassa",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67221,7 +67221,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Yassa (onion-lemon sauce dish)",
+                  "question": "Yassa",
                   "order": 2,
                   "options": [
                     {
@@ -67324,7 +67324,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (onion-lemon sauce dish)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67466,7 +67466,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Yassa (onion-lemon sauce dish)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67510,7 +67510,7 @@
                   "order": 5,
                   "options": [
                     {
-                      "text": "Yassa (onion-lemon sauce dish)",
+                      "text": "Yassa",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67578,7 +67578,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67596,7 +67596,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Rice with fish (national dish)",
+                      "text": "Rice with fish",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67664,7 +67664,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "(Mint) tea",
+                      "text": "Mint tea",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -67673,7 +67673,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "(Mint) tea",
+                  "question": "Mint tea",
                   "order": 2,
                   "options": [
                     {
@@ -77631,7 +77631,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -77687,13 +77687,13 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -77885,13 +77885,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -77906,7 +77906,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Boubou (large tunic)",
+                  "question": "Boubou",
                   "order": 4,
                   "options": [
                     {
@@ -77941,13 +77941,13 @@
                   "order": 5,
                   "options": [
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -77968,7 +77968,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Wrap skirt (pagne)",
+                  "question": "Wrap skirt",
                   "order": 6,
                   "options": [
                     {
@@ -78077,7 +78077,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78139,7 +78139,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78157,7 +78157,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78166,7 +78166,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Wrap skirt (pagne)",
+                  "question": "Wrap skirt",
                   "order": 2,
                   "options": [
                     {
@@ -78263,7 +78263,7 @@
                   "order": 5,
                   "options": [
                     {
-                      "text": "Boubou (large tunic)",
+                      "text": "Boubou",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78275,7 +78275,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78337,7 +78337,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Wrap skirt (pagne)",
+                      "text": "Wrap skirt",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78468,7 +78468,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78480,7 +78480,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78489,7 +78489,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "You (singular)",
+                  "question": "You",
                   "order": 4,
                   "options": [
                     {
@@ -78592,7 +78592,7 @@
                   "order": 1,
                   "options": [
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78672,7 +78672,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78681,7 +78681,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "You (plural)",
+                  "question": "You all",
                   "order": 4,
                   "options": [
                     {
@@ -78728,7 +78728,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78796,13 +78796,13 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78858,7 +78858,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78920,7 +78920,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78982,7 +78982,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -78994,7 +78994,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -79174,7 +79174,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -79254,7 +79254,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -79298,7 +79298,7 @@
                   "order": 3,
                   "options": [
                     {
-                      "text": "You (plural)",
+                      "text": "You all",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -79372,7 +79372,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "You (singular)",
+                      "text": "You",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -79387,7 +79387,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "You (singular)",
+                  "question": "You",
                   "order": 6,
                   "options": [
                     {
@@ -80916,7 +80916,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -80978,7 +80978,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -81498,7 +81498,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -81690,7 +81690,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": true,
                       "imageSrc": null,
                       "audioSrc": null
@@ -81705,7 +81705,7 @@
                 },
                 {
                   "type": "ASSIST",
-                  "question": "Did you spend the night in peace? (morning greeting)",
+                  "question": "Did you spend the night in peace?",
                   "order": 4,
                   "options": [
                     {
@@ -81752,7 +81752,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -81950,7 +81950,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null
@@ -82068,7 +82068,7 @@
                       "audioSrc": null
                     },
                     {
-                      "text": "Did you spend the night in peace? (morning greeting)",
+                      "text": "Did you spend the night in peace?",
                       "correct": false,
                       "imageSrc": null,
                       "audioSrc": null

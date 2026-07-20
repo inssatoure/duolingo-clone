@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useAudio, useKey } from "react-use";
 
 import { challenges } from "@/db/schema";
-import { isWolofText, playText } from "@/lib/audio-client";
+import { speakSmart } from "@/lib/audio-client";
 import { readLocaleCookie, readTargetCookie } from "@/lib/use-locale";
 import { cn } from "@/lib/utils";
 
@@ -43,15 +43,7 @@ export const Card = ({
     } else {
       // Every option is audible: native recording first; browser speech
       // synthesis fallback for French/English text (never for Wolof).
-      const locale = readLocaleCookie();
-      const synthLang = isWolofText(text)
-        ? null
-        : locale === "wo"
-          ? (readTargetCookie() ?? "fr")
-          : locale === "en"
-            ? "en"
-            : "fr";
-      playText(text, synthLang);
+      speakSmart(text, readLocaleCookie() ?? "fr", readTargetCookie());
     }
     onClick();
   }, [disabled, onClick, controls, audioSrc, text]);
@@ -83,14 +75,14 @@ export const Card = ({
 
       <div
         className={cn(
-          "flex items-center justify-between",
+          "flex items-center justify-between gap-x-3",
           type === "ASSIST" && "flex-row-reverse"
         )}
       >
         {type === "ASSIST" && <div aria-hidden />}
         <p
           className={cn(
-            "text-sm text-neutral-600 lg:text-base",
+            "min-w-0 flex-1 break-words text-sm text-neutral-600 lg:text-base",
             selected && "text-sky-500",
             selected && status === "correct" && "text-green-500",
             selected && status === "wrong" && "text-rose-500"
@@ -101,7 +93,7 @@ export const Card = ({
 
         <div
           className={cn(
-            "flex h-[20px] w-[20px] items-center justify-center rounded-lg border-2 text-xs font-semibold text-neutral-400 lg:h-[30px] lg:w-[30px] lg:text-[15px]",
+            "flex h-[20px] w-[20px] shrink-0 items-center justify-center rounded-lg border-2 text-xs font-semibold text-neutral-400 lg:h-[30px] lg:w-[30px] lg:text-[15px]",
             selected && "border-sky-300 text-sky-500",
             selected &&
               status === "correct" &&

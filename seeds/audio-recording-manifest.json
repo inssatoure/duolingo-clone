@@ -1,8 +1,8 @@
 [
   {
     "wolof": "Salaamaalekum",
-    "fr": "Bonjour (paix sur toi)",
-    "en": "Hello (peace be upon you)",
+    "fr": "Bonjour",
+    "en": "Hello",
     "expectedFile": "public/audio/wolof/salaamaalekum.mp3",
     "recorded": false
   },
@@ -22,15 +22,15 @@
   },
   {
     "wolof": "Maa ngi fi rekk",
-    "fr": "Je vais bien (je suis là seulement)",
-    "en": "I'm fine (I'm just here)",
+    "fr": "Je vais bien",
+    "en": "I'm fine",
     "expectedFile": "public/audio/wolof/maa-ngi-fi-rekk.mp3",
     "recorded": false
   },
   {
     "wolof": "Jàmm rekk",
-    "fr": "La paix seulement (ça va)",
-    "en": "Peace only (all is well)",
+    "fr": "Ça va",
+    "en": "All is well",
     "expectedFile": "public/audio/wolof/jamm-rekk.mp3",
     "recorded": false
   },
@@ -43,8 +43,8 @@
   },
   {
     "wolof": "Ñoo ko bokk",
-    "fr": "De rien (on le partage)",
-    "en": "You're welcome (we share it)",
+    "fr": "De rien",
+    "en": "You're welcome",
     "expectedFile": "public/audio/wolof/noo-ko-bokk.mp3",
     "recorded": false
   },
@@ -113,8 +113,8 @@
   },
   {
     "wolof": "Ñu ngi fi",
-    "fr": "Ils vont bien (ils sont là)",
-    "en": "They are fine (they are here)",
+    "fr": "Ils vont bien",
+    "en": "They are fine",
     "expectedFile": "public/audio/wolof/nu-ngi-fi.mp3",
     "recorded": false
   },
@@ -176,8 +176,8 @@
   },
   {
     "wolof": "Doom",
-    "fr": "Enfant (fils/fille de)",
-    "en": "Child (son/daughter)",
+    "fr": "Enfant",
+    "en": "Child",
     "expectedFile": "public/audio/wolof/doom.mp3",
     "recorded": false
   },
@@ -239,7 +239,7 @@
   },
   {
     "wolof": "Xarit",
-    "fr": "Ami(e)",
+    "fr": "Ami",
     "en": "Friend",
     "expectedFile": "public/audio/wolof/xarit.mp3",
     "recorded": false
@@ -435,8 +435,8 @@
   },
   {
     "wolof": "Attaaya",
-    "fr": "Thé (à la menthe)",
-    "en": "(Mint) tea",
+    "fr": "Thé à la menthe",
+    "en": "Mint tea",
     "expectedFile": "public/audio/wolof/attaaya.mp3",
     "recorded": false
   },
@@ -512,15 +512,15 @@
   },
   {
     "wolof": "Ceebu jën",
-    "fr": "Riz au poisson (plat national)",
-    "en": "Rice with fish (national dish)",
+    "fr": "Riz au poisson",
+    "en": "Rice with fish",
     "expectedFile": "public/audio/wolof/ceebu-jen.mp3",
     "recorded": false
   },
   {
     "wolof": "Yassa",
-    "fr": "Yassa (plat à la sauce oignon-citron)",
-    "en": "Yassa (onion-lemon sauce dish)",
+    "fr": "Yassa",
+    "en": "Yassa",
     "expectedFile": "public/audio/wolof/yassa.mp3",
     "recorded": false
   },
@@ -624,7 +624,7 @@
   },
   {
     "wolof": "Bind",
-    "fr": "Stylo (bic)",
+    "fr": "Stylo",
     "en": "Pen",
     "expectedFile": "public/audio/wolof/bind.mp3",
     "recorded": false
@@ -1429,15 +1429,15 @@
   },
   {
     "wolof": "Mbubb",
-    "fr": "Boubou (grande tunique)",
-    "en": "Boubou (large tunic)",
+    "fr": "Boubou",
+    "en": "Boubou",
     "expectedFile": "public/audio/wolof/mbubb.mp3",
     "recorded": false
   },
   {
     "wolof": "Sér",
     "fr": "Pagne",
-    "en": "Wrap skirt (pagne)",
+    "en": "Wrap skirt",
     "expectedFile": "public/audio/wolof/ser.mp3",
     "recorded": false
   },
@@ -1450,7 +1450,7 @@
   },
   {
     "wolof": "Sol",
-    "fr": "Porter / mettre (vêtement)",
+    "fr": "Porter un vêtement",
     "en": "To wear / put on",
     "expectedFile": "public/audio/wolof/sol.mp3",
     "recorded": false
@@ -1465,7 +1465,7 @@
   {
     "wolof": "Yow",
     "fr": "Toi / tu",
-    "en": "You (singular)",
+    "en": "You",
     "expectedFile": "public/audio/wolof/yow.mp3",
     "recorded": false
   },
@@ -1486,7 +1486,7 @@
   {
     "wolof": "Yéen",
     "fr": "Vous",
-    "en": "You (plural)",
+    "en": "You all",
     "expectedFile": "public/audio/wolof/yeen.mp3",
     "recorded": false
   },
@@ -1758,8 +1758,8 @@
   },
   {
     "wolof": "Jàmm nga fanaane?",
-    "fr": "As-tu passé la nuit en paix ? (bonjour du matin)",
-    "en": "Did you spend the night in peace? (morning greeting)",
+    "fr": "As-tu passé la nuit en paix ?",
+    "en": "Did you spend the night in peace?",
     "expectedFile": "public/audio/wolof/jamm-nga-fanaane.mp3",
     "recorded": false
   },
