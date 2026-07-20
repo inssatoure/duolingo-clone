@@ -33,6 +33,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   ...siteConfig,
+  title: "WoLingo",
+  applicationName: "WoLingo",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

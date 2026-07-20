@@ -206,6 +206,12 @@ export const getLessonPercentage = cache(async () => {
   return percentage;
 });
 
+// TEMPORARY: the whole app is free while WoLingo is in early testing - this
+// short-circuits hearts limits and every "Upgrade to Pro" prompt across the
+// app. Set to false (or delete this block) to restore the real Stripe-based
+// subscription check below.
+const FREE_MODE = true;
+
 export const getUserSubscription = cache(async () => {
   const { userId } = await auth();
 
@@ -214,6 +220,18 @@ export const getUserSubscription = cache(async () => {
   const data = await db.query.userSubscription.findFirst({
     where: eq(userSubscription.userId, userId),
   });
+
+  if (FREE_MODE) {
+    return {
+      id: data?.id ?? 0,
+      userId,
+      stripeCustomerId: data?.stripeCustomerId ?? "",
+      stripeSubscriptionId: data?.stripeSubscriptionId ?? "",
+      stripePriceId: data?.stripePriceId ?? "",
+      stripeCurrentPeriodEnd: data?.stripeCurrentPeriodEnd ?? new Date(),
+      isActive: true,
+    };
+  }
 
   if (!data) return null;
 

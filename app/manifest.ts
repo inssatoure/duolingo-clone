@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "WoLingo — Apprends le wolof",
+    name: "WoLingo",
     short_name: "WoLingo",
     description:
       "Apprends le wolof depuis le français ou l'anglais, et le français/anglais depuis le wolof.",

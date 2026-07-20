@@ -68,6 +68,68 @@ export const Items = ({
     });
   };
 
+  // Temporary: the whole app is free right now (see FREE_MODE in
+  // db/queries.ts), so hearts never run out and there's nothing to buy or
+  // upgrade here - hide these two rows instead of showing a "Settings"
+  // button that would try to open a real Stripe checkout.
+  if (hasActiveSubscription) {
+    return (
+      <ul className="w-full">
+        <div className="flex w-full items-center gap-x-4 border-t-2 p-4 pt-8">
+          <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-gold/20 text-3xl">
+            ❄️
+          </div>
+
+          <div className="flex-1">
+            <p className="text-base font-bold text-sahel lg:text-xl">
+              {t.streakFreeze}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {t.streakFreezeDesc}
+            </p>
+          </div>
+
+          <Button
+            onClick={onPurchaseStreakFreeze}
+            disabled={pending || cfaBalance < 500}
+            aria-disabled={pending || cfaBalance < 500}
+            className="bg-gold hover:bg-gold/90"
+          >
+            <div className="flex items-center">
+              <span className="mr-1">500</span>
+              <span className="text-xs">CFA</span>
+            </div>
+          </Button>
+        </div>
+
+        <div className="flex w-full items-center gap-x-4 border-t-2 p-4 pt-8">
+          <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-mangrove/20 text-3xl">
+            💰
+          </div>
+
+          <div className="flex-1">
+            <p className="text-base font-bold text-mangrove lg:text-xl">
+              {t.cfaBoost}
+            </p>
+            <p className="text-xs text-muted-foreground">{t.cfaBoostDesc}</p>
+          </div>
+
+          <Button
+            onClick={onPurchaseCFABoost}
+            disabled={pending || cfaBalance < 100}
+            aria-disabled={pending || cfaBalance < 100}
+            className="bg-mangrove hover:bg-mangrove/90"
+          >
+            <div className="flex items-center">
+              <span className="mr-1">100</span>
+              <span className="text-xs">CFA</span>
+            </div>
+          </Button>
+        </div>
+      </ul>
+    );
+  }
+
   return (
     <ul className="w-full">
       <div className="flex w-full items-center gap-x-4 border-t-2 p-4">
@@ -110,7 +172,7 @@ export const Items = ({
         </div>
 
         <Button onClick={onUpgrade} disabled={pending} aria-disabled={pending}>
-          {hasActiveSubscription ? t.settings : t.upgrade}
+          {t.upgrade}
         </Button>
       </div>
 
