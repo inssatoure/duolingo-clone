@@ -20,8 +20,16 @@ const isRateLimited = (error: unknown) =>
   (error instanceof GoogleTtsError || error instanceof GeminiTtsError) &&
   error.message.includes("429");
 
-/** Synthesizes one item, retrying with backoff on 429 (rate limit).
- * Returns [audioBase64, mime]. */
+// Gemini is a language model, not a deterministic TTS engine: the exact same
+// request occasionally comes back with no audio (it silently replies in
+// text, or the model just doesn't emit an audio part). This is transient and
+// usually succeeds on a plain retry, unlike a real error - so retry it too,
+// not just rate limits.
+const isTransientGeminiFailure = (error: unknown) =>
+  error instanceof GeminiTtsError && !error.message.includes("429");
+
+/** Synthesizes one item, retrying with backoff on 429 (rate limit) or on a
+ * transient Gemini failure (no audio content). Returns [audioBase64, mime]. */
 const synthesizeWithRetry = async (
   item: Item,
   attempt = 1
@@ -39,6 +47,10 @@ const synthesizeWithRetry = async (
   } catch (error) {
     if (isRateLimited(error) && attempt < 4) {
       await sleep(attempt * 3000);
+      return synthesizeWithRetry(item, attempt + 1);
+    }
+    if (isTransientGeminiFailure(error) && attempt < 3) {
+      await sleep(500);
       return synthesizeWithRetry(item, attempt + 1);
     }
     throw error;
