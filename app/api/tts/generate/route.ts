@@ -46,38 +46,46 @@ export const POST = async (req: NextRequest) => {
   const isAdmin = await getIsAdmin();
   if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
 
-  const body = (await req.json()) as { items?: Item[] };
-  const items = body.items ?? [];
-  if (items.length === 0 || items.length > 20)
-    return new NextResponse("Provide 1-20 items.", { status: 400 });
+  try {
+    const body = (await req.json()) as { items?: Item[] };
+    const items = body.items ?? [];
+    if (items.length === 0 || items.length > 20)
+      return NextResponse.json({ error: "Provide 1-20 items." }, { status: 400 });
 
-  await ensureRecordingsTable();
+    await ensureRecordingsTable();
 
-  const results: { text: string; lang: Item["lang"]; ok: boolean; error?: string }[] = [];
+    const results: { text: string; lang: Item["lang"]; ok: boolean; error?: string }[] = [];
 
-  for (const item of items) {
-    try {
-      const [audioBase64, mime] = await synthesizeWithRetry(item);
-      const key = normalizeKey(item.text);
-      await db.execute(sql`
-        INSERT INTO recordings (text_key, lang, mime, data, updated_at)
-        VALUES (${key}, ${item.lang}, ${mime}, ${audioBase64}, now())
-        ON CONFLICT (text_key, lang)
-        DO UPDATE SET mime = EXCLUDED.mime, data = EXCLUDED.data, updated_at = now()
-      `);
-      results.push({ text: item.text, lang: item.lang, ok: true });
-    } catch (error) {
-      results.push({
-        text: item.text,
-        lang: item.lang,
-        ok: false,
-        error: error instanceof Error ? error.message : "Unknown error",
-      });
+    for (const item of items) {
+      try {
+        const [audioBase64, mime] = await synthesizeWithRetry(item);
+        const key = normalizeKey(item.text);
+        await db.execute(sql`
+          INSERT INTO recordings (text_key, lang, mime, data, updated_at)
+          VALUES (${key}, ${item.lang}, ${mime}, ${audioBase64}, now())
+          ON CONFLICT (text_key, lang)
+          DO UPDATE SET mime = EXCLUDED.mime, data = EXCLUDED.data, updated_at = now()
+        `);
+        results.push({ text: item.text, lang: item.lang, ok: true });
+      } catch (error) {
+        results.push({
+          text: item.text,
+          lang: item.lang,
+          ok: false,
+          error: error instanceof Error ? error.message : "Unknown error",
+        });
+      }
+      // Small pacing gap between calls, independent of retries, to stay under
+      // typical free-tier per-minute quotas. Gemini is heavier, pace slower.
+      await sleep(item.lang === "wo" ? 800 : 350);
     }
-    // Small pacing gap between calls, independent of retries, to stay under
-    // typical free-tier per-minute quotas. Gemini is heavier, pace slower.
-    await sleep(item.lang === "wo" ? 800 : 350);
-  }
 
-  return NextResponse.json({ results });
+    return NextResponse.json({ results });
+  } catch (error) {
+    console.error("TTS generate failed:", error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Unknown error" },
+      { status: 500 }
+    );
+  }
 };

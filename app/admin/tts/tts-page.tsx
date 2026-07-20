@@ -10,6 +10,20 @@ const BATCH_SIZE = 8;
 const PAUSE_BETWEEN_BATCHES_MS = 1500;
 const SAMPLE_SIZE = 3;
 
+/** Parses a fetch Response as JSON, but never throws a cryptic "Unexpected
+ * token" error if the server returned an HTML error page instead (e.g. a
+ * platform-level 500) - surfaces the raw text so the real problem shows. */
+const safeJson = async <T,>(res: Response): Promise<T> => {
+  const raw = await res.text();
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    throw new Error(
+      `Server returned a non-JSON response (HTTP ${res.status}): ${raw.slice(0, 200)}`
+    );
+  }
+};
+
 export const TtsPage = () => {
   const [items, setItems] = useState<Item[] | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -20,11 +34,11 @@ export const TtsPage = () => {
 
   useEffect(() => {
     fetch("/api/tts/manifest")
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json() as Promise<{ items: Item[] }>;
+      .then((r) => safeJson<{ items?: Item[]; error?: string }>(r))
+      .then((d) => {
+        if (d.error) throw new Error(d.error);
+        setItems(d.items ?? []);
       })
-      .then((d) => setItems(d.items))
       .catch((e: Error) => setError(e.message));
   }, []);
 
@@ -60,10 +74,10 @@ export const TtsPage = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ items: batch.map(({ text, lang }) => ({ text, lang })) }),
         });
-        const data = (await res.json()) as {
+        const data = await safeJson<{
           results?: { text: string; ok: boolean; error?: string }[];
           error?: string;
-        };
+        }>(res);
         if (!res.ok || !data.results) {
           setError(data.error ?? `HTTP ${res.status}`);
           break;

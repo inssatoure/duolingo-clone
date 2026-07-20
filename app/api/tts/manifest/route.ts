@@ -12,20 +12,28 @@ export const GET = async () => {
   const isAdmin = await getIsAdmin();
   if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
 
-  await ensureRecordingsTable();
-  const rows = (await db.execute(
-    sql`SELECT text_key, lang FROM recordings WHERE lang IN ('fr', 'en', 'wo')`
-  )) as unknown as { rows?: { text_key: string; lang: string }[] };
-  const recorded = new Set(
-    (rows.rows ?? (rows as unknown as { text_key: string; lang: string }[])).map(
-      (r) => `${r.lang}:${r.text_key}`
-    )
-  );
+  try {
+    await ensureRecordingsTable();
+    const rows = (await db.execute(
+      sql`SELECT text_key, lang FROM recordings WHERE lang IN ('fr', 'en', 'wo')`
+    )) as unknown as { rows?: { text_key: string; lang: string }[] };
+    const recorded = new Set(
+      (rows.rows ?? (rows as unknown as { text_key: string; lang: string }[])).map(
+        (r) => `${r.lang}:${r.text_key}`
+      )
+    );
 
-  const items = buildTtsManifest().map((item) => ({
-    ...item,
-    recorded: recorded.has(`${item.lang}:${normalizeKey(item.text)}`),
-  }));
+    const items = buildTtsManifest().map((item) => ({
+      ...item,
+      recorded: recorded.has(`${item.lang}:${normalizeKey(item.text)}`),
+    }));
 
-  return NextResponse.json({ items });
+    return NextResponse.json({ items });
+  } catch (error) {
+    console.error("TTS manifest failed:", error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Unknown error" },
+      { status: 500 }
+    );
+  }
 };
