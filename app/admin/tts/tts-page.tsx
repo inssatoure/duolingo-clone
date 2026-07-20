@@ -4,10 +4,11 @@ import { useEffect, useMemo, useState } from "react";
 
 import { Title } from "react-admin";
 
-type Item = { text: string; lang: "fr" | "en"; recorded: boolean };
+type Item = { text: string; lang: "fr" | "en" | "wo"; recorded: boolean };
 
 const BATCH_SIZE = 8;
 const PAUSE_BETWEEN_BATCHES_MS = 1500;
+const SAMPLE_SIZE = 3;
 
 export const TtsPage = () => {
   const [items, setItems] = useState<Item[] | null>(null);
@@ -15,7 +16,7 @@ export const TtsPage = () => {
   const [running, setRunning] = useState(false);
   const [progress, setProgress] = useState(0);
   const [failures, setFailures] = useState<{ text: string; error?: string }[]>([]);
-  const [langFilter, setLangFilter] = useState<"fr" | "en" | null>(null);
+  const [langFilter, setLangFilter] = useState<"fr" | "en" | "wo" | null>(null);
 
   useEffect(() => {
     fetch("/api/tts/manifest")
@@ -40,14 +41,16 @@ export const TtsPage = () => {
   const total = (items ?? []).filter(
     (i) => !langFilter || i.lang === langFilter
   ).length;
+  const recordedInFilter = (items ?? []).filter(
+    (i) => i.recorded && (!langFilter || i.lang === langFilter)
+  );
 
-  const run = async () => {
-    if (!items) return;
+  const generate = async (queueItems: Item[]) => {
     setRunning(true);
     setFailures([]);
     setProgress(0);
 
-    const queue = [...todo];
+    const queue = [...queueItems];
     let done = 0;
     while (queue.length > 0) {
       const batch = queue.splice(0, BATCH_SIZE);
@@ -87,30 +90,31 @@ export const TtsPage = () => {
     setRunning(false);
   };
 
+  const play = (text: string, lang: string) => {
+    void new Audio(
+      `/api/recordings/play?text=${encodeURIComponent(text)}&lang=${lang}`
+    ).play();
+  };
+
   if (error)
     return <p style={{ padding: 16, color: "crimson" }}>Erreur : {error}</p>;
   if (!items) return <p style={{ padding: 16 }}>Chargement du catalogue…</p>;
 
+  const isWo = langFilter === "wo";
+
   return (
     <div style={{ padding: 16, maxWidth: 720 }}>
       <Title title="Google TTS" />
-      <h2>🔊 Voix naturelle Google (FR/EN)</h2>
+      <h2>🔊 Voix naturelle (FR/EN/WO)</h2>
       <p style={{ color: "#666" }}>
-        Génère automatiquement l&apos;audio des mots du dictionnaire, des
-        textes de l&apos;interface et des questions complètes des cours
-        &laquo;&nbsp;depuis le français&nbsp;&raquo; et
-        &laquo;&nbsp;from English&nbsp;&raquo;, avec une voix Google
-        WaveNet naturelle. Le wolof n&apos;est pas proposé ici : Google Cloud
-        ne propose aucune voix wolof (vérifié auprès de l&apos;API — 63
-        langues, wolof absent). Pour le wolof, utilise le Studio
-        d&apos;enregistrement.
+        Français et anglais : voix Google Cloud WaveNet (naturelle, fiable).
       </p>
 
       <div style={{ display: "flex", gap: 8, margin: "12px 0" }}>
-        {[null, "fr", "en"].map((l) => (
+        {[null, "fr", "en", "wo"].map((l) => (
           <button
             key={l ?? "all"}
-            onClick={() => setLangFilter(l as "fr" | "en" | null)}
+            onClick={() => setLangFilter(l as "fr" | "en" | "wo" | null)}
             style={{
               padding: "4px 12px",
               borderRadius: 999,
@@ -120,10 +124,84 @@ export const TtsPage = () => {
               fontWeight: langFilter === l ? 700 : 400,
             }}
           >
-            {l === null ? "Tout" : l === "fr" ? "🇫🇷 Français" : "🇬🇧 English"}
+            {l === null
+              ? "Tout"
+              : l === "fr"
+                ? "🇫🇷 Français"
+                : l === "en"
+                  ? "🇬🇧 English"
+                  : "🇸🇳 Wolof (expérimental)"}
           </button>
         ))}
       </div>
+
+      {isWo && (
+        <div
+          style={{
+            background: "#fef3c7",
+            border: "1px solid #f59e0b",
+            borderRadius: 8,
+            padding: 10,
+            fontSize: 14,
+            marginBottom: 12,
+          }}
+        >
+          ⚠️ <strong>Expérimental</strong> — Google Cloud n&apos;a aucune voix
+          wolof. Ceci utilise <strong>Gemini</strong> (un modèle de langage,
+          pas un moteur TTS dédié) pour tenter de prononcer le wolof à partir
+          de son orthographe. La qualité n&apos;est pas garantie.{" "}
+          <strong>Écoute d&apos;abord les échantillons ci-dessous</strong>{" "}
+          avant de lancer une génération en masse. Un enregistrement natif
+          fait dans le Studio pour le même mot remplace toujours cette
+          version.
+        </div>
+      )}
+
+      {isWo && (
+        <button
+          onClick={() => void generate(todo.slice(0, SAMPLE_SIZE))}
+          disabled={running || todo.length === 0}
+          style={{
+            padding: "8px 16px",
+            fontSize: 14,
+            fontWeight: 700,
+            borderRadius: 8,
+            border: "1px solid #f59e0b",
+            cursor: running || todo.length === 0 ? "default" : "pointer",
+            background: "#fff",
+            color: "#b45309",
+            marginBottom: 12,
+          }}
+        >
+          🎧 Générer {Math.min(SAMPLE_SIZE, todo.length)} échantillons à écouter
+        </button>
+      )}
+
+      {recordedInFilter.length > 0 && (
+        <div style={{ marginBottom: 16 }}>
+          <p style={{ fontWeight: 600, marginBottom: 6 }}>
+            Déjà générés — clique pour écouter :
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+            {recordedInFilter.slice(0, 40).map((it) => (
+              <button
+                key={`${it.lang}-${it.text}`}
+                onClick={() => play(it.text, it.lang)}
+                style={{
+                  padding: "4px 10px",
+                  borderRadius: 999,
+                  border: "1px solid #d1d5db",
+                  background: "#f9fafb",
+                  cursor: "pointer",
+                  fontSize: 13,
+                }}
+              >
+                ▶ {it.text}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <p>
         {doneCount}/{total} déjà générés · {todo.length} restants
@@ -141,7 +219,7 @@ export const TtsPage = () => {
       </div>
 
       <button
-        onClick={() => void run()}
+        onClick={() => void generate(todo)}
         disabled={running || todo.length === 0}
         style={{
           marginTop: 16,
@@ -176,8 +254,9 @@ export const TtsPage = () => {
       )}
 
       <p style={{ color: "#9ca3af", fontSize: 13, marginTop: 16 }}>
-        Ceci consomme le quota de ta clé Google Cloud Text-to-Speech
-        (GOOGLE_TTS_API_KEY). Les pistes sont utilisables immédiatement, sans
+        FR/EN consomme le quota GOOGLE_TTS_API_KEY (Cloud Text-to-Speech).
+        Wolof consomme le quota GEMINI_API_KEY (Gemini API) — deux clés
+        distinctes. Les pistes sont utilisables immédiatement, sans
         redéploiement.
       </p>
     </div>
