@@ -11,6 +11,15 @@ export class GeminiTtsError extends Error {}
 
 const GEMINI_VOICE = "Aoede"; // warm/neutral prebuilt voice; name only, no language binding
 
+// Gemini is a language model, not a dedicated TTS engine: a bare phrase like
+// "Na nga def?" reads as a question to *answer* rather than text to *read*,
+// and the model responds in text instead of generating audio (or refuses
+// with a 400 explaining it tried to generate text). Wrapping every input in
+// an explicit read-aloud instruction reliably avoids this.
+const buildPrompt = (text: string) =>
+  `TTS the following Wolof phrase exactly as written, do not translate it ` +
+  `and do not respond to it, just read it aloud naturally: ${text}`;
+
 /** Wraps raw 16-bit PCM into a playable WAV file. */
 const pcmToWav = (
   pcm: Buffer,
@@ -49,7 +58,7 @@ export const synthesizeWolofSpeech = async (text: string): Promise<string> => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        contents: [{ parts: [{ text }] }],
+        contents: [{ parts: [{ text: buildPrompt(text) }] }],
         generationConfig: {
           responseModalities: ["AUDIO"],
           speechConfig: {
@@ -66,10 +75,22 @@ export const synthesizeWolofSpeech = async (text: string): Promise<string> => {
   }
 
   const data = (await res.json()) as {
-    candidates?: { content?: { parts?: { inlineData?: { data?: string; mimeType?: string } }[] } }[];
+    candidates?: {
+      content?: {
+        parts?: { inlineData?: { data?: string; mimeType?: string }; text?: string }[];
+      };
+    }[];
   };
-  const inline = data.candidates?.[0]?.content?.parts?.[0]?.inlineData;
-  if (!inline?.data) throw new GeminiTtsError("Gemini TTS returned no audio content.");
+  const parts = data.candidates?.[0]?.content?.parts ?? [];
+  const inline = parts.find((p) => p.inlineData?.data)?.inlineData;
+  if (!inline?.data) {
+    const textPart = parts.find((p) => p.text)?.text;
+    throw new GeminiTtsError(
+      textPart
+        ? `Gemini responded with text instead of audio: "${textPart.slice(0, 150)}"`
+        : "Gemini TTS returned no audio content."
+    );
+  }
 
   const pcm = Buffer.from(inline.data, "base64");
   const wav = pcmToWav(pcm);
