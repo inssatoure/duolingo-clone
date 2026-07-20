@@ -7,6 +7,8 @@ import { Title } from "react-admin";
 type Item = {
   text: string;
   lang: "fr" | "en" | "wo";
+  lessonOrder: number;
+  lessonLabel: string;
   recorded: boolean;
   voice?: string | null;
 };
@@ -46,33 +48,36 @@ export const TtsPage = () => {
   const [failures, setFailures] = useState<{ text: string; error?: string }[]>([]);
   const [langFilter, setLangFilter] = useState<"fr" | "en" | "wo" | null>(null);
   const [voice, setVoice] = useState("Aoede");
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/tts/manifest")
       .then((r) => safeJson<{ items?: Item[]; error?: string }>(r))
       .then((d) => {
         if (d.error) throw new Error(d.error);
+        // Items already arrive sorted chronologically (lesson 1 -> last).
         setItems(d.items ?? []);
       })
       .catch((e: Error) => setError(e.message));
   }, []);
 
-  const todo = useMemo(
-    () =>
-      (items ?? []).filter(
-        (i) => !i.recorded && (!langFilter || i.lang === langFilter)
-      ),
+  const filtered = useMemo(
+    () => (items ?? []).filter((i) => !langFilter || i.lang === langFilter),
     [items, langFilter]
   );
-  const doneCount = (items ?? []).filter(
-    (i) => i.recorded && (!langFilter || i.lang === langFilter)
-  ).length;
-  const total = (items ?? []).filter(
-    (i) => !langFilter || i.lang === langFilter
-  ).length;
-  const recordedInFilter = (items ?? []).filter(
-    (i) => i.recorded && (!langFilter || i.lang === langFilter)
-  );
+  const todo = useMemo(() => filtered.filter((i) => !i.recorded), [filtered]);
+  const doneCount = filtered.length - todo.length;
+
+  // Group by lesson, preserving chronological order (Unit 1/Lesson 1 first).
+  const groups = useMemo(() => {
+    const map = new Map<string, { order: number; label: string; items: Item[] }>();
+    for (const it of filtered) {
+      const g = map.get(it.lessonLabel);
+      if (g) g.items.push(it);
+      else map.set(it.lessonLabel, { order: it.lessonOrder, label: it.lessonLabel, items: [it] });
+    }
+    return [...map.values()].sort((a, b) => a.order - b.order);
+  }, [filtered]);
 
   const generate = async (queueItems: Item[]) => {
     setRunning(true);
@@ -98,6 +103,7 @@ export const TtsPage = () => {
         const data = await safeJson<{
           results?: { text: string; ok: boolean; error?: string }[];
           error?: string;
+          quotaExhausted?: boolean;
         }>(res);
         if (!res.ok || !data.results) {
           setError(data.error ?? `HTTP ${res.status}`);
@@ -119,6 +125,13 @@ export const TtsPage = () => {
               : it
           ) ?? prev
         );
+        // Quota Gemini quotidien épuisé : inutile d'insister sur les lots
+        // suivants, ils échoueront tous pareil tant que le quota n'est pas
+        // réinitialisé.
+        if (data.quotaExhausted) {
+          setError(data.error ?? "Quota épuisé.");
+          break;
+        }
       } catch (e) {
         setError(e instanceof Error ? e.message : "Request failed");
         break;
@@ -142,14 +155,16 @@ export const TtsPage = () => {
   const isWo = langFilter === "wo";
 
   return (
-    <div style={{ padding: 16, maxWidth: 720 }}>
+    <div style={{ padding: 16, maxWidth: 900, width: "100%", boxSizing: "border-box" }}>
       <Title title="Google TTS" />
       <h2>🔊 Voix naturelle (FR/EN/WO)</h2>
       <p style={{ color: "#666" }}>
         Français et anglais : voix Google Cloud WaveNet (naturelle, fiable).
+        Génération groupée par leçon, dans l&apos;ordre du parcours : Unité 1
+        / Leçon 1 en premier.
       </p>
 
-      <div style={{ display: "flex", gap: 8, margin: "12px 0" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "12px 0" }}>
         {[null, "fr", "en", "wo"].map((l) => (
           <button
             key={l ?? "all"}
@@ -161,6 +176,7 @@ export const TtsPage = () => {
               cursor: "pointer",
               background: langFilter === l ? "#dbeafe" : "#fff",
               fontWeight: langFilter === l ? 700 : 400,
+              whiteSpace: "nowrap",
             }}
           >
             {l === null
@@ -186,18 +202,24 @@ export const TtsPage = () => {
           }}
         >
           ⚠️ <strong>Expérimental</strong> — Google Cloud n&apos;a aucune voix
-          wolof. Ceci utilise <strong>Gemini</strong> (un modèle de langage,
-          pas un moteur TTS dédié) pour tenter de prononcer le wolof à partir
-          de son orthographe. La qualité varie <strong>d&apos;un essai à
-          l&apos;autre, même avec la même voix</strong> — ce n&apos;est pas un
-          moteur déterministe. Écoute avant de générer en masse. Un
-          enregistrement natif fait dans le Studio pour le même mot remplace
-          toujours cette version.
+          wolof. Ceci utilise <strong>Gemini</strong>, dont le quota gratuit
+          quotidien est limité. La qualité varie{" "}
+          <strong>d&apos;un essai à l&apos;autre</strong>. Un enregistrement
+          natif fait dans le Studio pour le même mot remplace toujours cette
+          version.
         </div>
       )}
 
       {isWo && (
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 12,
+          }}
+        >
           <label htmlFor="voice-select" style={{ fontSize: 14, fontWeight: 600 }}>
             Voix Gemini :
           </label>
@@ -225,6 +247,7 @@ export const TtsPage = () => {
               cursor: running || todo.length === 0 ? "default" : "pointer",
               background: "#fff",
               color: "#b45309",
+              whiteSpace: "nowrap",
             }}
           >
             🎧 Essayer {voice} sur {Math.min(SAMPLE_SIZE, todo.length)} mots
@@ -232,69 +255,13 @@ export const TtsPage = () => {
         </div>
       )}
 
-      {recordedInFilter.length > 0 && (
-        <div style={{ marginBottom: 16 }}>
-          <p style={{ fontWeight: 600, marginBottom: 6 }}>
-            Déjà générés — clique pour écouter :
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-            {recordedInFilter.slice(0, 60).map((it) => (
-              <span
-                key={`${it.lang}-${it.text}`}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  padding: "4px 4px 4px 10px",
-                  borderRadius: 999,
-                  border: "1px solid #d1d5db",
-                  background: "#f9fafb",
-                  fontSize: 13,
-                }}
-              >
-                <button
-                  onClick={() => play(it.text, it.lang)}
-                  style={{ background: "none", border: "none", cursor: "pointer" }}
-                  title={it.voice ? `Voix : ${it.voice}` : undefined}
-                >
-                  ▶ {it.text}
-                  {it.voice && (
-                    <span style={{ color: "#9ca3af", marginLeft: 4 }}>
-                      ({it.voice})
-                    </span>
-                  )}
-                </button>
-                {it.lang === "wo" && (
-                  <button
-                    onClick={() => void generate([it])}
-                    disabled={running}
-                    title={`Régénérer avec ${voice}`}
-                    style={{
-                      background: "#fff",
-                      border: "1px solid #d1d5db",
-                      borderRadius: 999,
-                      width: 20,
-                      height: 20,
-                      cursor: running ? "default" : "pointer",
-                      fontSize: 11,
-                    }}
-                  >
-                    🔁
-                  </button>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-
       <p>
-        {doneCount}/{total} déjà générés · {todo.length} restants
+        {doneCount}/{filtered.length} déjà générés · {todo.length} restants
       </p>
       <div style={{ background: "#e5e7eb", borderRadius: 8, height: 10 }}>
         <div
           style={{
-            width: total ? `${(doneCount / total) * 100}%` : "0%",
+            width: filtered.length ? `${(doneCount / filtered.length) * 100}%` : "0%",
             background: "#2563eb",
             height: "100%",
             borderRadius: 8,
@@ -308,6 +275,7 @@ export const TtsPage = () => {
         disabled={running || todo.length === 0}
         style={{
           marginTop: 16,
+          marginBottom: 20,
           padding: "10px 20px",
           fontSize: 15,
           fontWeight: 700,
@@ -316,17 +284,19 @@ export const TtsPage = () => {
           cursor: running || todo.length === 0 ? "default" : "pointer",
           background: running ? "#9ca3af" : "#2563eb",
           color: "#fff",
+          width: "100%",
+          maxWidth: 420,
         }}
       >
         {running
           ? `Génération… (${progress}/${todo.length})`
           : todo.length === 0
             ? "Tout est déjà généré"
-            : `Générer les ${todo.length} pistes manquantes${isWo ? ` (voix ${voice})` : ""}`}
+            : `Générer les ${todo.length} pistes manquantes, dans l'ordre du parcours${isWo ? ` (voix ${voice})` : ""}`}
       </button>
 
       {failures.length > 0 && (
-        <div style={{ marginTop: 16, color: "crimson" }}>
+        <div style={{ marginBottom: 16, color: "crimson" }}>
           <strong>{failures.length} échec(s) :</strong>
           <ul>
             {failures.slice(0, 10).map((f, i) => (
@@ -337,6 +307,136 @@ export const TtsPage = () => {
           </ul>
         </div>
       )}
+
+      <h3 style={{ marginTop: 8 }}>Par leçon, dans l&apos;ordre</h3>
+      {groups.map((group) => {
+        const groupTodo = group.items.filter((i) => !i.recorded);
+        const isOpen = expanded === group.label;
+        return (
+          <div
+            key={group.label}
+            style={{
+              border: "1px solid #e5e7eb",
+              borderRadius: 10,
+              marginBottom: 8,
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 8,
+                padding: 10,
+                background: groupTodo.length === 0 ? "#f0fdf4" : "#f9fafb",
+                cursor: "pointer",
+              }}
+              onClick={() => setExpanded(isOpen ? null : group.label)}
+            >
+              <span style={{ fontWeight: 600, fontSize: 14 }}>
+                {groupTodo.length === 0 ? "✅" : "⚪"} {group.label}
+                <span style={{ color: "#9ca3af", fontWeight: 400, marginLeft: 6 }}>
+                  ({group.items.length - groupTodo.length}/{group.items.length})
+                </span>
+              </span>
+              {groupTodo.length > 0 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    void generate(groupTodo);
+                  }}
+                  disabled={running}
+                  style={{
+                    padding: "5px 12px",
+                    fontSize: 13,
+                    fontWeight: 700,
+                    borderRadius: 8,
+                    border: "1px solid #2563eb",
+                    cursor: running ? "default" : "pointer",
+                    background: "#fff",
+                    color: "#2563eb",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Générer cette leçon ({groupTodo.length})
+                </button>
+              )}
+            </div>
+
+            {isOpen && (
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 6,
+                  padding: 10,
+                  borderTop: "1px solid #e5e7eb",
+                }}
+              >
+                {group.items.map((it) => (
+                  <span
+                    key={`${it.lang}-${it.text}`}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 4,
+                      padding: "4px 4px 4px 10px",
+                      borderRadius: 999,
+                      border: "1px solid #d1d5db",
+                      background: it.recorded ? "#f9fafb" : "#fff7ed",
+                      fontSize: 13,
+                      maxWidth: "100%",
+                    }}
+                  >
+                    {it.recorded ? (
+                      <button
+                        onClick={() => play(it.text, it.lang)}
+                        style={{
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          wordBreak: "break-word",
+                        }}
+                        title={it.voice ? `Voix : ${it.voice}` : undefined}
+                      >
+                        ▶ {it.text}
+                        {it.voice && (
+                          <span style={{ color: "#9ca3af", marginLeft: 4 }}>
+                            ({it.voice})
+                          </span>
+                        )}
+                      </button>
+                    ) : (
+                      <span style={{ wordBreak: "break-word" }}>⚪ {it.text}</span>
+                    )}
+                    {it.lang === "wo" && it.recorded && (
+                      <button
+                        onClick={() => void generate([it])}
+                        disabled={running}
+                        title={`Régénérer avec ${voice}`}
+                        style={{
+                          background: "#fff",
+                          border: "1px solid #d1d5db",
+                          borderRadius: 999,
+                          width: 20,
+                          height: 20,
+                          cursor: running ? "default" : "pointer",
+                          fontSize: 11,
+                          flexShrink: 0,
+                        }}
+                      >
+                        🔁
+                      </button>
+                    )}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
 
       <p style={{ color: "#9ca3af", fontSize: 13, marginTop: 16 }}>
         FR/EN consomme le quota GOOGLE_TTS_API_KEY (Cloud Text-to-Speech).

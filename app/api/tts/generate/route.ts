@@ -16,9 +16,18 @@ const isGeminiVoice = (v: unknown): v is GeminiVoice =>
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// A hard daily/monthly quota exhaustion ("check your plan and billing
+// details") - retrying does NOT help, every subsequent call will fail the
+// same way until the quota resets or billing is enabled. Must be checked
+// before the generic 429 pacing retry, and must abort the whole batch, not
+// just this item, to stop burning further calls for nothing.
+const isQuotaExhausted = (error: unknown) =>
+  error instanceof GeminiTtsError && error.message.includes("plan and billing");
+
 const isRateLimited = (error: unknown) =>
   (error instanceof GoogleTtsError || error instanceof GeminiTtsError) &&
-  error.message.includes("429");
+  error.message.includes("429") &&
+  !isQuotaExhausted(error);
 
 // Gemini is a language model, not a deterministic TTS engine: the exact same
 // request occasionally comes back with no audio (it silently replies in
@@ -26,7 +35,9 @@ const isRateLimited = (error: unknown) =>
 // usually succeeds on a plain retry, unlike a real error - so retry it too,
 // not just rate limits.
 const isTransientGeminiFailure = (error: unknown) =>
-  error instanceof GeminiTtsError && !error.message.includes("429");
+  error instanceof GeminiTtsError &&
+  !error.message.includes("429") &&
+  !isQuotaExhausted(error);
 
 /** Synthesizes one item, retrying with backoff on 429 (rate limit) or on a
  * transient Gemini failure (no audio content). Returns [audioBase64, mime]. */
@@ -76,6 +87,7 @@ export const POST = async (req: NextRequest) => {
     await ensureRecordingsTable();
 
     const results: { text: string; lang: Item["lang"]; ok: boolean; error?: string }[] = [];
+    let quotaExhausted = false;
 
     for (const item of items) {
       try {
@@ -97,13 +109,26 @@ export const POST = async (req: NextRequest) => {
           ok: false,
           error: error instanceof Error ? error.message : "Unknown error",
         });
+        // Stop burning the rest of the batch against an exhausted quota -
+        // every remaining Gemini call would fail identically until it resets.
+        if (isQuotaExhausted(error)) {
+          quotaExhausted = true;
+          break;
+        }
       }
       // Small pacing gap between calls, independent of retries, to stay under
       // typical free-tier per-minute quotas. Gemini is heavier, pace slower.
       await sleep(item.lang === "wo" ? 800 : 350);
     }
 
-    return NextResponse.json({ results });
+    return NextResponse.json({
+      results,
+      ...(quotaExhausted && {
+        quotaExhausted: true,
+        error:
+          "Quota Gemini quotidien épuisé. Réessaie plus tard (le quota gratuit se réinitialise après un délai) ou active la facturation sur ton projet Google Cloud pour un quota bien plus élevé.",
+      }),
+    });
   } catch (error) {
     console.error("TTS generate failed:", error);
     return NextResponse.json(

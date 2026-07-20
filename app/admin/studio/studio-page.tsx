@@ -145,10 +145,10 @@ export const StudioPage = () => {
   const total = entries.length * LANGS.length;
 
   return (
-    <div style={{ padding: 16, maxWidth: 720 }}>
+    <div style={{ padding: 16, maxWidth: 900, width: "100%", boxSizing: "border-box" }}>
       <Title title="Recording Studio" />
 
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
         <h2 style={{ margin: 0 }}>🎙️ Studio d&apos;enregistrement</h2>
         <span style={{ color: "#666" }}>
           {doneCount}/{total} pistes enregistrées
@@ -166,8 +166,8 @@ export const StudioPage = () => {
         />
       </div>
 
-      <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
-        <span style={{ color: "#666", fontSize: 14, paddingTop: 4 }}>Priorité :</span>
+      <div style={{ marginTop: 12, display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+        <span style={{ color: "#666", fontSize: 14 }}>Priorité :</span>
         {[null, ...LANGS.map((l) => l.lang)].map((l) => (
           <button
             key={l ?? "all"}
@@ -194,15 +194,23 @@ export const StudioPage = () => {
           padding: 20,
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
           <span style={{ color: "#666", fontSize: 13 }}>
             Mot {index + 1}/{entries.length} · {entry.category}
           </span>
-          <span>
-            <button onClick={() => setIndex((index - 1 + entries.length) % entries.length)} style={{ marginRight: 8 }}>
+          <span style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <button onClick={() => setIndex((index - 1 + entries.length) % entries.length)}>
               ← Précédent
             </button>
-            <button onClick={() => setIndex((index + 1) % entries.length)} style={{ marginRight: 8 }}>
+            <button onClick={() => setIndex((index + 1) % entries.length)}>
               Suivant →
             </button>
             <button onClick={goToNextTodo} style={{ fontWeight: 700 }}>
@@ -226,6 +234,7 @@ export const StudioPage = () => {
                 key={lang}
                 style={{
                   display: "flex",
+                  flexWrap: "wrap",
                   alignItems: "center",
                   gap: 10,
                   padding: 12,
@@ -234,10 +243,18 @@ export const StudioPage = () => {
                   opacity: langFilter && langFilter !== lang ? 0.45 : 1,
                 }}
               >
-                <span style={{ width: 110, fontWeight: 700 }}>
+                <span style={{ minWidth: 90, fontWeight: 700 }}>
                   {flag} {label}
                 </span>
-                <span style={{ flex: 1, fontStyle: "italic", color: "#374151" }}>
+                <span
+                  style={{
+                    flex: "1 1 140px",
+                    minWidth: 0,
+                    wordBreak: "break-word",
+                    fontStyle: "italic",
+                    color: "#374151",
+                  }}
+                >
                   « {textFor(entry, lang)} »
                 </span>
                 <span title={done ? "Enregistré" : "Pas encore enregistré"}>

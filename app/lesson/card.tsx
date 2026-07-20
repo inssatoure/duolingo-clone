@@ -82,7 +82,7 @@ export const Card = ({
         {type === "ASSIST" && <div aria-hidden />}
         <p
           className={cn(
-            "min-w-0 flex-1 break-words text-sm text-neutral-600 lg:text-base",
+            "min-w-0 flex-1 text-sm text-neutral-600 lg:text-base",
             selected && "text-sky-500",
             selected && status === "correct" && "text-green-500",
             selected && status === "wrong" && "text-rose-500"
