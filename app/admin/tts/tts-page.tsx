@@ -6,7 +6,8 @@ import { Title } from "react-admin";
 
 type Item = { text: string; lang: "fr" | "en" | "wo"; recorded: boolean };
 
-const BATCH_SIZE = 15;
+const BATCH_SIZE = 8;
+const PAUSE_BETWEEN_BATCHES_MS = 1500;
 
 export const TtsPage = () => {
   const [items, setItems] = useState<Item[] | null>(null);
@@ -80,6 +81,8 @@ export const TtsPage = () => {
         setError(e instanceof Error ? e.message : "Request failed");
         break;
       }
+      if (queue.length > 0)
+        await new Promise((r) => setTimeout(r, PAUSE_BETWEEN_BATCHES_MS));
     }
     setRunning(false);
   };
