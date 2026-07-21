@@ -179,3 +179,23 @@ export const speakSmart = (
   }
   playText(text, resolveSynthLang(locale, target));
 };
+
+/**
+ * Fires the same lazy-generation the server does on a cache miss, but
+ * without playing anything or waiting for a user gesture. Call this as soon
+ * as a lesson challenge mounts, for every Wolof text it contains, so the
+ * recording is already cached in the ~1-2s a learner spends reading/
+ * listening before they tap an option. Without this, the first tap on any
+ * never-before-heard Wolof word has to wait several seconds for Gemini to
+ * generate it — long enough that iOS Safari silently drops the playback
+ * that was started synchronously in the tap's gesture, because no audio
+ * data arrives soon enough after `.play()` was called.
+ */
+export const prefetchWolof = (text: string) => {
+  if (typeof window === "undefined" || !isWolofText(text)) return;
+  const key = normalizeKey(text);
+  if (recordedKeys?.has(`wo:${key}`)) return; // already cached, skip the request
+  fetch(`/api/recordings/play?text=${encodeURIComponent(text)}&lang=wo`).catch(() => {
+    /* best-effort warmup */
+  });
+};
