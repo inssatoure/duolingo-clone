@@ -1,7 +1,7 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import { eq } from "drizzle-orm";
+import { and, eq, gte, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 import db from "@/db/drizzle";
@@ -25,102 +25,50 @@ export const updateStreak = async () => {
 
   if (!userId) throw new Error("Unauthorized.");
 
-  const currentUserStreak = await getUserStreak();
+  // NOTE (timezone limitation): "today"/"yesterday" are computed from the
+  // Node process's local timezone (server clock), not the user's timezone.
+  // This is fine for a single-region deployment but means a user near a
+  // midnight boundary in a different timezone than the server can see their
+  // streak roll over at the "wrong" local time for them. A real fix needs a
+  // per-user timezone or client-supplied local date; out of scope for WS-A.
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-  if (!currentUserStreak) {
-    // First time practicing - initialize streak
-    await db.insert(userStreaks).values({
+  // Single atomic UPSERT: no read-then-write race between concurrent
+  // requests (e.g. two challenge completions firing close together). All
+  // branching (first-time row, active streak freeze, already-practiced-today
+  // no-op, consecutive day increment, broken streak reset) is expressed as
+  // SQL CASE expressions evaluated by Postgres against the current row, not
+  // against a value read earlier in this request.
+  const freezeStillActive = sql`(${userStreaks.streakFreezeActive} AND ${userStreaks.streakFreezeUntil} IS NOT NULL AND ${userStreaks.streakFreezeUntil} > now())`;
+  const practicedToday = sql`(${userStreaks.lastPracticeDate} IS NOT NULL AND date_trunc('day', ${userStreaks.lastPracticeDate}) = date_trunc('day', ${today}::timestamp))`;
+  const practicedYesterday = sql`(${userStreaks.lastPracticeDate} IS NOT NULL AND date_trunc('day', ${userStreaks.lastPracticeDate}) = date_trunc('day', ${today}::timestamp) - interval '1 day')`;
+
+  const newCurrentStreak = sql`(CASE
+    WHEN ${freezeStillActive} OR ${practicedToday} THEN ${userStreaks.currentStreak}
+    WHEN ${practicedYesterday} THEN ${userStreaks.currentStreak} + 1
+    ELSE 1
+  END)`;
+
+  await db
+    .insert(userStreaks)
+    .values({
       userId,
       currentStreak: 1,
       longestStreak: 1,
       lastPracticeDate: today,
       streakFreezeActive: false,
+    })
+    .onConflictDoUpdate({
+      target: userStreaks.userId,
+      set: {
+        currentStreak: newCurrentStreak,
+        longestStreak: sql`GREATEST(${userStreaks.longestStreak}, ${newCurrentStreak})`,
+        lastPracticeDate: sql`(CASE WHEN ${practicedToday} THEN ${userStreaks.lastPracticeDate} ELSE ${today}::timestamp END)`,
+        streakFreezeActive: sql`(CASE WHEN ${freezeStillActive} THEN true ELSE false END)`,
+        streakFreezeUntil: sql`(CASE WHEN ${freezeStillActive} THEN ${userStreaks.streakFreezeUntil} ELSE NULL END)`,
+      },
     });
-
-    revalidatePath("/learn");
-    revalidatePath("/quests");
-    revalidatePath("/leaderboard");
-    return;
-  }
-
-  // Check if streak freeze is active
-  if (currentUserStreak.streakFreezeActive && currentUserStreak.streakFreezeUntil) {
-    if (currentUserStreak.streakFreezeUntil > now) {
-      // Streak freeze is still active, don't reset streak
-      await db
-        .update(userStreaks)
-        .set({
-          lastPracticeDate: today,
-        })
-        .where(eq(userStreaks.userId, userId));
-
-      revalidatePath("/learn");
-      revalidatePath("/quests");
-      revalidatePath("/leaderboard");
-      return;
-    } else {
-      // Streak freeze expired, deactivate it
-      await db
-        .update(userStreaks)
-        .set({
-          streakFreezeActive: false,
-          streakFreezeUntil: null,
-        })
-        .where(eq(userStreaks.userId, userId));
-    }
-  }
-
-  // Check if practiced today
-  if (currentUserStreak.lastPracticeDate) {
-    const lastPractice = new Date(currentUserStreak.lastPracticeDate);
-    const lastPracticeDay = new Date(
-      lastPractice.getFullYear(),
-      lastPractice.getMonth(),
-      lastPractice.getDate()
-    );
-
-    if (lastPracticeDay.getTime() === today.getTime()) {
-      // Already practiced today, no update needed
-      return;
-    }
-
-    // Check if practiced yesterday
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    if (lastPracticeDay.getTime() === yesterday.getTime()) {
-      // Consecutive day - increment streak
-      const newStreak = currentUserStreak.currentStreak + 1;
-      await db
-        .update(userStreaks)
-        .set({
-          currentStreak: newStreak,
-          longestStreak: Math.max(newStreak, currentUserStreak.longestStreak),
-          lastPracticeDate: today,
-        })
-        .where(eq(userStreaks.userId, userId));
-    } else {
-      // Streak broken - reset to 1
-      await db
-        .update(userStreaks)
-        .set({
-          currentStreak: 1,
-          lastPracticeDate: today,
-        })
-        .where(eq(userStreaks.userId, userId));
-    }
-  } else {
-    // No last practice date - start new streak
-    await db
-      .update(userStreaks)
-      .set({
-        currentStreak: 1,
-        lastPracticeDate: today,
-      })
-      .where(eq(userStreaks.userId, userId));
-  }
 
   revalidatePath("/learn");
   revalidatePath("/quests");
@@ -149,22 +97,34 @@ export const activateStreakFreeze = async () => {
   const now = new Date();
   const freezeUntil = new Date(now.getTime() + 24 * 60 * 60 * 1000);
 
-  await db.transaction(async (tx) => {
-    await tx
-      .update(userProgress)
-      .set({
-        cfaBalance: currentUserProgress.cfaBalance - STREAK_FREEZE_COST,
-      })
-      .where(eq(userProgress.userId, userId));
+  // neon-http can't do interactive transactions, so instead of the earlier
+  // read-then-write (which could double-spend under a race) this debits
+  // cfaBalance atomically, clamped at 0 and guarded by a WHERE clause that
+  // only spends if the balance still covers the cost at write time.
+  const debited = await db
+    .update(userProgress)
+    .set({
+      cfaBalance: sql`GREATEST(0, ${userProgress.cfaBalance} - ${STREAK_FREEZE_COST})`,
+    })
+    .where(
+      and(
+        eq(userProgress.userId, userId),
+        gte(userProgress.cfaBalance, STREAK_FREEZE_COST)
+      )
+    )
+    .returning({ userId: userProgress.userId });
 
-    await tx
-      .update(userStreaks)
-      .set({
-        streakFreezeActive: true,
-        streakFreezeUntil: freezeUntil,
-      })
-      .where(eq(userStreaks.userId, userId));
-  });
+  if (debited.length === 0) {
+    throw new Error("Not enough CFA for streak freeze.");
+  }
+
+  await db
+    .update(userStreaks)
+    .set({
+      streakFreezeActive: true,
+      streakFreezeUntil: freezeUntil,
+    })
+    .where(eq(userStreaks.userId, userId));
 
   revalidatePath("/shop");
   revalidatePath("/learn");

@@ -1,7 +1,7 @@
 "use server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { and, eq } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -92,7 +92,7 @@ export const reduceHearts = async (challengeId: number) => {
   await db
     .update(userProgress)
     .set({
-      hearts: Math.max(currentUserProgress.hearts - 1, 0),
+      hearts: sql`GREATEST(0, ${userProgress.hearts} - 1)`,
     })
     .where(eq(userProgress.userId, userId));
 
@@ -116,7 +116,9 @@ export const refillHearts = async () => {
     .update(userProgress)
     .set({
       hearts: MAX_HEARTS,
-      points: currentUserProgress.points - POINTS_TO_REFILL,
+      // Clamp at 0 so a race with another points-spending action can never
+      // drive the balance negative.
+      points: sql`GREATEST(0, ${userProgress.points} - ${POINTS_TO_REFILL})`,
     })
     .where(eq(userProgress.userId, currentUserProgress.userId));
 

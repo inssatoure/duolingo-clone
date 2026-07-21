@@ -1,10 +1,9 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import { and, eq } from "drizzle-orm";
+import { and, eq, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
-import { MAX_HEARTS } from "@/constants";
 import db from "@/db/drizzle";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { challengeProgress, challenges, userProgress } from "@/db/schema";
@@ -45,20 +44,18 @@ export const upsertChallengeProgress = async (challengeId: number) => {
     return { error: "hearts" };
 
   if (isPractice) {
+    // Anti-farming: challenge_progress has no completedAt/updatedAt column to
+    // key a daily cap on, so replaying an already-completed challenge grants
+    // NO heart/points reward at all (the reward was already paid out on the
+    // first completion). Only re-mark completed for bookkeeping. If a
+    // timestamp column is added later (WS-D), prefer a proper "once per day"
+    // cap here instead of "never again".
     await db
       .update(challengeProgress)
       .set({
         completed: true,
       })
       .where(eq(challengeProgress.id, existingChallengeProgress.id));
-
-    await db
-      .update(userProgress)
-      .set({
-        hearts: Math.min(currentUserProgress.hearts + 1, MAX_HEARTS),
-        points: currentUserProgress.points + 10,
-      })
-      .where(eq(userProgress.userId, userId));
 
     // Update streak on practice completion
     await updateStreak();
@@ -80,7 +77,7 @@ export const upsertChallengeProgress = async (challengeId: number) => {
   await db
     .update(userProgress)
     .set({
-      points: currentUserProgress.points + 10,
+      points: sql`${userProgress.points} + 10`,
     })
     .where(eq(userProgress.userId, userId));
 
