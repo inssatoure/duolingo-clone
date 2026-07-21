@@ -4,7 +4,9 @@ import { useMemo, useState } from "react";
 
 import Image from "next/image";
 
+import { speakSmart } from "@/lib/audio-client";
 import { type Locale } from "@/lib/i18n";
+import { readTargetCookie } from "@/lib/use-locale";
 
 export type DictionaryEntry = {
   wolof: string;
@@ -60,8 +62,8 @@ export const DictionaryList = ({ entries, locale }: DictionaryListProps) => {
     });
   }, [entries, search, category]);
 
-  const play = (src: string) => {
-    void new Audio(src).play();
+  const play = (wolof: string) => {
+    speakSmart(wolof, locale, readTargetCookie());
   };
 
   return (
@@ -140,15 +142,14 @@ export const DictionaryList = ({ entries, locale }: DictionaryListProps) => {
                     : e.en}
               </p>
             </div>
-            {e.audioSrc && (
-              <button
-                onClick={() => play(e.audioSrc!)}
-                className="rounded-full border-2 border-slate-200 p-2 text-xl transition hover:bg-sky-50"
-                title={locale === "fr" ? "Écouter" : "Listen"}
-              >
-                🔊
-              </button>
-            )}
+            <button
+              onClick={() => play(e.wolof)}
+              className="rounded-full border-2 border-slate-200 p-2 text-xl transition hover:bg-sky-50"
+              aria-label={locale === "fr" ? `Écouter ${e.wolof}` : `Listen to ${e.wolof}`}
+              title={locale === "fr" ? "Écouter" : "Listen"}
+            >
+              🔊
+            </button>
           </div>
         ))}
       </div>
