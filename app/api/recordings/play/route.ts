@@ -39,7 +39,6 @@ const audioResponse = (buffer: Buffer, mime: string, req: NextRequest): NextResp
     "Content-Type": mime,
     "Cache-Control": "public, max-age=300",
     "Accept-Ranges": "bytes",
-    "X-Debug-Range-Received": range ?? "none",
   };
 
   if (!range) {
