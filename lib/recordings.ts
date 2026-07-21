@@ -1,30 +1,13 @@
-import { sql } from "drizzle-orm";
-
-import db from "@/db/drizzle";
-
 export { normalizeKey } from "@/lib/recordings-key";
 
-let ensured = false;
-
-/** Creates the recordings table on first use — no migration step needed. */
+/**
+ * The `recordings` table now lives in db/schema.ts (see WS-D migration) and
+ * is created/altered via Drizzle migrations, not at runtime.
+ *
+ * This is kept as a no-op async shim so existing call sites in
+ * app/api/recordings/* (owned by another workstream) don't need to change —
+ * they still `await ensureRecordingsTable()` before querying.
+ */
 export const ensureRecordingsTable = async () => {
-  if (ensured) return;
-  await db.execute(sql`
-    CREATE TABLE IF NOT EXISTS recordings (
-      id serial PRIMARY KEY,
-      text_key text NOT NULL,
-      lang text NOT NULL,
-      mime text NOT NULL,
-      data text NOT NULL,
-      updated_at timestamp NOT NULL DEFAULT now(),
-      UNIQUE (text_key, lang)
-    )
-  `);
-  // Tracks which Gemini voice (if any) generated a Wolof recording, so the
-  // admin can see and compare voices per word. NULL for native recordings
-  // and Cloud TTS (fr/en) clips.
-  await db.execute(sql`
-    ALTER TABLE recordings ADD COLUMN IF NOT EXISTS voice text
-  `);
-  ensured = true;
+  return;
 };

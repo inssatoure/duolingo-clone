@@ -208,9 +208,14 @@ export const getLessonPercentage = cache(async () => {
 
 // TEMPORARY: the whole app is free while WoLingo is in early testing - this
 // short-circuits hearts limits and every "Upgrade to Pro" prompt across the
-// app. Set to false (or delete this block) to restore the real Stripe-based
-// subscription check below.
-const FREE_MODE = true;
+// app. Driven by NEXT_PUBLIC_FREE_MODE so it can be flipped per-environment
+// without a code change. When the env var is unset (e.g. existing deploys
+// that predate this flag), default to `true` to preserve current behavior;
+// set NEXT_PUBLIC_FREE_MODE="false" explicitly to restore the real
+// Stripe-based subscription check below.
+const FREE_MODE = process.env.NEXT_PUBLIC_FREE_MODE === undefined
+  ? true
+  : process.env.NEXT_PUBLIC_FREE_MODE === "true";
 
 export const getUserSubscription = cache(async () => {
   const { userId } = await auth();
