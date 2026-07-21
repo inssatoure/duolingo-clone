@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { OtpStep } from "@/components/otp-step";
-import { PhoneInput, SENEGAL_COUNTRY_CODE } from "@/components/phone-input";
+import { DEFAULT_COUNTRY_CODE, PhoneInput } from "@/components/phone-input";
 import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
 import { phoneToUsername } from "@/lib/phone";
@@ -20,6 +20,7 @@ const SignInPage = () => {
   const router = useRouter();
 
   const [step, setStep] = useState<Step>("method");
+  const [countryCode, setCountryCode] = useState(DEFAULT_COUNTRY_CODE);
   const [number, setNumber] = useState("");
   const [pin, setPin] = useState("");
   const [code, setCode] = useState("");
@@ -27,8 +28,8 @@ const SignInPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
-  const phoneNumber = `${SENEGAL_COUNTRY_CODE}${number}`;
-  const username = phoneToUsername(SENEGAL_COUNTRY_CODE, number);
+  const phoneNumber = `${countryCode}${number}`;
+  const username = phoneToUsername(countryCode, number);
 
   const describeError = (e: unknown, fallback: string) =>
     isClerkAPIResponseError(e) ? (e.errors[0]?.longMessage ?? fallback) : fallback;
@@ -191,7 +192,12 @@ const SignInPage = () => {
           <h1 className="text-center text-2xl font-extrabold text-sahel">
             Ton numéro de téléphone
           </h1>
-          <PhoneInput number={number} onNumberChange={setNumber} />
+          <PhoneInput
+            countryCode={countryCode}
+            onCountryCodeChange={setCountryCode}
+            number={number}
+            onNumberChange={setNumber}
+          />
           <Button
             size="lg"
             variant="secondary"

@@ -10,9 +10,11 @@ export const phoneToUsername = (countryCode: string, number: string) =>
 export const e164ToUsername = (phoneNumber: string) =>
   phoneToUsername("", phoneNumber);
 
-// SMS/WhatsApp OTP delivery is limited to Senegal for now (cost + target
-// audience): +221 followed by a 9-digit local mobile number.
-export const SENEGAL_PHONE = /^\+221\d{9}$/;
+// General E.164 validation. Delivery was restricted to Senegal while SMS was
+// the primary OTP channel (SMS to Senegal is far pricier than elsewhere);
+// now that WhatsApp is primary (~$0.008/msg regardless of country) that
+// restriction is no longer needed.
+export const E164_PHONE = /^\+[1-9]\d{6,14}$/;
 
 // Must match the Verify Service's "Code length" setting in the Twilio
 // console (Verify -> Services -> your service -> Settings). Changing this

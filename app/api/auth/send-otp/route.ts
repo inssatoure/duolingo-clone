@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { SENEGAL_PHONE } from "@/lib/phone";
+import { E164_PHONE } from "@/lib/phone";
 import { isRateLimited } from "@/lib/otp-rate-limit";
 import { sendOtp } from "@/lib/twilio";
 
@@ -9,7 +9,7 @@ export const POST = async (req: Request) => {
     phoneNumber?: string;
   };
 
-  if (!phoneNumber || !SENEGAL_PHONE.test(phoneNumber)) {
+  if (!phoneNumber || !E164_PHONE.test(phoneNumber)) {
     return NextResponse.json({ error: "invalid_phone" }, { status: 400 });
   }
 
