@@ -24,6 +24,48 @@ const fetchRecording = async (key: string, lang: string | null) => {
 };
 
 /**
+ * Mobile Safari/iOS refuses to play audio served without HTTP Range support:
+ * before actually playing, it sends a preflight `Range` request (often just
+ * `bytes=0-1`) to check the server supports partial content, and silently
+ * aborts playback if it doesn't get a 206 with `Accept-Ranges`/`Content-Range`
+ * back. A plain 200-with-full-body response (which works fine in curl, or in
+ * desktop Chrome, which is lenient about this) is not enough on iOS. This
+ * wraps a full in-memory buffer as either a full 200 or a ranged 206 response
+ * depending on the request.
+ */
+const audioResponse = (buffer: Buffer, mime: string, req: NextRequest): NextResponse => {
+  const range = req.headers.get("range");
+  const baseHeaders = {
+    "Content-Type": mime,
+    "Cache-Control": "public, max-age=300",
+    "Accept-Ranges": "bytes",
+  };
+
+  if (!range) {
+    return new NextResponse(new Uint8Array(buffer), {
+      headers: { ...baseHeaders, "Content-Length": String(buffer.length) },
+    });
+  }
+
+  const match = /bytes=(\d*)-(\d*)/.exec(range);
+  const total = buffer.length;
+  let start = match?.[1] ? parseInt(match[1], 10) : 0;
+  let end = match?.[2] ? parseInt(match[2], 10) : total - 1;
+  if (Number.isNaN(start) || start < 0) start = 0;
+  if (Number.isNaN(end) || end >= total) end = total - 1;
+  if (start > end) start = end;
+
+  return new NextResponse(new Uint8Array(buffer.subarray(start, end + 1)), {
+    status: 206,
+    headers: {
+      ...baseHeaders,
+      "Content-Range": `bytes ${start}-${end}/${total}`,
+      "Content-Length": String(end - start + 1),
+    },
+  });
+};
+
+/**
  * Public playback endpoint: /api/recordings/play?text=...&lang=wo
  * Without `lang`, searches wo -> fr -> en and returns the first match.
  *
@@ -44,9 +86,7 @@ export const GET = async (req: NextRequest) => {
 
   const row = await fetchRecording(key, lang);
   if (row) {
-    return new NextResponse(Buffer.from(row.data, "base64"), {
-      headers: { "Content-Type": row.mime, "Cache-Control": "public, max-age=300" },
-    });
+    return audioResponse(Buffer.from(row.data, "base64"), row.mime, req);
   }
 
   const canLazyGenerate = (!lang || lang === "wo") && isWolofText(text);
@@ -59,9 +99,7 @@ export const GET = async (req: NextRequest) => {
   try {
     const audioBase64 = await synthesizeWolofSpeech(text);
     await upsertRecording({ textKey: key, lang: "wo", mime: "audio/wav", data: audioBase64, voice: "Aoede" });
-    return new NextResponse(Buffer.from(audioBase64, "base64"), {
-      headers: { "Content-Type": "audio/wav", "Cache-Control": "public, max-age=300" },
-    });
+    return audioResponse(Buffer.from(audioBase64, "base64"), "audio/wav", req);
   } catch (error) {
     console.error("recordings/play lazy-generate failed:", error);
     if (error instanceof GeminiTtsError) return new NextResponse("Not recorded.", { status: 404 });
