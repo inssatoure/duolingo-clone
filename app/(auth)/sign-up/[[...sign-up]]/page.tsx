@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { OtpStep } from "@/components/otp-step";
-import { PhoneInput } from "@/components/phone-input";
+import { PhoneInput, SENEGAL_COUNTRY_CODE } from "@/components/phone-input";
 import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
 import { phoneToUsername } from "@/lib/phone";
@@ -20,7 +20,6 @@ const SignUpPage = () => {
   const router = useRouter();
 
   const [step, setStep] = useState<Step>("method");
-  const [countryCode, setCountryCode] = useState("+221");
   const [number, setNumber] = useState("");
   const [code, setCode] = useState("");
   const [pin, setPin] = useState("");
@@ -28,8 +27,8 @@ const SignUpPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
-  const phoneNumber = `${countryCode}${number}`;
-  const username = phoneToUsername(countryCode, number);
+  const phoneNumber = `${SENEGAL_COUNTRY_CODE}${number}`;
+  const username = phoneToUsername(SENEGAL_COUNTRY_CODE, number);
 
   const describeError = (e: unknown, fallback: string) =>
     isClerkAPIResponseError(e) ? (e.errors[0]?.longMessage ?? fallback) : fallback;
@@ -180,12 +179,7 @@ const SignUpPage = () => {
           <h1 className="text-center text-2xl font-extrabold text-sahel">
             Ton numéro de téléphone
           </h1>
-          <PhoneInput
-            countryCode={countryCode}
-            onCountryCodeChange={setCountryCode}
-            number={number}
-            onNumberChange={setNumber}
-          />
+          <PhoneInput number={number} onNumberChange={setNumber} />
           <Button
             size="lg"
             variant="secondary"
@@ -200,7 +194,7 @@ const SignUpPage = () => {
 
       {step === "otp" && (
         <OtpStep
-          title="Entre le code reçu par SMS"
+          title="Entre le code reçu"
           phoneNumber={phoneNumber}
           code={code}
           onChange={setCode}

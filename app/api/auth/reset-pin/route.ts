@@ -2,10 +2,9 @@ import { clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 import { isRateLimited } from "@/lib/otp-rate-limit";
-import { e164ToUsername } from "@/lib/phone";
+import { SENEGAL_PHONE, e164ToUsername } from "@/lib/phone";
 import { checkOtp } from "@/lib/twilio";
 
-const E164 = /^\+[1-9]\d{6,14}$/;
 const PIN = /^\d{4}$/;
 
 /**
@@ -25,7 +24,7 @@ export const POST = async (req: Request) => {
     newPin?: string;
   };
 
-  if (!phoneNumber || !E164.test(phoneNumber) || !code || !newPin || !PIN.test(newPin)) {
+  if (!phoneNumber || !SENEGAL_PHONE.test(phoneNumber) || !code || !newPin || !PIN.test(newPin)) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
 

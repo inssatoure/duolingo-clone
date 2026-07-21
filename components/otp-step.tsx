@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { PinPad } from "@/components/pin-pad";
+import { OTP_LENGTH } from "@/lib/phone";
 
 type OtpStepProps = {
   title: string;
@@ -51,7 +52,7 @@ export const OtpStep = ({
         Envoyé au {phoneNumber}
       </p>
 
-      <PinPad value={code} onChange={onChange} length={6} autoSubmit={onSubmit} />
+      <PinPad value={code} onChange={onChange} length={OTP_LENGTH} autoSubmit={onSubmit} />
 
       <div className="flex flex-col items-center gap-2">
         <button

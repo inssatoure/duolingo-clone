@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 
 import { isRateLimited } from "@/lib/otp-rate-limit";
+import { SENEGAL_PHONE } from "@/lib/phone";
 import { checkOtp } from "@/lib/twilio";
-
-const E164 = /^\+[1-9]\d{6,14}$/;
 
 export const POST = async (req: Request) => {
   const { phoneNumber, code } = (await req.json().catch(() => ({}))) as {
@@ -11,7 +10,7 @@ export const POST = async (req: Request) => {
     code?: string;
   };
 
-  if (!phoneNumber || !E164.test(phoneNumber) || !code) {
+  if (!phoneNumber || !SENEGAL_PHONE.test(phoneNumber) || !code) {
     return NextResponse.json({ error: "invalid_request" }, { status: 400 });
   }
 

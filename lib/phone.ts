@@ -9,3 +9,12 @@ export const phoneToUsername = (countryCode: string, number: string) =>
 // and any separators are stripped, so this matches phoneToUsername exactly.
 export const e164ToUsername = (phoneNumber: string) =>
   phoneToUsername("", phoneNumber);
+
+// SMS/WhatsApp OTP delivery is limited to Senegal for now (cost + target
+// audience): +221 followed by a 9-digit local mobile number.
+export const SENEGAL_PHONE = /^\+221\d{9}$/;
+
+// Must match the Verify Service's "Code length" setting in the Twilio
+// console (Verify -> Services -> your service -> Settings). Changing this
+// value here does NOT change what Twilio sends - update both together.
+export const OTP_LENGTH = 4;

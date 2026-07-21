@@ -6,6 +6,7 @@ import { Poppins, Inter } from "next/font/google";
 
 import { LOCALE_COOKIE, isLocale } from "@/lib/i18n";
 
+import { AppSplash } from "@/components/app-splash";
 import { InstallPrompt } from "@/components/install-prompt";
 import { ExitModal } from "@/components/modals/exit-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
@@ -69,6 +70,7 @@ export default async function RootLayout({
     >
       <html lang={locale === "en" ? "en" : locale === "wo" ? "wo" : "fr"}>
         <body className={`${poppins.variable} ${inter.variable} font-sans`}>
+          <AppSplash />
           <Toaster theme="light" richColors closeButton />
           <ExitModal />
           <HeartsModal />

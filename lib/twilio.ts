@@ -40,10 +40,26 @@ export const getVerifyServiceSid = (): string => {
   return sid;
 };
 
-// SMS works immediately with just a Verify Service. Switch to "whatsapp"
-// once a WhatsApp Business sender is approved and attached to the Verify
-// Service in the Twilio console - no other code changes needed.
-export const OTP_CHANNEL: "sms" | "whatsapp" = "sms";
+// WhatsApp authentication-template pricing to Senegal is roughly 65x cheaper
+// than SMS (~$0.008 vs ~$0.55 per message, Twilio's published rates), so it
+// is the primary channel. It requires an approved WhatsApp Business sender
+// attached to the Verify Service in the Twilio console - until that's done,
+// `sendOtp` below automatically falls back to SMS so signups never break.
+export const PRIMARY_OTP_CHANNEL = "whatsapp" as const;
+export const FALLBACK_OTP_CHANNEL = "sms" as const;
+
+// Sends an OTP, preferring WhatsApp and falling back to SMS on any failure
+// (e.g. no WhatsApp sender configured yet, user not reachable on WhatsApp).
+// Throws only if both channels fail.
+export const sendOtp = async (phoneNumber: string): Promise<void> => {
+  const service = twilioClient.verify.v2.services(getVerifyServiceSid());
+  try {
+    await service.verifications.create({ to: phoneNumber, channel: PRIMARY_OTP_CHANNEL });
+  } catch (whatsappError) {
+    console.error("sendOtp: WhatsApp failed, falling back to SMS:", whatsappError);
+    await service.verifications.create({ to: phoneNumber, channel: FALLBACK_OTP_CHANNEL });
+  }
+};
 
 // Checks a code against Twilio Verify. A Verify code is single-use: a
 // successful check consumes the verification, so call this exactly once per
