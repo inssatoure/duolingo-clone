@@ -109,29 +109,46 @@ export const seedCourseContent = async () => {
       .returning();
     counts.lessons += insertedLessons.length;
 
-    // .returning() preserves insertion order, so index-align rows to seeds.
-    const challengeRows = lessonRows.flatMap((lessonRow, i) =>
+    // Match lessons to seed data by stable key (unitId, order) since .returning()
+    // order is not guaranteed by SQL. Build a map from key to lessonId.
+    const lessonIdByKey = new Map<string, number>();
+    insertedLessons.forEach((lesson) => {
+      const key = `${lesson.unitId}:${lesson.order}`;
+      lessonIdByKey.set(key, lesson.id);
+    });
+
+    const challengeRows = lessonRows.flatMap((lessonRow) =>
       lessonRow.seed.challenges.map((c) => ({
-        lessonId: insertedLessons[i].id,
+        lessonId: lessonIdByKey.get(`${lessonRow.unitId}:${lessonRow.order}`)!,
         type: c.type as "SELECT" | "ASSIST",
         question: c.question,
         order: c.order,
         seed: c,
       }))
     );
-    const insertedChallenges: { id: number }[] = [];
+
+    // Store challenge metadata (lessonId, order) to align options with challenges.
+    // We'll match by this key after insertion.
+    const insertedChallenges: { id: number; lessonId: number; order: number }[] = [];
     for (const batch of chunk(challengeRows, 500)) {
       const inserted = await db
         .insert(schema.challenges)
         .values(batch.map((r) => ({ lessonId: r.lessonId, type: r.type, question: r.question, order: r.order })))
-        .returning({ id: schema.challenges.id });
+        .returning({ id: schema.challenges.id, lessonId: schema.challenges.lessonId, order: schema.challenges.order });
       insertedChallenges.push(...inserted);
     }
     counts.challenges += insertedChallenges.length;
 
-    const optionRows = challengeRows.flatMap((challengeRow, i) =>
+    // Match challenges to seed data by stable key (lessonId, order).
+    const challengeIdByKey = new Map<string, number>();
+    insertedChallenges.forEach((challenge) => {
+      const key = `${challenge.lessonId}:${challenge.order}`;
+      challengeIdByKey.set(key, challenge.id);
+    });
+
+    const optionRows = challengeRows.flatMap((challengeRow) =>
       challengeRow.seed.options.map((o) => ({
-        challengeId: insertedChallenges[i].id,
+        challengeId: challengeIdByKey.get(`${challengeRow.lessonId}:${challengeRow.order}`)!,
         text: o.text,
         correct: o.correct,
         imageSrc: o.imageSrc ?? null,
