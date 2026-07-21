@@ -67,10 +67,25 @@ const pickVoice = (lang: "fr" | "en") => {
   return preferred ?? candidates[0];
 };
 
+// Tracks whatever is currently playing (either mechanism) so a new tap can
+// always cut it off first - without this, tapping several options quickly
+// (very common for a first-time or impatient user) stacks overlapping audio.
+let currentAudioEl: HTMLAudioElement | null = null;
+
+const stopAllAudio = () => {
+  if (typeof window === "undefined") return;
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if (currentAudioEl) {
+    currentAudioEl.pause();
+    currentAudioEl.currentTime = 0;
+    currentAudioEl = null;
+  }
+};
+
 /** Must be called synchronously within the user gesture (see file header). */
 const speak = (text: string, lang: "fr" | "en") => {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
+  stopAllAudio();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = synthLangCode(lang);
   utterance.rate = 0.92;
@@ -111,9 +126,17 @@ const hasKnownRecording = (text: string): boolean => {
   );
 };
 
-const playAudioElement = (text: string) => {
-  const url = `/api/recordings/play?text=${encodeURIComponent(text)}`;
-  const audio = new Audio(url);
+// Single source of truth for the recordings URL, used identically by
+// playback and by prefetchWolof - a mismatched URL (e.g. one with `lang=wo`,
+// one without) defeats the browser's HTTP cache and forces a redundant
+// network round-trip at tap time even though the audio was just prefetched.
+const recordingUrl = (text: string, lang?: "wo" | "fr" | "en") =>
+  `/api/recordings/play?text=${encodeURIComponent(text)}${lang ? `&lang=${lang}` : ""}`;
+
+const playAudioElement = (text: string, lang?: "wo" | "fr" | "en") => {
+  stopAllAudio();
+  const audio = new Audio(recordingUrl(text, lang));
+  currentAudioEl = audio;
   audio.play().catch(() => {
     /* best-effort; if this was actually unrecorded despite our cache, the
      * learner just hears nothing for this one tap rather than a delayed
@@ -134,8 +157,9 @@ export const playText = (text: string, synthLang: "fr" | "en" | null = null) => 
     // best-effort behavior so early clicks still make *some* sound on
     // desktop, and kick the load off again in case it hasn't started.
     void loadRecordedKeys();
-    const url = `/api/recordings/play?text=${encodeURIComponent(text)}`;
-    const audio = new Audio(url);
+    stopAllAudio();
+    const audio = new Audio(recordingUrl(text));
+    currentAudioEl = audio;
     audio.onerror = () => {
       if (synthLang) speak(text, synthLang);
     };
@@ -174,7 +198,7 @@ export const speakSmart = (
   target: "fr" | "en" | null
 ) => {
   if (isWolofText(text)) {
-    playAudioElement(text);
+    playAudioElement(text, "wo");
     return;
   }
   playText(text, resolveSynthLang(locale, target));
@@ -184,18 +208,17 @@ export const speakSmart = (
  * Fires the same lazy-generation the server does on a cache miss, but
  * without playing anything or waiting for a user gesture. Call this as soon
  * as a lesson challenge mounts, for every Wolof text it contains, so the
- * recording is already cached in the ~1-2s a learner spends reading/
- * listening before they tap an option. Without this, the first tap on any
- * never-before-heard Wolof word has to wait several seconds for Gemini to
- * generate it — long enough that iOS Safari silently drops the playback
- * that was started synchronously in the tap's gesture, because no audio
- * data arrives soon enough after `.play()` was called.
+ * recording is already cached — both server-side (in `recordings`) AND in
+ * the browser's own HTTP cache (the play route is sent with a long,
+ * immutable Cache-Control, and this fetch uses the EXACT same URL speakSmart
+ * will use, so the later tap's `new Audio()` is a cache hit, not a fresh
+ * network round-trip) — by the time a learner actually taps.
  */
 export const prefetchWolof = (text: string) => {
   if (typeof window === "undefined" || !isWolofText(text)) return;
   const key = normalizeKey(text);
   if (recordedKeys?.has(`wo:${key}`)) return; // already cached, skip the request
-  fetch(`/api/recordings/play?text=${encodeURIComponent(text)}&lang=wo`).catch(() => {
+  fetch(recordingUrl(text, "wo")).catch(() => {
     /* best-effort warmup */
   });
 };

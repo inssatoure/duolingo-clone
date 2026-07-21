@@ -37,7 +37,11 @@ const audioResponse = (buffer: Buffer, mime: string, req: NextRequest): NextResp
   const range = req.headers.get("range");
   const baseHeaders = {
     "Content-Type": mime,
-    "Cache-Control": "public, max-age=300",
+    // Audio for a given (text, lang) key never changes once generated, so
+    // browsers/CDN can cache it essentially forever - this is what makes the
+    // lesson-mount prefetch actually pay off at tap time (cache hit, no
+    // network round-trip) instead of just warming the server-side DB cache.
+    "Cache-Control": "public, max-age=31536000, immutable",
     "Accept-Ranges": "bytes",
   };
 

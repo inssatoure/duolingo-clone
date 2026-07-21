@@ -11,6 +11,11 @@ type SpeakableProps = {
   className?: string;
   iconClassName?: string;
   label?: string;
+  /** Overrides the default speakSmart(text, locale, target) call — for
+   * callers with special-casing (e.g. lesson questions in a Wolof-locale
+   * interface, which read only the embedded quoted word, not the whole
+   * sentence). */
+  onPlay?: () => void;
 };
 
 /**
@@ -19,8 +24,12 @@ type SpeakableProps = {
  * options. Reuses the same speakSmart() decision (native recording, browser
  * TTS, or on-demand Wolof generation) as the rest of the app.
  */
-export const Speakable = ({ text, className, iconClassName, label }: SpeakableProps) => {
+export const Speakable = ({ text, className, iconClassName, label, onPlay }: SpeakableProps) => {
   const play = () => {
+    if (onPlay) {
+      onPlay();
+      return;
+    }
     const locale = readLocaleCookie() ?? "fr";
     const target = readTargetCookie();
     speakSmart(text, locale, target);

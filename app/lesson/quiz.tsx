@@ -10,6 +10,7 @@ import { toast } from "sonner";
 
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { reduceHearts } from "@/actions/user-progress";
+import { Speakable } from "@/components/speakable";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 import { extractQuoted, prefetchWolof, speakSmart } from "@/lib/audio-client";
@@ -86,6 +87,19 @@ export const Quiz = ({
 
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
+
+  // Same locale-aware logic as the auto-play effect below, reused so tapping
+  // the title/question replays exactly what was (or would be) auto-played.
+  const replayText = (text: string) => {
+    const locale = readLocaleCookie() ?? "fr";
+    const target = readTargetCookie();
+    if (locale === "wo") {
+      const word = extractQuoted(text);
+      speakSmart(word ?? text, locale, target);
+    } else {
+      speakSmart(text, locale, target);
+    }
+  };
 
   // Duolingo-style: read the question aloud when a challenge appears, so
   // learners who can't read can still use the app.
@@ -264,13 +278,17 @@ export const Quiz = ({
       <div className="flex-1">
         <div className="flex h-full items-center justify-center">
           <div className="flex w-full flex-col gap-y-12 px-6 lg:min-h-[350px] lg:w-[600px] lg:px-0">
-            <h1 className="text-center text-lg font-bold text-neutral-700 lg:text-start lg:text-3xl">
+            <h1 className="flex items-center justify-center gap-2 text-center text-lg font-bold text-neutral-700 lg:justify-start lg:text-start lg:text-3xl">
               {title}
+              <Speakable text={title} onPlay={() => replayText(title)} />
             </h1>
 
             <div>
               {challenge.type === "ASSIST" && (
-                <QuestionBubble question={challenge.question} />
+                <QuestionBubble
+                  question={challenge.question}
+                  onReplay={() => replayText(challenge.question)}
+                />
               )}
 
               <Challenge
