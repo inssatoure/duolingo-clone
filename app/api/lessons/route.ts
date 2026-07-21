@@ -16,12 +16,14 @@ export const POST = async (req: NextRequest) => {
   const isAdmin = await getIsAdmin();
   if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
 
-  const body = (await req.json()) as typeof lessons.$inferSelect;
+  const body = (await req.json()) as Partial<typeof lessons.$inferInsert>;
 
   const data = await db
     .insert(lessons)
     .values({
-      ...body,
+      title: body.title as string,
+      unitId: Number(body.unitId),
+      order: Number(body.order),
     })
     .returning();
 

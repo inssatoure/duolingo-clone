@@ -111,6 +111,12 @@ export const POST = async (req: NextRequest) => {
 
   const summary = { lessonsCreated: 0, challengesCreated: 0, optionsCreated: 0 };
 
+  // NOTE: neon-http (the driver used by `db`) does not support interactive
+  // transactions, so these inserts cannot be wrapped in a single atomic
+  // transaction. All rows are fully validated above, before any insert
+  // runs, to minimize the chance of a partial write; a failure partway
+  // through can still leave a partially-imported unit and must be cleaned
+  // up manually or re-run idempotently.
   for (const lessonGroup of lessonGroups.values()) {
     const [insertedLesson] = await db
       .insert(lessons)

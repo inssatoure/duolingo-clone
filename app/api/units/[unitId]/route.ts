@@ -30,11 +30,14 @@ export const PUT = async (
   const isAdmin = await getIsAdmin();
   if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
 
-  const body = (await req.json()) as typeof units.$inferSelect;
+  const body = (await req.json()) as Partial<typeof units.$inferInsert>;
   const data = await db
     .update(units)
     .set({
-      ...body,
+      title: body.title,
+      description: body.description,
+      courseId: body.courseId !== undefined ? Number(body.courseId) : undefined,
+      order: body.order !== undefined ? Number(body.order) : undefined,
     })
     .where(eq(units.id, Number(unitId)))
     .returning();

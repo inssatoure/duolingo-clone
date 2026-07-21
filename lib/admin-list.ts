@@ -17,6 +17,8 @@ export const adminListResponse = async (
 ) => {
   const params = req.nextUrl.searchParams;
 
+  const MAX_PAGE_SIZE = 100;
+
   let start = 0;
   let end = 24;
   try {
@@ -25,6 +27,11 @@ export const adminListResponse = async (
   } catch {
     /* keep defaults */
   }
+
+  // Clamp attacker-controlled page size to a sane maximum.
+  if (!Number.isFinite(start) || start < 0) start = 0;
+  if (!Number.isFinite(end) || end < start) end = start;
+  if (end - start + 1 > MAX_PAGE_SIZE) end = start + MAX_PAGE_SIZE - 1;
 
   let sortField = "id";
   let sortOrder = "ASC";

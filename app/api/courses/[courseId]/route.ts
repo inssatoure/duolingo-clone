@@ -30,11 +30,12 @@ export const PUT = async (
   const isAdmin = await getIsAdmin();
   if (!isAdmin) return new NextResponse("Unauthorized.", { status: 401 });
 
-  const body = (await req.json()) as typeof courses.$inferSelect;
+  const body = (await req.json()) as Partial<typeof courses.$inferInsert>;
   const data = await db
     .update(courses)
     .set({
-      ...body,
+      title: body.title,
+      imageSrc: body.imageSrc,
     })
     .where(eq(courses.id, Number(courseId)))
     .returning();
