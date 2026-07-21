@@ -38,3 +38,22 @@ export const getVerifyServiceSid = (): string => {
 // once a WhatsApp Business sender is approved and attached to the Verify
 // Service in the Twilio console - no other code changes needed.
 export const OTP_CHANNEL: "sms" | "whatsapp" = "sms";
+
+// Checks a code against Twilio Verify. A Verify code is single-use: a
+// successful check consumes the verification, so call this exactly once per
+// code (do not pre-verify then verify again). Returns false on any Twilio
+// error rather than throwing, so callers surface a generic "wrong code".
+export const checkOtp = async (
+  phoneNumber: string,
+  code: string
+): Promise<boolean> => {
+  try {
+    const check = await twilioClient.verify.v2
+      .services(getVerifyServiceSid())
+      .verificationChecks.create({ to: phoneNumber, code });
+    return check.status === "approved";
+  } catch (error) {
+    console.error("checkOtp failed:", error);
+    return false;
+  }
+};

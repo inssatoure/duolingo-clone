@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { isRateLimited } from "@/lib/otp-rate-limit";
-import { getVerifyServiceSid, twilioClient } from "@/lib/twilio";
+import { checkOtp } from "@/lib/twilio";
 
 const E164 = /^\+[1-9]\d{6,14}$/;
 
@@ -19,14 +19,6 @@ export const POST = async (req: Request) => {
     return NextResponse.json({ error: "rate_limited" }, { status: 429 });
   }
 
-  try {
-    const check = await twilioClient.verify.v2
-      .services(getVerifyServiceSid())
-      .verificationChecks.create({ to: phoneNumber, code });
-
-    return NextResponse.json({ valid: check.status === "approved" });
-  } catch (error) {
-    console.error("verify-otp failed:", error);
-    return NextResponse.json({ valid: false }, { status: 200 });
-  }
+  const valid = await checkOtp(phoneNumber, code);
+  return NextResponse.json({ valid });
 };

@@ -7,6 +7,7 @@ import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import { OtpStep } from "@/components/otp-step";
 import { PhoneInput } from "@/components/phone-input";
 import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
@@ -47,22 +48,36 @@ const SignUpPage = () => {
     }
   };
 
+  const sendOtp = async () => {
+    const res = await fetch("/api/auth/send-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phoneNumber }),
+    });
+    if (!res.ok) throw new Error();
+  };
+
   const submitPhone = async () => {
     if (number.length < 6) return;
     setPending(true);
     setError(null);
     try {
-      const res = await fetch("/api/auth/send-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phoneNumber }),
-      });
-      if (!res.ok) throw new Error();
+      await sendOtp();
+      setCode("");
       setStep("otp");
     } catch {
       setError("Impossible d'envoyer le code. Vérifie le numéro et réessaie.");
     } finally {
       setPending(false);
+    }
+  };
+
+  const resendOtp = async () => {
+    setError(null);
+    try {
+      await sendOtp();
+    } catch {
+      setError("Impossible de renvoyer le code. Réessaie dans un instant.");
     }
   };
 
@@ -119,8 +134,28 @@ const SignUpPage = () => {
     }
   };
 
+  const goBack = () => {
+    setError(null);
+    if (step === "phone") setStep("method");
+    else if (step === "otp") {
+      setCode("");
+      setStep("phone");
+    } else if (step === "profile") setStep("phone");
+  };
+
   return (
     <div className="flex w-full max-w-sm flex-col items-center gap-6 px-4 py-10">
+      {step !== "method" && (
+        <button
+          type="button"
+          onClick={goBack}
+          className="self-start text-sm font-bold text-muted-foreground"
+          aria-label="Revenir en arrière"
+        >
+          ← Retour
+        </button>
+      )}
+
       <Image src="/mascot.png" alt="" height={72} width={72} />
 
       {step === "method" && (
@@ -164,15 +199,18 @@ const SignUpPage = () => {
       )}
 
       {step === "otp" && (
-        <>
-          <h1 className="text-center text-2xl font-extrabold text-sahel">
-            Entre le code reçu par SMS
-          </h1>
-          <p className="text-center text-sm text-muted-foreground">
-            Envoyé au {phoneNumber}
-          </p>
-          <PinPad value={code} onChange={setCode} length={6} autoSubmit={submitCode} />
-        </>
+        <OtpStep
+          title="Entre le code reçu par SMS"
+          phoneNumber={phoneNumber}
+          code={code}
+          onChange={setCode}
+          onSubmit={submitCode}
+          onResend={resendOtp}
+          onChangeNumber={() => {
+            setCode("");
+            setStep("phone");
+          }}
+        />
       )}
 
       {step === "profile" && (
