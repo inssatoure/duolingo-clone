@@ -49,7 +49,10 @@ export const OtpStep = ({
     <>
       <h1 className="text-center text-2xl font-extrabold text-sahel">{title}</h1>
       <p className="text-center text-sm text-muted-foreground">
-        Envoyé au {phoneNumber}
+        📱 Envoyé par WhatsApp au {phoneNumber}
+      </p>
+      <p className="text-center text-xs text-muted-foreground">
+        (par SMS si WhatsApp n&apos;est pas installé)
       </p>
 
       <PinPad value={code} onChange={onChange} length={OTP_LENGTH} autoSubmit={onSubmit} />
