@@ -1,12 +1,14 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
 import db from "@/db/drizzle";
 import { getUserProgress } from "@/db/queries";
 import { userProgress, shopItems, userPurchases } from "@/db/schema";
+import { CFA_BOOST_AMOUNT } from "@/lib/shop-items";
 
 export const purchaseShopItem = async (itemId: number) => {
   const { userId } = await auth();
@@ -32,7 +34,7 @@ export const purchaseShopItem = async (itemId: number) => {
 
   // Check if user already purchased this item (for one-time items)
   const existingPurchase = await db.query.userPurchases.findFirst({
-    where: eq(userPurchases.itemId, itemId),
+    where: and(eq(userPurchases.userId, userId), eq(userPurchases.itemId, itemId)),
   });
 
   if (existingPurchase && shopItem.type !== "currency_boost") {
@@ -45,7 +47,7 @@ export const purchaseShopItem = async (itemId: number) => {
     await tx
       .update(userProgress)
       .set({
-        cfaBalance: currentUserProgress.cfaBalance - shopItem.price,
+        cfaBalance: sql`GREATEST(0, ${userProgress.cfaBalance} - ${shopItem.price})`,
       })
       .where(eq(userProgress.userId, userId));
 
@@ -67,7 +69,7 @@ export const purchaseShopItem = async (itemId: number) => {
         await tx
           .update(userProgress)
           .set({
-            cfaBalance: currentUserProgress.cfaBalance - shopItem.price + 1000,
+            cfaBalance: sql`${userProgress.cfaBalance} + ${CFA_BOOST_AMOUNT}`,
           })
           .where(eq(userProgress.userId, userId));
         break;

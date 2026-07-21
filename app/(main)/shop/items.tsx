@@ -12,6 +12,11 @@ import { activateStreakFreeze } from "@/actions/streaks";
 import { Button } from "@/components/ui/button";
 import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
 import { useLocale } from "@/lib/use-locale";
+import {
+  CFA_BOOST_ITEM_ID,
+  STREAK_FREEZE_PRICE,
+  CFA_BOOST_PRICE,
+} from "@/lib/shop-items";
 
 type ItemsProps = {
   hearts: number;
@@ -49,7 +54,7 @@ export const Items = ({
   };
 
   const onPurchaseStreakFreeze = () => {
-    if (pending || cfaBalance < 500) return;
+    if (pending || cfaBalance < STREAK_FREEZE_PRICE) return;
 
     startTransition(() => {
       activateStreakFreeze()
@@ -59,10 +64,10 @@ export const Items = ({
   };
 
   const onPurchaseCFABoost = () => {
-    if (pending || cfaBalance < 100) return;
+    if (pending || cfaBalance < CFA_BOOST_PRICE) return;
 
     startTransition(() => {
-      purchaseShopItem(4) // Assuming CFA boost is item ID 4
+      purchaseShopItem(CFA_BOOST_ITEM_ID)
         .then(() => toast.success(t.cfaBoostAdded))
         .catch(() => toast.error(t.somethingWrong));
     });
@@ -91,12 +96,12 @@ export const Items = ({
 
           <Button
             onClick={onPurchaseStreakFreeze}
-            disabled={pending || cfaBalance < 500}
-            aria-disabled={pending || cfaBalance < 500}
+            disabled={pending || cfaBalance < STREAK_FREEZE_PRICE}
+            aria-disabled={pending || cfaBalance < STREAK_FREEZE_PRICE}
             className="bg-gold hover:bg-gold/90"
           >
             <div className="flex items-center">
-              <span className="mr-1">500</span>
+              <span className="mr-1">{STREAK_FREEZE_PRICE}</span>
               <span className="text-xs">CFA</span>
             </div>
           </Button>
@@ -116,12 +121,12 @@ export const Items = ({
 
           <Button
             onClick={onPurchaseCFABoost}
-            disabled={pending || cfaBalance < 100}
-            aria-disabled={pending || cfaBalance < 100}
+            disabled={pending || cfaBalance < CFA_BOOST_PRICE}
+            aria-disabled={pending || cfaBalance < CFA_BOOST_PRICE}
             className="bg-mangrove hover:bg-mangrove/90"
           >
             <div className="flex items-center">
-              <span className="mr-1">100</span>
+              <span className="mr-1">{CFA_BOOST_PRICE}</span>
               <span className="text-xs">CFA</span>
             </div>
           </Button>
@@ -192,12 +197,12 @@ export const Items = ({
 
         <Button
           onClick={onPurchaseStreakFreeze}
-          disabled={pending || cfaBalance < 500}
-          aria-disabled={pending || cfaBalance < 500}
+          disabled={pending || cfaBalance < STREAK_FREEZE_PRICE}
+          aria-disabled={pending || cfaBalance < STREAK_FREEZE_PRICE}
           className="bg-gold hover:bg-gold/90"
         >
           <div className="flex items-center">
-            <span className="mr-1">500</span>
+            <span className="mr-1">{STREAK_FREEZE_PRICE}</span>
             <span className="text-xs">CFA</span>
           </div>
         </Button>
@@ -219,12 +224,12 @@ export const Items = ({
 
         <Button
           onClick={onPurchaseCFABoost}
-          disabled={pending || cfaBalance < 100}
-          aria-disabled={pending || cfaBalance < 100}
+          disabled={pending || cfaBalance < CFA_BOOST_PRICE}
+          aria-disabled={pending || cfaBalance < CFA_BOOST_PRICE}
           className="bg-mangrove hover:bg-mangrove/90"
         >
           <div className="flex items-center">
-            <span className="mr-1">100</span>
+            <span className="mr-1">{CFA_BOOST_PRICE}</span>
             <span className="text-xs">CFA</span>
           </div>
         </Button>
