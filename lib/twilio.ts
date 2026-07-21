@@ -20,8 +20,14 @@ const getTwilio = (): Twilio.Twilio => {
 };
 
 export const twilioClient = new Proxy({} as Twilio.Twilio, {
-  get(_target, prop, receiver) {
-    return Reflect.get(getTwilio(), prop, receiver);
+  get(_target, prop) {
+    const client = getTwilio();
+    const value = Reflect.get(client, prop);
+    // Never forward the Proxy itself as `this` (via a `receiver` arg) to the
+    // real client's methods/getters - the Twilio SDK relies on private class
+    // fields only reachable through the real instance. Binding functions to
+    // `client` here keeps `this` correct even for calls resolved later.
+    return typeof value === "function" ? value.bind(client) : value;
   },
 });
 
