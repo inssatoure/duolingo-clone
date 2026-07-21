@@ -15,6 +15,13 @@
       "when": 1784592520247,
       "tag": "0001_amused_whiplash",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784656175213,
+      "tag": "0002_flippant_zuras",
+      "breakpoints": true
     }
   ]
 }

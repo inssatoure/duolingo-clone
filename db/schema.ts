@@ -341,6 +341,17 @@ export const userPurchasesRelations = relations(userPurchases, ({ one }) => ({
   }),
 }));
 
+// Our own PIN storage, bypassing Clerk's password system entirely (Clerk
+// enforces a hard minimum password length we can't lower below what's
+// workable for a 4-digit child-friendly PIN). No FK to userProgress: this
+// row is created at registration, before any userProgress row exists.
+export const userPins = pgTable("user_pins", {
+  userId: text("user_id").primaryKey(),
+  pinHash: text("pin_hash").notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
 // Native-speaker audio recordings, keyed by the exact display text so lessons
 // can look up audio for any option or question without reseeding.
 export const recordings = pgTable(

@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { isRateLimited } from "@/lib/otp-rate-limit";
 import { E164_PHONE } from "@/lib/phone";
 import { checkOtp } from "@/lib/twilio";
+import { signVerifiedPhone } from "@/lib/verify-token";
 
 export const POST = async (req: Request) => {
   const { phoneNumber, code } = (await req.json().catch(() => ({}))) as {
@@ -19,5 +20,9 @@ export const POST = async (req: Request) => {
   }
 
   const valid = await checkOtp(phoneNumber, code);
-  return NextResponse.json({ valid });
+  if (!valid) return NextResponse.json({ valid: false });
+
+  // The Twilio code is now consumed; issue our own short-lived proof so the
+  // account-creation step (a separate request) doesn't need to re-check it.
+  return NextResponse.json({ valid: true, verifiedToken: signVerifiedPhone(phoneNumber) });
 };

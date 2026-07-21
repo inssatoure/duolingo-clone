@@ -3,7 +3,6 @@
 import { useState } from "react";
 
 import { useSignIn } from "@clerk/nextjs/legacy";
-import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -11,7 +10,6 @@ import { OtpStep } from "@/components/otp-step";
 import { DEFAULT_COUNTRY_CODE, PhoneInput } from "@/components/phone-input";
 import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
-import { phoneToUsername } from "@/lib/phone";
 
 type Step = "method" | "phone" | "pin" | "resetOtp" | "resetPin";
 
@@ -29,10 +27,20 @@ const SignInPage = () => {
   const [pending, setPending] = useState(false);
 
   const phoneNumber = `${countryCode}${number}`;
-  const username = phoneToUsername(countryCode, number);
 
-  const describeError = (e: unknown, fallback: string) =>
-    isClerkAPIResponseError(e) ? (e.errors[0]?.longMessage ?? fallback) : fallback;
+  // Redeems a one-time ticket minted by our backend (register / pin-login /
+  // reset-pin) into an actual Clerk session — Clerk's password system is
+  // never touched by this app.
+  const redeemTicket = async (ticket: string) => {
+    if (!isLoaded) return false;
+    const result = await signIn.create({ strategy: "ticket", ticket });
+    if (result.status === "complete" && result.createdSessionId) {
+      await setActive({ session: result.createdSessionId });
+      router.push("/learn");
+      return true;
+    }
+    return false;
+  };
 
   const continueWithGoogle = async () => {
     if (!isLoaded) return;
@@ -49,20 +57,21 @@ const SignInPage = () => {
   };
 
   const signInWithPin = async (value: string) => {
-    if (!isLoaded) return;
     setPending(true);
     setError(null);
     try {
-      const result = await signIn.create({ identifier: username, password: value });
-      if (result.status === "complete" && result.createdSessionId) {
-        await setActive({ session: result.createdSessionId });
-        router.push("/learn");
-      } else {
+      const res = await fetch("/api/auth/pin-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phoneNumber, pin: value }),
+      });
+      const data = (await res.json()) as { ticket?: string };
+      if (!res.ok || !data.ticket || !(await redeemTicket(data.ticket))) {
         setError("Numéro ou code incorrect.");
         setPin("");
       }
-    } catch (e) {
-      setError(describeError(e, "Numéro ou code incorrect."));
+    } catch {
+      setError("Numéro ou code incorrect.");
       setPin("");
     } finally {
       setPending(false);
@@ -111,7 +120,6 @@ const SignInPage = () => {
   };
 
   const finishReset = async (finalPin: string) => {
-    if (!isLoaded) return;
     setPending(true);
     setError(null);
     try {
@@ -120,7 +128,8 @@ const SignInPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber, code, newPin: finalPin }),
       });
-      if (!res.ok) {
+      const data = (await res.json()) as { ok?: boolean; ticket?: string };
+      if (!res.ok || !data.ok) {
         setError("Code incorrect ou expiré. Recommence.");
         setNewPin("");
         setStep("resetOtp");
@@ -128,17 +137,13 @@ const SignInPage = () => {
         return;
       }
       // PIN reset — sign in immediately with the new PIN.
-      const result = await signIn.create({ identifier: username, password: finalPin });
-      if (result.status === "complete" && result.createdSessionId) {
-        await setActive({ session: result.createdSessionId });
-        router.push("/learn");
-      } else {
+      if (!data.ticket || !(await redeemTicket(data.ticket))) {
         setError("Nouveau code enregistré. Reconnecte-toi.");
         setStep("pin");
         setPin("");
       }
-    } catch (e) {
-      setError(describeError(e, "Impossible de réinitialiser le code. Réessaie."));
+    } catch {
+      setError("Impossible de réinitialiser le code. Réessaie.");
       setNewPin("");
     } finally {
       setPending(false);

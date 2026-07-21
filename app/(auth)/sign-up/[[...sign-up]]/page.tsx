@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 
-import { useSignUp } from "@clerk/nextjs/legacy";
-import { isClerkAPIResponseError } from "@clerk/nextjs/errors";
+import { useSignIn, useSignUp } from "@clerk/nextjs/legacy";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -11,31 +10,32 @@ import { OtpStep } from "@/components/otp-step";
 import { DEFAULT_COUNTRY_CODE, PhoneInput } from "@/components/phone-input";
 import { PinPad } from "@/components/pin-pad";
 import { Button } from "@/components/ui/button";
-import { phoneToUsername } from "@/lib/phone";
 
 type Step = "method" | "phone" | "otp" | "profile";
 
 const SignUpPage = () => {
-  const { isLoaded, signUp, setActive } = useSignUp();
+  // Google keeps going through Clerk's own OAuth (useSignUp); the phone/PIN
+  // path bypasses Clerk's password system entirely via our own backend, and
+  // only uses useSignIn at the very end to redeem the one-time ticket it hands
+  // back (see app/api/auth/register).
+  const { isLoaded: signUpLoaded, signUp } = useSignUp();
+  const { isLoaded: signInLoaded, signIn, setActive } = useSignIn();
   const router = useRouter();
 
   const [step, setStep] = useState<Step>("method");
   const [countryCode, setCountryCode] = useState(DEFAULT_COUNTRY_CODE);
   const [number, setNumber] = useState("");
   const [code, setCode] = useState("");
+  const [verifiedToken, setVerifiedToken] = useState<string | null>(null);
   const [pin, setPin] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
 
   const phoneNumber = `${countryCode}${number}`;
-  const username = phoneToUsername(countryCode, number);
-
-  const describeError = (e: unknown, fallback: string) =>
-    isClerkAPIResponseError(e) ? (e.errors[0]?.longMessage ?? fallback) : fallback;
 
   const continueWithGoogle = async () => {
-    if (!isLoaded) return;
+    if (!signUpLoaded) return;
     setError(null);
     try {
       await signUp.authenticateWithRedirect({
@@ -90,8 +90,9 @@ const SignUpPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber, code: value }),
       });
-      const data = (await res.json()) as { valid?: boolean };
-      if (res.ok && data.valid) {
+      const data = (await res.json()) as { valid?: boolean; verifiedToken?: string };
+      if (res.ok && data.valid && data.verifiedToken) {
+        setVerifiedToken(data.verifiedToken);
         setStep("profile");
       } else {
         setError("Code incorrect. Réessaie.");
@@ -106,28 +107,35 @@ const SignUpPage = () => {
   };
 
   const finish = async (finalPin: string) => {
-    if (!isLoaded || !name.trim()) {
+    if (!signInLoaded || !name.trim() || !verifiedToken) {
       setError("Entre ton prénom pour continuer.");
       return;
     }
     setPending(true);
     setError(null);
     try {
-      const result = await signUp.create({
-        username,
-        password: finalPin,
-        firstName: name.trim(),
-        unsafeMetadata: { phoneNumber, phoneVerified: true },
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phoneNumber, verifiedToken, name, pin: finalPin }),
       });
+      const data = (await res.json()) as { ticket?: string };
+      if (!res.ok || !data.ticket) {
+        setError("Ce numéro est peut-être déjà utilisé. Réessaie.");
+        setPin("");
+        return;
+      }
+
+      const result = await signIn.create({ strategy: "ticket", ticket: data.ticket });
       if (result.status === "complete" && result.createdSessionId) {
         await setActive({ session: result.createdSessionId });
         router.push("/learn");
       } else {
-        setError("Ce numéro est peut-être déjà utilisé. Réessaie.");
-        setPin("");
+        setError("Compte créé. Connecte-toi avec ton code.");
+        router.push("/sign-in");
       }
-    } catch (e) {
-      setError(describeError(e, "Ce numéro est peut-être déjà utilisé. Réessaie."));
+    } catch {
+      setError("Impossible de finaliser l'inscription. Réessaie.");
       setPin("");
     } finally {
       setPending(false);
