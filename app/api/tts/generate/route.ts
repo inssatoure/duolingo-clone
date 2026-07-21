@@ -1,11 +1,9 @@
 import { type NextRequest, NextResponse } from "next/server";
 
-import db from "@/db/drizzle";
 import { getIsAdmin } from "@/lib/admin";
 import { GEMINI_VOICES, GeminiTtsError, synthesizeWolofSpeech, type GeminiVoice } from "@/lib/gemini-tts";
 import { GoogleTtsError, synthesizeSpeech } from "@/lib/google-tts";
-import { ensureRecordingsTable, normalizeKey } from "@/lib/recordings";
-import { sql } from "drizzle-orm";
+import { ensureRecordingsTable, normalizeKey, upsertRecording } from "@/lib/recordings";
 
 export const maxDuration = 60;
 
@@ -95,12 +93,13 @@ export const POST = async (req: NextRequest) => {
         const key = normalizeKey(item.text);
         const voiceUsed =
           item.lang === "wo" ? (isGeminiVoice(item.voice) ? item.voice : "Aoede") : null;
-        await db.execute(sql`
-          INSERT INTO recordings (text_key, lang, mime, data, voice, updated_at)
-          VALUES (${key}, ${item.lang}, ${mime}, ${audioBase64}, ${voiceUsed}, now())
-          ON CONFLICT (text_key, lang)
-          DO UPDATE SET mime = EXCLUDED.mime, data = EXCLUDED.data, voice = EXCLUDED.voice, updated_at = now()
-        `);
+        await upsertRecording({
+          textKey: key,
+          lang: item.lang,
+          mime,
+          data: audioBase64,
+          voice: voiceUsed,
+        });
         results.push({ text: item.text, lang: item.lang, ok: true });
       } catch (error) {
         results.push({

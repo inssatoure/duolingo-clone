@@ -119,6 +119,12 @@ export const Quiz = ({
     setActiveIndex((current) => current + 1);
   };
 
+  const onPrevious = () => {
+    setStatus("none");
+    setSelectedOption(undefined);
+    setActiveIndex((current) => Math.max(0, current - 1));
+  };
+
   const onSelect = (id: number) => {
     if (status !== "none") return;
 
@@ -247,6 +253,7 @@ export const Quiz = ({
         hearts={hearts}
         percentage={percentage}
         hasActiveSubscription={!!userSubscription?.isActive}
+        onPrevious={activeIndex > 0 ? onPrevious : undefined}
       />
 
       <div className="flex-1">

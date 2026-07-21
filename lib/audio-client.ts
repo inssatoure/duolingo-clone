@@ -1,7 +1,9 @@
 "use client";
 
-import dictionaryData from "@/seeds/dictionary.json";
 import { normalizeKey } from "@/lib/recordings-key";
+import { isWolofText } from "@/lib/wolof-words";
+
+export { isWolofText };
 
 /**
  * Plays the best available audio for a text:
@@ -76,14 +78,6 @@ const speak = (text: string, lang: "fr" | "en") => {
   if (voice) utterance.voice = voice;
   window.speechSynthesis.speak(utterance);
 };
-
-const WOLOF_WORDS = new Set(
-  (dictionaryData as { wolof: string }[]).map((d) => d.wolof.trim().toLowerCase())
-);
-
-/** True when the text is a known Wolof vocabulary item (no synth fallback). */
-export const isWolofText = (text: string) =>
-  WOLOF_WORDS.has(text.trim().toLowerCase());
 
 // --- Recorded-keys cache -----------------------------------------------
 // Populated once per page load; empty (not yet loaded) means we optimistically
@@ -168,12 +162,20 @@ export const resolveSynthLang = (
 ): "fr" | "en" => (locale === "wo" ? (target ?? "fr") : locale === "en" ? "en" : "fr");
 
 /** Speaks `text` using a native recording if available, else TTS — unless the
- * text is a Wolof vocabulary word, in which case TTS is never used. */
+ * text is a Wolof vocabulary word, in which case TTS is never used and we
+ * always attempt to play a recording instead: the server auto-generates one
+ * on first request for any known Wolof word (see /api/recordings/play), so
+ * there's no synchronous-fallback tradeoff to make here like there is for
+ * fr/en (a Wolof word may take a few seconds to play the very first time
+ * anyone in the app requests it, then it's cached forever). */
 export const speakSmart = (
   text: string,
   locale: "fr" | "en" | "wo",
   target: "fr" | "en" | null
 ) => {
-  const synthLang = isWolofText(text) ? null : resolveSynthLang(locale, target);
-  playText(text, synthLang);
+  if (isWolofText(text)) {
+    playAudioElement(text);
+    return;
+  }
+  playText(text, resolveSynthLang(locale, target));
 };

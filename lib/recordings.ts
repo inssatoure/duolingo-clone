@@ -1,3 +1,7 @@
+import { sql } from "drizzle-orm";
+
+import db from "@/db/drizzle";
+
 export { normalizeKey } from "@/lib/recordings-key";
 
 /**
@@ -10,4 +14,22 @@ export { normalizeKey } from "@/lib/recordings-key";
  */
 export const ensureRecordingsTable = async () => {
   return;
+};
+
+/** Shared upsert used by both the admin batch TTS tool and the on-demand
+ * Wolof generation path, so the two never drift. */
+export const upsertRecording = async (params: {
+  textKey: string;
+  lang: "fr" | "en" | "wo";
+  mime: string;
+  data: string;
+  voice: string | null;
+}) => {
+  const { textKey, lang, mime, data, voice } = params;
+  await db.execute(sql`
+    INSERT INTO recordings (text_key, lang, mime, data, voice, updated_at)
+    VALUES (${textKey}, ${lang}, ${mime}, ${data}, ${voice}, now())
+    ON CONFLICT (text_key, lang)
+    DO UPDATE SET mime = EXCLUDED.mime, data = EXCLUDED.data, voice = EXCLUDED.voice, updated_at = now()
+  `);
 };
