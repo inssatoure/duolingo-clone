@@ -29,7 +29,7 @@ const welcomeEmailHtml = (firstName: string | null) => `
       Ndank-ndank mooy japp golo ci ñaay — doucement mais sûrement, on y arrive.
       Ta première leçon t'attend !
     </p>
-    <a href="https://wolingo.vercel.app/learn"
+    <a href="${process.env.NEXT_PUBLIC_APP_URL ?? "https://wolingo.vercel.app"}/learn"
        style="display: inline-block; margin-top: 12px; background: #58cc02; color: #fff; padding: 12px 24px; border-radius: 12px; font-weight: bold; text-decoration: none;">
       Commencer à apprendre
     </a>
