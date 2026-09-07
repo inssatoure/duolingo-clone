@@ -17,10 +17,11 @@ export const ensureRecordingsTable = async () => {
 };
 
 /** Shared upsert used by both the admin batch TTS tool and the on-demand
- * Wolof generation path, so the two never drift. */
+ * generation path, so the two never drift. `lang` is any recordings.lang
+ * code ("fr", "en", "wo", "jo", ...). */
 export const upsertRecording = async (params: {
   textKey: string;
-  lang: "fr" | "en" | "wo";
+  lang: string;
   mime: string;
   data: string;
   voice: string | null;

@@ -82191,6 +82191,2708 @@
         "challenges": 638,
         "options": 2552
       }
+    },
+    {
+      "course": {
+        "title": "Jola (depuis le français)",
+        "imageSrc": "/sn.svg"
+      },
+      "units": [
+        {
+          "title": "Salutations",
+          "description": "Apprends le vocabulaire : salutations",
+          "order": 1,
+          "lessons": [
+            {
+              "title": "Salutations",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Bonjour / Salut\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Ba beneen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Réponse à bonjour\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kasumay kep",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kalaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Comment vas-tu ?\" en jola ?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Kai kep ?",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanil",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Ça va\" en jola ?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Kai kep ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Merci\" en jola ?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanil",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Aboo",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kai kep ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Merci beaucoup\" en jola ?",
+                  "order": 6,
+                  "options": [
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kalaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Oui\" en jola ?",
+                  "order": 7,
+                  "options": [
+                    {
+                      "text": "Kasumay",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanil",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Non\" en jola ?",
+                  "order": 8,
+                  "options": [
+                    {
+                      "text": "Kalaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ba beneen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanil",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Salutations",
+              "order": 2,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"À bientôt\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ba beneen",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Comment tu t'appelles ?\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ba beneen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Nombres",
+          "description": "Apprends le vocabulaire : nombres",
+          "order": 2,
+          "lessons": [
+            {
+              "title": "Nombres",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Un\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kenn",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Deux\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iba",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Trois\" en jola ?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ikaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Quatre\" en jola ?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kenn",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Cinq\" en jola ?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ijaga",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Six\" en jola ?",
+                  "order": 6,
+                  "options": [
+                    {
+                      "text": "Kambaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kenn",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Sept\" en jola ?",
+                  "order": 7,
+                  "options": [
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ kenn",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Huit\" en jola ?",
+                  "order": 8,
+                  "options": [
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kenn",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Nombres",
+              "order": 2,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Neuf\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Dix\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Famille",
+          "description": "Apprends le vocabulaire : famille",
+          "order": 3,
+          "lessons": [
+            {
+              "title": "Famille",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Mère\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kor",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iwaali",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nia",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Père\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Papa",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fanek",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iwaali",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nia",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Frère/Sœur\" en jola ?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Iwaali",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Njaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nia",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Ami\" en jola ?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Iwaali",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Njaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fanek",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Enfant\" en jola ?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kor",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fanek",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Femme\" en jola ?",
+                  "order": 6,
+                  "options": [
+                    {
+                      "text": "Njaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nia",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Homme\" en jola ?",
+                  "order": 7,
+                  "options": [
+                    {
+                      "text": "Fanek",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Njaga",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Papa",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Maison\" en jola ?",
+                  "order": 8,
+                  "options": [
+                    {
+                      "text": "Papa",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kor",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iwaali",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Nourriture",
+          "description": "Apprends le vocabulaire : nourriture",
+          "order": 4,
+          "lessons": [
+            {
+              "title": "Nourriture",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Eau\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoñ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Riz\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoñ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kaañ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Poisson\" en jola ?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Kaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoñ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Manger\" en jola ?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Kanaan",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoñ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Boire\" en jola ?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoñ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanaan",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Couleurs",
+          "description": "Apprends le vocabulaire : couleurs",
+          "order": 5,
+          "lessons": [
+            {
+              "title": "Couleurs",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Blanc\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kuriŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuhuraŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kupaañ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Noir\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kuriŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kupaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuhuraŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Rouge\" en jola ?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Kuhuraŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kupaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuriŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Verbes",
+          "description": "Apprends le vocabulaire : verbes",
+          "order": 6,
+          "lessons": [
+            {
+              "title": "Verbes",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Aller\" en jola ?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Enol",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Emen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Venir\" en jola ?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Emen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Enol",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kiiŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Voir\" en jola ?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Karoŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Emen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Faire\" en jola ?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Enol",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "Comment dit-on \"Savoir\" en jola ?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Emen",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Enol",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "course": {
+        "title": "Jola (from English)",
+        "imageSrc": "/sn.svg"
+      },
+      "units": [
+        {
+          "title": "Greetings",
+          "description": "Learn vocabulary: greetings",
+          "order": 1,
+          "lessons": [
+            {
+              "title": "Greetings",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Hello / Greetings\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kai kep ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Reply to hello\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kai kep ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"How are you?\" in Jola?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kai kep ?",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"I'm fine\" in Jola?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ba beneen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kalaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Thank you\" in Jola?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Aboo",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanil",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Thank you very much\" in Jola?",
+                  "order": 6,
+                  "options": [
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Diaraama",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Yes\" in Jola?",
+                  "order": 7,
+                  "options": [
+                    {
+                      "text": "Kasumay",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanil",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"No\" in Jola?",
+                  "order": 8,
+                  "options": [
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kalaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ba beneen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Greetings",
+              "order": 2,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"See you soon\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Ba beneen",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Aboo",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"What is your name?\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kalaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ba beneen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ku ijali ?",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kasumay kep",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Numbers",
+          "description": "Learn vocabulary: numbers",
+          "order": 2,
+          "lessons": [
+            {
+              "title": "Numbers",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"One\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kenn",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Two\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iba",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Three\" in Jola?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ikaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Four\" in Jola?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Five\" in Jola?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ijaga",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ kenn",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Six\" in Jola?",
+                  "order": 6,
+                  "options": [
+                    {
+                      "text": "Kambaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ikaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Seven\" in Jola?",
+                  "order": 7,
+                  "options": [
+                    {
+                      "text": "Kambaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ kenn",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kenn",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Eight\" in Jola?",
+                  "order": 8,
+                  "options": [
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ kenn",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Numbers",
+              "order": 2,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Nine\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ibakiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ ikaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kambaŋ iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Ten\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kambaŋ kenn",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iba",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fok",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ijaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Family",
+          "description": "Learn vocabulary: family",
+          "order": 3,
+          "lessons": [
+            {
+              "title": "Family",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Mother\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fanek",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nia",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Father\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Papa",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kor",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Sibling\" in Jola?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kor",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iwaali",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Friend\" in Jola?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Ehaal",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nia",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iwaali",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Child\" in Jola?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Njaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iwaali",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nia",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Fanek",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Woman\" in Jola?",
+                  "order": 6,
+                  "options": [
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Iwaali",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Papa",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Man\" in Jola?",
+                  "order": 7,
+                  "options": [
+                    {
+                      "text": "Fanek",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Njaga",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Nianak",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"House\" in Jola?",
+                  "order": 8,
+                  "options": [
+                    {
+                      "text": "Njaga",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Ehaal",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kor",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Papa",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Food",
+          "description": "Learn vocabulary: food",
+          "order": 4,
+          "lessons": [
+            {
+              "title": "Food",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Water\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kanaan",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Rice\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanaan",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kaañ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Fish\" in Jola?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Kaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanaan",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"To eat\" in Jola?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Kaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanaan",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoñ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"To drink\" in Jola?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Kanam",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kanaan",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoñ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kadiaŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Colors",
+          "description": "Learn vocabulary: colors",
+          "order": 5,
+          "lessons": [
+            {
+              "title": "Colors",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"White\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kupaañ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuriŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuhuraŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Black\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kuriŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuhuraŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kupaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"Red\" in Jola?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Kupaañ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuhuraŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kuriŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Verbs",
+          "description": "Learn vocabulary: verbs",
+          "order": 6,
+          "lessons": [
+            {
+              "title": "Verbs",
+              "order": 1,
+              "challenges": [
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"To go\" in Jola?",
+                  "order": 1,
+                  "options": [
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Emen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Enol",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"To come\" in Jola?",
+                  "order": 2,
+                  "options": [
+                    {
+                      "text": "Kiiŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Enol",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Karoŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"To see\" in Jola?",
+                  "order": 3,
+                  "options": [
+                    {
+                      "text": "Karoŋ",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Emen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"To do\" in Jola?",
+                  "order": 4,
+                  "options": [
+                    {
+                      "text": "Emen",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Enol",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                },
+                {
+                  "type": "SELECT",
+                  "question": "How do you say \"To know\" in Jola?",
+                  "order": 5,
+                  "options": [
+                    {
+                      "text": "Enol",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kiiŋ",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Emen",
+                      "correct": true,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    },
+                    {
+                      "text": "Kum",
+                      "correct": false,
+                      "imageSrc": null,
+                      "audioSrc": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

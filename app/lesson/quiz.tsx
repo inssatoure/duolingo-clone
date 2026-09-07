@@ -13,7 +13,7 @@ import { reduceHearts } from "@/actions/user-progress";
 import { Speakable } from "@/components/speakable";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
-import { extractQuoted, prefetchWolof, speakSmart } from "@/lib/audio-client";
+import { extractQuoted, prefetchTargetLanguage, speakSmart } from "@/lib/audio-client";
 import { readLocaleCookie, readTargetCookie, useLocale } from "@/lib/use-locale";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
@@ -116,9 +116,9 @@ export const Quiz = ({
     const speak = (text: string) => speakSmart(text, locale, target);
 
     // Warm the Wolof audio cache for every option now, so it's ready by the
-    // time the learner taps one — see prefetchWolof's doc comment.
-    options.forEach((option) => prefetchWolof(option.text));
-    prefetchWolof(challenge.question);
+    // time the learner taps one — see prefetchTargetLanguage's doc comment.
+    options.forEach((option) => prefetchTargetLanguage(option.text));
+    prefetchTargetLanguage(challenge.question);
 
     const timers: ReturnType<typeof setTimeout>[] = [];
     if (challenge.type === "ASSIST") {

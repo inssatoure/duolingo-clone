@@ -1,7 +1,7 @@
 // Server-only: calls the Gemini API's native audio generation
 // (generativelanguage.googleapis.com), used ONLY as an experimental path for
-// Wolof — Google Cloud Text-to-Speech (lib/google-tts.ts) has no Wolof
-// language support at all (verified against the live voice list), but
+// languages with no browser/Cloud TTS voice (Wolof, Jola) — Google Cloud
+// Text-to-Speech (lib/google-tts.ts) has no support for either, but
 // Gemini's LLM-based TTS can attempt any language written in Latin script,
 // with unverified quality. Requires GEMINI_API_KEY (a *different* key than
 // GOOGLE_TTS_API_KEY — Google doesn't allow one key to be restricted to both
@@ -11,8 +11,8 @@ export class GeminiTtsError extends Error {}
 
 // All 30 prebuilt Gemini native-audio voices. They're just names/timbres —
 // none are bound to a language, so quality on unsupported languages like
-// Wolof varies unpredictably per voice AND per request (same voice, same
-// text can come out differently each time - this is an LLM, not a
+// Wolof or Jola varies unpredictably per voice AND per request (same voice,
+// same text can come out differently each time - this is an LLM, not a
 // deterministic TTS engine). Let the admin try several and keep what sounds
 // best per word.
 export const GEMINI_VOICES = [
@@ -26,14 +26,22 @@ export type GeminiVoice = (typeof GEMINI_VOICES)[number];
 
 const DEFAULT_VOICE: GeminiVoice = "Aoede";
 
+// Human-readable name Gemini is told the text is in, per lang code stored in
+// the `recordings` table. Add an entry here for every new no-browser-TTS
+// language.
+const LANGUAGE_NAMES: Record<string, string> = {
+  wo: "Wolof",
+  jo: "Jola (Jóola)",
+};
+
 // Gemini is a language model, not a dedicated TTS engine: a bare phrase like
 // "Na nga def?" reads as a question to *answer* rather than text to *read*,
 // and the model responds in text instead of generating audio (or refuses
 // with a 400 explaining it tried to generate text). Wrapping every input in
 // an explicit read-aloud instruction reliably avoids this.
-const buildPrompt = (text: string) =>
-  `TTS the following Wolof phrase exactly as written, do not translate it ` +
-  `and do not respond to it, just read it aloud naturally: ${text}`;
+const buildPrompt = (text: string, langName: string) =>
+  `TTS the following ${langName} phrase exactly as written, do not translate ` +
+  `it and do not respond to it, just read it aloud naturally: ${text}`;
 
 /** Wraps raw 16-bit PCM into a playable WAV file. */
 const pcmToWav = (
@@ -61,13 +69,17 @@ const pcmToWav = (
   return Buffer.concat([header, pcm]);
 };
 
-/** Synthesizes `text` via Gemini and returns a base64-encoded WAV file. */
-export const synthesizeWolofSpeech = async (
+/** Synthesizes `text` (in language `lang`, a key of LANGUAGE_NAMES) via
+ * Gemini and returns a base64-encoded WAV file. */
+export const synthesizeSpeechForLang = async (
   text: string,
+  lang: string,
   voice: GeminiVoice = DEFAULT_VOICE
 ): Promise<string> => {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new GeminiTtsError("GEMINI_API_KEY is not configured.");
+  const langName = LANGUAGE_NAMES[lang];
+  if (!langName) throw new GeminiTtsError(`Unsupported language for TTS: "${lang}".`);
 
   const res = await fetch(
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=" +
@@ -76,7 +88,7 @@ export const synthesizeWolofSpeech = async (
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: buildPrompt(text) }] }],
+        contents: [{ parts: [{ text: buildPrompt(text, langName) }] }],
         generationConfig: {
           responseModalities: ["AUDIO"],
           speechConfig: {
@@ -114,3 +126,7 @@ export const synthesizeWolofSpeech = async (
   const wav = pcmToWav(pcm);
   return wav.toString("base64");
 };
+
+/** @deprecated use synthesizeSpeechForLang(text, "wo", voice) */
+export const synthesizeWolofSpeech = (text: string, voice: GeminiVoice = DEFAULT_VOICE) =>
+  synthesizeSpeechForLang(text, "wo", voice);

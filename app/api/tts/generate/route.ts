@@ -1,13 +1,16 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 import { getIsAdmin } from "@/lib/admin";
-import { GEMINI_VOICES, GeminiTtsError, synthesizeWolofSpeech, type GeminiVoice } from "@/lib/gemini-tts";
+import { GEMINI_VOICES, GeminiTtsError, synthesizeSpeechForLang, type GeminiVoice } from "@/lib/gemini-tts";
 import { GoogleTtsError, synthesizeSpeech } from "@/lib/google-tts";
 import { ensureRecordingsTable, normalizeKey, upsertRecording } from "@/lib/recordings";
 
 export const maxDuration = 60;
 
-type Item = { text: string; lang: "fr" | "en" | "wo"; voice?: string };
+type Item = { text: string; lang: "fr" | "en" | "wo" | "jo"; voice?: string };
+
+// Languages with no Google Cloud TTS voice, synthesized via Gemini instead.
+const GEMINI_ONLY_LANGS = new Set(["wo", "jo"]);
 
 const isGeminiVoice = (v: unknown): v is GeminiVoice =>
   typeof v === "string" && (GEMINI_VOICES as readonly string[]).includes(v);
@@ -44,15 +47,16 @@ const synthesizeWithRetry = async (
   attempt = 1
 ): Promise<[string, string]> => {
   try {
-    if (item.lang === "wo")
+    if (GEMINI_ONLY_LANGS.has(item.lang))
       return [
-        await synthesizeWolofSpeech(
+        await synthesizeSpeechForLang(
           item.text,
+          item.lang,
           isGeminiVoice(item.voice) ? item.voice : undefined
         ),
         "audio/wav",
       ];
-    return [await synthesizeSpeech(item.text, item.lang), "audio/mpeg"];
+    return [await synthesizeSpeech(item.text, item.lang as "fr" | "en"), "audio/mpeg"];
   } catch (error) {
     if (isRateLimited(error) && attempt < 4) {
       await sleep(attempt * 3000);
@@ -91,8 +95,11 @@ export const POST = async (req: NextRequest) => {
       try {
         const [audioBase64, mime] = await synthesizeWithRetry(item);
         const key = normalizeKey(item.text);
-        const voiceUsed =
-          item.lang === "wo" ? (isGeminiVoice(item.voice) ? item.voice : "Aoede") : null;
+        const voiceUsed = GEMINI_ONLY_LANGS.has(item.lang)
+          ? isGeminiVoice(item.voice)
+            ? item.voice
+            : "Aoede"
+          : null;
         await upsertRecording({
           textKey: key,
           lang: item.lang,
@@ -117,7 +124,7 @@ export const POST = async (req: NextRequest) => {
       }
       // Small pacing gap between calls, independent of retries, to stay under
       // typical free-tier per-minute quotas. Gemini is heavier, pace slower.
-      await sleep(item.lang === "wo" ? 800 : 350);
+      await sleep(GEMINI_ONLY_LANGS.has(item.lang) ? 800 : 350);
     }
 
     return NextResponse.json({

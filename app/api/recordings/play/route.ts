@@ -2,10 +2,10 @@ import { sql } from "drizzle-orm";
 import { type NextRequest, NextResponse } from "next/server";
 
 import db from "@/db/drizzle";
-import { GeminiTtsError, synthesizeWolofSpeech } from "@/lib/gemini-tts";
+import { GeminiTtsError, synthesizeSpeechForLang } from "@/lib/gemini-tts";
 import { isRateLimited } from "@/lib/otp-rate-limit";
 import { ensureRecordingsTable, normalizeKey, upsertRecording } from "@/lib/recordings";
-import { isWolofText } from "@/lib/wolof-words";
+import { matchNoTtsLanguage } from "@/lib/target-words";
 
 export const maxDuration = 30;
 
@@ -93,7 +93,8 @@ export const GET = async (req: NextRequest) => {
     return audioResponse(Buffer.from(row.data, "base64"), row.mime, req);
   }
 
-  const canLazyGenerate = (!lang || lang === "wo") && isWolofText(text);
+  const matchedLang = matchNoTtsLanguage(text);
+  const canLazyGenerate = (!lang || lang === matchedLang) && matchedLang !== null;
   if (!canLazyGenerate) return new NextResponse("Not recorded.", { status: 404 });
 
   if (isRateLimited(`tts-gen:${key}`, 2, 10 * 60 * 1000) || isRateLimited("tts-gen:*", 30, 10 * 60 * 1000)) {
@@ -101,8 +102,8 @@ export const GET = async (req: NextRequest) => {
   }
 
   try {
-    const audioBase64 = await synthesizeWolofSpeech(text);
-    await upsertRecording({ textKey: key, lang: "wo", mime: "audio/wav", data: audioBase64, voice: "Aoede" });
+    const audioBase64 = await synthesizeSpeechForLang(text, matchedLang);
+    await upsertRecording({ textKey: key, lang: matchedLang, mime: "audio/wav", data: audioBase64, voice: "Aoede" });
     return audioResponse(Buffer.from(audioBase64, "base64"), "audio/wav", req);
   } catch (error) {
     console.error("recordings/play lazy-generate failed:", error);

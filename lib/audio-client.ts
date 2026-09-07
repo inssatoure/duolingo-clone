@@ -1,7 +1,7 @@
 "use client";
 
 import { normalizeKey } from "@/lib/recordings-key";
-import { isWolofText } from "@/lib/wolof-words";
+import { isWolofText, matchNoTtsLanguage } from "@/lib/target-words";
 
 export { isWolofText };
 
@@ -121,19 +121,21 @@ const hasKnownRecording = (text: string): boolean => {
   const key = normalizeKey(text);
   return (
     recordedKeys.has(`wo:${key}`) ||
+    recordedKeys.has(`jo:${key}`) ||
     recordedKeys.has(`fr:${key}`) ||
     recordedKeys.has(`en:${key}`)
   );
 };
 
 // Single source of truth for the recordings URL, used identically by
-// playback and by prefetchWolof - a mismatched URL (e.g. one with `lang=wo`,
-// one without) defeats the browser's HTTP cache and forces a redundant
-// network round-trip at tap time even though the audio was just prefetched.
-const recordingUrl = (text: string, lang?: "wo" | "fr" | "en") =>
+// playback and by prefetchTargetLanguage - a mismatched URL (e.g. one with
+// `lang=wo`, one without) defeats the browser's HTTP cache and forces a
+// redundant network round-trip at tap time even though the audio was just
+// prefetched.
+const recordingUrl = (text: string, lang?: string) =>
   `/api/recordings/play?text=${encodeURIComponent(text)}${lang ? `&lang=${lang}` : ""}`;
 
-const playAudioElement = (text: string, lang?: "wo" | "fr" | "en") => {
+const playAudioElement = (text: string, lang?: string) => {
   stopAllAudio();
   const audio = new Audio(recordingUrl(text, lang));
   currentAudioEl = audio;
@@ -186,19 +188,21 @@ export const resolveSynthLang = (
 ): "fr" | "en" => (locale === "wo" ? (target ?? "fr") : locale === "en" ? "en" : "fr");
 
 /** Speaks `text` using a native recording if available, else TTS — unless the
- * text is a Wolof vocabulary word, in which case TTS is never used and we
- * always attempt to play a recording instead: the server auto-generates one
- * on first request for any known Wolof word (see /api/recordings/play), so
- * there's no synchronous-fallback tradeoff to make here like there is for
- * fr/en (a Wolof word may take a few seconds to play the very first time
- * anyone in the app requests it, then it's cached forever). */
+ * text is a vocabulary word in a language with no browser voice (Wolof,
+ * Jola, ...), in which case TTS is never used and we always attempt to play
+ * a recording instead: the server auto-generates one on first request for
+ * any known word in such a language (see /api/recordings/play), so there's
+ * no synchronous-fallback tradeoff to make here like there is for fr/en (the
+ * word may take a few seconds to play the very first time anyone in the app
+ * requests it, then it's cached forever). */
 export const speakSmart = (
   text: string,
   locale: "fr" | "en" | "wo",
   target: "fr" | "en" | null
 ) => {
-  if (isWolofText(text)) {
-    playAudioElement(text, "wo");
+  const langCode = matchNoTtsLanguage(text);
+  if (langCode) {
+    playAudioElement(text, langCode);
     return;
   }
   playText(text, resolveSynthLang(locale, target));
@@ -207,18 +211,21 @@ export const speakSmart = (
 /**
  * Fires the same lazy-generation the server does on a cache miss, but
  * without playing anything or waiting for a user gesture. Call this as soon
- * as a lesson challenge mounts, for every Wolof text it contains, so the
- * recording is already cached — both server-side (in `recordings`) AND in
- * the browser's own HTTP cache (the play route is sent with a long,
- * immutable Cache-Control, and this fetch uses the EXACT same URL speakSmart
- * will use, so the later tap's `new Audio()` is a cache hit, not a fresh
- * network round-trip) — by the time a learner actually taps.
+ * as a lesson challenge mounts, for every no-browser-TTS-language text it
+ * contains (Wolof, Jola, ...), so the recording is already cached — both
+ * server-side (in `recordings`) AND in the browser's own HTTP cache (the
+ * play route is sent with a long, immutable Cache-Control, and this fetch
+ * uses the EXACT same URL speakSmart will use, so the later tap's
+ * `new Audio()` is a cache hit, not a fresh network round-trip) — by the
+ * time a learner actually taps.
  */
-export const prefetchWolof = (text: string) => {
-  if (typeof window === "undefined" || !isWolofText(text)) return;
+export const prefetchTargetLanguage = (text: string) => {
+  if (typeof window === "undefined") return;
+  const langCode = matchNoTtsLanguage(text);
+  if (!langCode) return;
   const key = normalizeKey(text);
-  if (recordedKeys?.has(`wo:${key}`)) return; // already cached, skip the request
-  fetch(recordingUrl(text, "wo")).catch(() => {
+  if (recordedKeys?.has(`${langCode}:${key}`)) return; // already cached
+  fetch(recordingUrl(text, langCode)).catch(() => {
     /* best-effort warmup */
   });
 };

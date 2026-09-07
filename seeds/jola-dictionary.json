@@ -1,0 +1,48 @@
+[
+  { "jola": "Kasumay", "fr": "Bonjour / Salut", "en": "Hello / Greetings", "category": "greetings" },
+  { "jola": "Kasumay kep", "fr": "Réponse à bonjour", "en": "Reply to hello", "category": "greetings" },
+  { "jola": "Kai kep ?", "fr": "Comment vas-tu ?", "en": "How are you?", "category": "greetings" },
+  { "jola": "Kanam", "fr": "Ça va", "en": "I'm fine", "category": "greetings" },
+  { "jola": "Aboo", "fr": "Merci", "en": "Thank you", "category": "greetings" },
+  { "jola": "Diaraama", "fr": "Merci beaucoup", "en": "Thank you very much", "category": "greetings" },
+  { "jola": "Kanil", "fr": "Oui", "en": "Yes", "category": "greetings" },
+  { "jola": "Kalaŋ", "fr": "Non", "en": "No", "category": "greetings" },
+  { "jola": "Ba beneen", "fr": "À bientôt", "en": "See you soon", "category": "greetings" },
+  { "jola": "Ku ijali ?", "fr": "Comment tu t'appelles ?", "en": "What is your name?", "category": "greetings" },
+
+  { "jola": "Kenn", "fr": "Un", "en": "One", "category": "numbers" },
+  { "jola": "Iba", "fr": "Deux", "en": "Two", "category": "numbers" },
+  { "jola": "Ikaŋ", "fr": "Trois", "en": "Three", "category": "numbers" },
+  { "jola": "Ibakiŋ", "fr": "Quatre", "en": "Four", "category": "numbers" },
+  { "jola": "Ijaga", "fr": "Cinq", "en": "Five", "category": "numbers" },
+  { "jola": "Kambaŋ", "fr": "Six", "en": "Six", "category": "numbers" },
+  { "jola": "Kambaŋ kenn", "fr": "Sept", "en": "Seven", "category": "numbers" },
+  { "jola": "Kambaŋ iba", "fr": "Huit", "en": "Eight", "category": "numbers" },
+  { "jola": "Kambaŋ ikaŋ", "fr": "Neuf", "en": "Nine", "category": "numbers" },
+  { "jola": "Fok", "fr": "Dix", "en": "Ten", "category": "numbers" },
+
+  { "jola": "Nia", "fr": "Mère", "en": "Mother", "category": "family" },
+  { "jola": "Papa", "fr": "Père", "en": "Father", "category": "family" },
+  { "jola": "Iwaali", "fr": "Frère/Sœur", "en": "Sibling", "category": "family" },
+  { "jola": "Ehaal", "fr": "Ami", "en": "Friend", "category": "family" },
+  { "jola": "Fanek", "fr": "Enfant", "en": "Child", "category": "family" },
+  { "jola": "Nianak", "fr": "Femme", "en": "Woman", "category": "family" },
+  { "jola": "Njaga", "fr": "Homme", "en": "Man", "category": "family" },
+  { "jola": "Kor", "fr": "Maison", "en": "House", "category": "family" },
+
+  { "jola": "Kanam", "fr": "Eau", "en": "Water", "category": "food" },
+  { "jola": "Kaañ", "fr": "Riz", "en": "Rice", "category": "food" },
+  { "jola": "Kadiaŋ", "fr": "Poisson", "en": "Fish", "category": "food" },
+  { "jola": "Karoñ", "fr": "Manger", "en": "To eat", "category": "food" },
+  { "jola": "Kanaan", "fr": "Boire", "en": "To drink", "category": "food" },
+
+  { "jola": "Kupaañ", "fr": "Blanc", "en": "White", "category": "colors" },
+  { "jola": "Kuriŋ", "fr": "Noir", "en": "Black", "category": "colors" },
+  { "jola": "Kuhuraŋ", "fr": "Rouge", "en": "Red", "category": "colors" },
+
+  { "jola": "Enol", "fr": "Aller", "en": "To go", "category": "verbs" },
+  { "jola": "Kiiŋ", "fr": "Venir", "en": "To come", "category": "verbs" },
+  { "jola": "Karoŋ", "fr": "Voir", "en": "To see", "category": "verbs" },
+  { "jola": "Kum", "fr": "Faire", "en": "To do", "category": "verbs" },
+  { "jola": "Emen", "fr": "Savoir", "en": "To know", "category": "verbs" }
+]
