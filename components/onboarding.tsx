@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { type Locale } from "@/lib/i18n";
 import {
   readLocaleCookie,
+  writeLearnCookie,
   writeLocaleCookie,
   writeTargetCookie,
 } from "@/lib/use-locale";
@@ -22,6 +23,7 @@ export const Onboarding = () => {
   const router = useRouter();
   const [step, setStep] = useState<Step>("hidden");
   const [picked, setPicked] = useState<Locale | null>(null);
+  const [learningJola, setLearningJola] = useState(false);
 
   useEffect(() => {
     if (readLocaleCookie()) return;
@@ -55,6 +57,18 @@ export const Onboarding = () => {
 
   const chooseTarget = (target: "fr" | "en") => {
     writeTargetCookie(target);
+    finish();
+  };
+
+  // Picking Jola directly implies a French interface (the largest audience
+  // for this app) and skips the target-language step - the choice already
+  // says "I want to learn Jola".
+  const chooseJola = () => {
+    if (picked) return;
+    setPicked("fr");
+    setLearningJola(true);
+    writeLocaleCookie("fr");
+    writeLearnCookie("jola");
     finish();
   };
 
@@ -168,10 +182,34 @@ export const Onboarding = () => {
                 →
               </span>
             </button>
+
+            <button
+              onClick={chooseJola}
+              className="group flex items-center gap-4 rounded-2xl border-2 border-b-4 border-slate-200 bg-white p-5 text-left transition hover:scale-[1.02] hover:border-amber-300 hover:bg-amber-50 active:border-b-2"
+            >
+              <Image
+                src="/sn.svg"
+                alt="Jola"
+                height={40}
+                width={54}
+                className="rounded-md shadow-sm"
+              />
+              <span>
+                <span className="block text-lg font-bold text-neutral-700">
+                  Jola
+                </span>
+                <span className="block text-sm text-muted-foreground">
+                  J&apos;apprends le jola depuis le français
+                </span>
+              </span>
+              <span className="ml-auto text-2xl transition group-hover:translate-x-1">
+                →
+              </span>
+            </button>
           </div>
 
           <p className="text-center text-sm text-muted-foreground">
-            🇸🇳 Wolof, français, English — WoLingo dina la jàppale !
+            🇸🇳 Wolof, Jola, français, English — WoLingo dina la jàppale !
           </p>
         </div>
       )}
@@ -262,7 +300,9 @@ export const Onboarding = () => {
               ? "Ndank-ndank mooy japp golo ci ñaay !"
               : isEn
                 ? "Wolof awaits you… Ndank-ndank!"
-                : "Le wolof t'attend… Ndank-ndank !"}
+                : learningJola
+                  ? "Le jola t'attend… Ndank-ndank !"
+                  : "Le wolof t'attend… Ndank-ndank !"}
           </p>
         </div>
       )}

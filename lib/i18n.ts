@@ -3,6 +3,12 @@ export type Locale = "fr" | "en" | "wo";
 export const LOCALE_COOKIE = "wolingo-locale";
 /** For Wolof speakers: which language they chose to learn ("fr" | "en"). */
 export const TARGET_COOKIE = "wolingo-target";
+/** For fr/en speakers: which Senegalese language they chose to learn.
+ * "wolof" (default, unset) or "jola". Only meaningful when locale is "fr"/"en" -
+ * Wolof speakers use TARGET_COOKIE instead, and Jola has no interface
+ * translation so it's never a `Locale` itself. */
+export const LEARN_COOKIE = "wolingo-learn";
+export type LearnLanguage = "wolof" | "jola";
 
 const fr = {
     // Marketing
@@ -235,18 +241,22 @@ export const isLocale = (v: unknown): v is Locale =>
 
 /**
  * Which seeded course matches a UI locale (matched against course titles).
- * Wolof speakers also pick a target language (fr/en) during onboarding.
+ * Wolof speakers also pick a target language (fr/en) during onboarding;
+ * fr/en speakers can pick a target Senegalese language (wolof/jola).
  */
 export const courseMatchesLocale = (
   courseTitle: string,
   locale: Locale,
-  target?: "fr" | "en" | null
+  target?: "fr" | "en" | null,
+  learn: LearnLanguage = "wolof"
 ) => {
   const title = courseTitle.toLowerCase();
   if (locale === "wo")
     return target === "en"
       ? title.startsWith("english (ci wolof")
       : title.startsWith("français (ci wolof");
-  if (locale === "fr") return title.includes("depuis le français");
-  return title.includes("from english");
+  const learnPrefix = learn === "jola" ? "jola" : "wolof";
+  if (locale === "fr")
+    return title.startsWith(learnPrefix) && title.includes("depuis le français");
+  return title.startsWith(learnPrefix) && title.includes("from english");
 };

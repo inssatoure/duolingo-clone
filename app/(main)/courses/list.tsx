@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { upsertUserProgress } from "@/actions/user-progress";
 import { courses, userProgress } from "@/db/schema";
 import { courseMatchesLocale } from "@/lib/i18n";
-import { readLocaleCookie, readTargetCookie } from "@/lib/use-locale";
+import { readLearnCookie, readLocaleCookie, readTargetCookie } from "@/lib/use-locale";
 
 import { Card } from "./card";
 
@@ -22,14 +22,15 @@ export const List = ({ courses, activeCourseId }: ListProps) => {
   const [pending, startTransition] = useTransition();
   const autoEnrolled = useRef(false);
 
-  // Duolingo-style onboarding: a first-time user who picked their language on
-  // the splash screen is enrolled straight into the matching Wolof course.
+  // Duolingo-style onboarding: a first-time user who picked their language
+  // (and, for fr/en speakers, which Senegalese language to learn) on the
+  // splash screen is enrolled straight into the matching course.
   useEffect(() => {
     if (activeCourseId || autoEnrolled.current) return;
     const locale = readLocaleCookie();
     if (!locale) return;
     const match = courses.find((c) =>
-      courseMatchesLocale(c.title, locale, readTargetCookie())
+      courseMatchesLocale(c.title, locale, readTargetCookie(), readLearnCookie())
     );
     if (!match) return;
     autoEnrolled.current = true;
