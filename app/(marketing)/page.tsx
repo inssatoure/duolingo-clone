@@ -1,6 +1,7 @@
 import { ClerkLoaded, ClerkLoading, Show } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import { cookies } from "next/headers";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Onboarding } from "@/components/onboarding";
@@ -18,17 +19,7 @@ export default async function MarketingPage() {
       <Onboarding />
 
       <div className="relative mb-8 h-[240px] w-[240px] lg:mb-0 lg:h-[424px] lg:w-[424px]">
-        <video
-          poster="/hero.png"
-          className="h-full w-full object-contain"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/hero.mp4" type="video/mp4" />
-          <source src="/hero.webm" type="video/webm" />
-        </video>
+        <Image src="/hero.png" alt="Hero" fill className="object-contain" priority />
       </div>
 
       <div className="flex flex-col items-center gap-y-8">
