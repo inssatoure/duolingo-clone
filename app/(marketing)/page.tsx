@@ -19,14 +19,16 @@ export default async function MarketingPage() {
 
       <div className="relative mb-8 h-[240px] w-[240px] lg:mb-0 lg:h-[424px] lg:w-[424px]">
         <video
-          src="/hero.webm"
           poster="/hero.svg"
           className="h-full w-full object-contain"
           autoPlay
           loop
           muted
           playsInline
-        />
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+          <source src="/hero.webm" type="video/webm" />
+        </video>
       </div>
 
       <div className="flex flex-col items-center gap-y-8">
