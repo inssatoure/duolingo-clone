@@ -19,7 +19,7 @@ export default async function MarketingPage() {
 
       <div className="relative mb-8 h-[240px] w-[240px] lg:mb-0 lg:h-[424px] lg:w-[424px]">
         <video
-          poster="/hero.svg"
+          poster="/hero.png"
           className="h-full w-full object-contain"
           autoPlay
           loop
