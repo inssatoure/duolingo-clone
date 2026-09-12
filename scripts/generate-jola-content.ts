@@ -28,6 +28,9 @@ const CATEGORY_TITLES: Record<string, { fr: string; en: string }> = {
   food: { fr: "Nourriture", en: "Food" },
   colors: { fr: "Couleurs", en: "Colors" },
   verbs: { fr: "Verbes", en: "Verbs" },
+  body: { fr: "Le corps", en: "The body" },
+  nature: { fr: "La nature", en: "Nature" },
+  daily_life: { fr: "Vie quotidienne", en: "Daily life" },
 };
 
 const rand = () => Math.random();
