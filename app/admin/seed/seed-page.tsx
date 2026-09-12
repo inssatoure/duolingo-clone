@@ -33,7 +33,11 @@ export const SeedPage = () => {
     setRunning(true);
     setResult(null);
     try {
-      const res = await fetch("/api/seed", { method: "POST" });
+      const res = await fetch("/api/seed", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ confirm: "WIPE" }),
+      });
       setResult((await res.json()) as SeedResult);
     } catch (e) {
       setResult({ ok: false, error: e instanceof Error ? e.message : "Request failed" });
