@@ -35,7 +35,7 @@
     {
       "course": {
         "title": "Wolof (depuis le français)",
-        "imageSrc": "/sn.svg"
+        "imageSrc": "/icon-wolof-fr.png"
       },
       "units": [
         {
@@ -20575,7 +20575,7 @@
     {
       "course": {
         "title": "Wolof (from English)",
-        "imageSrc": "/sn.svg"
+        "imageSrc": "/icon-wolof-en.png"
       },
       "units": [
         {
@@ -82195,7 +82195,7 @@
     {
       "course": {
         "title": "Jola (depuis le français)",
-        "imageSrc": "/sn.svg"
+        "imageSrc": "/icon-jola-fr.png"
       },
       "units": [
         {
@@ -83546,7 +83546,7 @@
     {
       "course": {
         "title": "Jola (from English)",
-        "imageSrc": "/sn.svg"
+        "imageSrc": "/icon-jola-en.png"
       },
       "units": [
         {
