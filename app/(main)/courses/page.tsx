@@ -15,10 +15,14 @@ const CoursesPage = async () => {
   const coursesData = getCourses();
   const userProgressData = getUserProgress();
 
-  const [courses, userProgress] = await Promise.all([
+  const [allCourses, userProgress] = await Promise.all([
     coursesData,
     userProgressData,
   ]);
+
+  // Temporairement désactivés : trop peu de contenu pour l'instant.
+  const DISABLED_COURSE_TITLES = new Set(["Français (ci wolof)", "English (ci wolof)"]);
+  const courses = allCourses.filter((c) => !DISABLED_COURSE_TITLES.has(c.title));
 
   return (
     <div className="mx-auto h-full max-w-[912px] px-3">
